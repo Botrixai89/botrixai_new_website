@@ -1,0 +1,103 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D563"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00D563" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#00D563" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+
+  <!-- Background soft shapes -->
+  <g filter="url(#blur)">
+    <circle cx="250" cy="200" r="160" fill="url(#g1)" opacity="0.25"/>
+    <circle cx="980" cy="180" r="140" fill="url(#g2)" opacity="0.25"/>
+    <circle cx="620" cy="640" r="180" fill="url(#g2)" opacity="0.2"/>
+  </g>
+
+  <!-- Central hub -->
+  <circle cx="600" cy="380" r="140" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <circle cx="600" cy="380" r="70" fill="url(#glow)"/>
+  <circle cx="600" cy="380" r="42" fill="#00D563"/>
+  <circle cx="600" cy="380" r="38" fill="#10B981" opacity="0.25"/>
+  <path d="M585 372 L600 392 L630 355" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Satellites (partner capabilities) -->
+  <g stroke="#CBD5E1" stroke-width="2">
+    <circle cx="300" cy="340" r="48" fill="#FFFFFF"/>
+    <circle cx="890" cy="320" r="48" fill="#FFFFFF"/>
+    <circle cx="360" cy="580" r="48" fill="#FFFFFF"/>
+    <circle cx="840" cy="560" r="48" fill="#FFFFFF"/>
+    <circle cx="520" cy="170" r="48" fill="#FFFFFF"/>
+    <circle cx="700" cy="170" r="48" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Connectors -->
+  <g stroke="url(#g1)" stroke-width="3" stroke-linecap="round" opacity="0.7">
+    <path d="M600 380 C 480 360, 400 350, 300 340" fill="none"/>
+    <path d="M600 380 C 720 360, 820 340, 890 320" fill="none"/>
+    <path d="M600 380 C 540 460, 460 540, 360 580" fill="none"/>
+    <path d="M600 380 C 660 460, 760 520, 840 560" fill="none"/>
+    <path d="M600 380 C 560 300, 540 230, 520 170" fill="none"/>
+    <path d="M600 380 C 640 300, 660 230, 700 170" fill="none"/>
+  </g>
+
+  <!-- Simple glyphs inside satellites -->
+  <!-- Rocket -->
+  <g transform="translate(300,340)">
+    <path d="M-8 8 L0 -18 L8 8 L0 4 Z" fill="#10B981"/>
+    <circle cx="0" cy="-6" r="3" fill="#ECFDF5"/>
+    <path d="M0 8 l-6 10 l6 -4 l6 4 Z" fill="#F59E0B"/>
+  </g>
+  <!-- Handshake -->
+  <g transform="translate(890,320)" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-18 0 c6-8 16-8 22 0" fill="none"/>
+    <path d="M-22 4 l10 10 c4 4 10 4 14 0 l10-10" fill="none"/>
+  </g>
+  <!-- Layers -->
+  <g transform="translate(840,560)" fill="#6366F1">
+    <rect x="-16" y="-6" rx="4" ry="4" width="32" height="12" opacity="0.9"/>
+    <rect x="-14" y="-1" rx="4" ry="4" width="28" height="10" opacity="0.8"/>
+    <rect x="-12" y="3" rx="4" ry="4" width="24" height="9" opacity="0.7"/>
+  </g>
+  <!-- Chart -->
+  <g transform="translate(360,580)" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-16,10 -8,2 2,6 12,-8" fill="none"/>
+    <circle cx="12" cy="-8" r="3" fill="#0EA5E9"/>
+  </g>
+  <!-- Cog -->
+  <g transform="translate(520,170)" fill="#F43F5E">
+    <circle cx="0" cy="0" r="6"/>
+    <g opacity="0.9">
+      <rect x="-2" y="-14" width="4" height="8" rx="1"/>
+      <rect x="-2" y="6" width="4" height="8" rx="1"/>
+      <rect x="6" y="-2" width="8" height="4" rx="1"/>
+      <rect x="-14" y="-2" width="8" height="4" rx="1"/>
+    </g>
+  </g>
+  <!-- Blocks -->
+  <g transform="translate(700,170)" fill="#10B981" stroke="#0F766E" stroke-width="2">
+    <rect x="-14" y="-12" width="12" height="12" rx="2"/>
+    <rect x="2" y="-12" width="12" height="12" rx="2"/>
+    <rect x="-6" y="4" width="12" height="12" rx="2"/>
+  </g>
+
+  <!-- Dots on connectors -->
+  <g fill="#10B981">
+    <circle cx="520" cy="170" r="3"/>
+    <circle cx="700" cy="170" r="3"/>
+    <circle cx="360" cy="580" r="3"/>
+    <circle cx="840" cy="560" r="3"/>
+  </g>
+</svg>
+
+
