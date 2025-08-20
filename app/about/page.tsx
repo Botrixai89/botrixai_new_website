@@ -1,11 +1,12 @@
+import React from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
-import { CheckCircle, Globe, Leaf, Sparkles } from "lucide-react"
+import { CheckCircle, Globe, Sparkles, MessageSquare, Brain, Zap, Settings, Bot, Workflow, Target, Phone } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <>
+    <div>
       <Header />
 
       {/* Hero */}
@@ -86,7 +87,7 @@ export default function AboutPage() {
               { title: "Speech AI", desc: "Advanced speech-to-text and text-to-speech for natural voice interactions." },
               { title: "Agent Assist", desc: "Co-pilots that boost agent productivity with real-time suggestions and knowledge." },
               { title: "Cognitive Search", desc: "RAG-based knowledge retrieval for accurate, context-aware answers." },
-              { title: "Response Time <1 sec", desc: "Lightning-fast responses that keep customers engaged." },
+              { title: "Response Time \u003c1 sec", desc: "Lightning-fast responses that keep customers engaged." },
               { title: "Multi-Language", desc: "Seamless global communication across 50+ languages." },
             ].map((item, idx) => (
               <div key={idx} className="border border-gray-200 rounded-xl p-5 hover:shadow-lg transition-shadow bg-white">
@@ -132,27 +133,193 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Sustainability */}
+      {/* AI Technology Showcase */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center mb-6">
-            <Leaf className="w-6 h-6 text-emerald-500 mr-2" />
-            <h3 className="text-3xl font-bold text-gray-900">Sustainability & Carbon Reduction Commitment</h3>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Our AI Technology Stack</h3>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover how our advanced AI agents and automation transform customer interactions
+            </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-10">
-            <div className="space-y-4 text-gray-700">
-              <p><span className="font-semibold">Energy Efficiency:</span> Optimized AI infrastructure for lower energy consumption.</p>
-              <p><span className="font-semibold">Renewable Energy Adoption:</span> Transitioning to 100% sustainable power sources by 2025.</p>
-              <p><span className="font-semibold">Eco-Friendly Practices:</span> Reducing carbon footprint through AI-driven efficiency.</p>
+
+          {/* Interactive AI Workflow */}
+          <div className="bg-white rounded-2xl p-8 mb-12 border-2 border-black shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.4)] transition-all duration-300">
+            <h4 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              🤖 AI Agent Workflow & Automation
+            </h4>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+              {/* Input Processing */}
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white transform hover:scale-105 transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <MessageSquare className="w-6 h-6" />
+                  </div>
+                  <h5 className="font-semibold mb-2">Input Processing</h5>
+                  <p className="text-sm opacity-90">Multi-channel input analysis with NLP</p>
+                </div>
+              </div>
+
+              {/* AI Understanding */}
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-6 text-white transform hover:scale-105 transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Brain className="w-6 h-6" />
+                  </div>
+                  <h5 className="font-semibold mb-2">AI Understanding</h5>
+                  <p className="text-sm opacity-90">Intent recognition & context analysis</p>
+                </div>
+              </div>
+
+              {/* Smart Response */}
+              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 text-white transform hover:scale-105 transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <h5 className="font-semibold mb-2">Smart Response</h5>
+                  <p className="text-sm opacity-90">Personalized AI-generated responses</p>
+                </div>
+              </div>
+
+              {/* Action Execution */}
+              <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-6 text-white transform hover:scale-105 transition-all duration-300">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Settings className="w-6 h-6" />
+                  </div>
+                  <h5 className="font-semibold mb-2">Action Execution</h5>
+                  <p className="text-sm opacity-90">Automated task completion</p>
+                </div>
+              </div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-xl">
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">Our 2023 Carbon Emissions Baseline</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>Scope 1 (Direct Emissions) – 1.5 tCO₂e</li>
-                <li>Scope 2 (Indirect Energy) – 11.5 tCO₂e</li>
-                <li>Scope 3 (Value Chain) – 1,582 tCO₂e</li>
-                <li className="font-semibold">Total Carbon Footprint – 1,595 tCO₂e</li>
-                <li className="text-emerald-600">Committed to reducing emissions by 15% annually</li>
+
+            {/* AI Capabilities Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left: Real-time Processing */}
+              <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6">
+                <h5 className="text-lg font-semibold text-gray-900 mb-4">⚡ Real-time AI Processing</h5>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                      <span className="text-sm font-medium">Natural Language Processing</span>
+                    </div>
+                    <span className="text-sm text-green-600 font-medium">Active</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
+                      <span className="text-sm font-medium">Sentiment Analysis</span>
+                    </div>
+                    <span className="text-sm text-blue-600 font-medium">Processing</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-purple-500 rounded-full mr-2 animate-pulse"></div>
+                      <span className="text-sm font-medium">Context Awareness</span>
+                    </div>
+                    <span className="text-sm text-purple-600 font-medium">Learning</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right: Automation Features */}
+              <div>
+                <h5 className="text-lg font-semibold text-gray-900 mb-4">🔧 Automation Features</h5>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-lg text-white text-center hover:scale-105 transform transition-all duration-300">
+                    <Bot className="w-5 h-5 mx-auto mb-1" />
+                    <div className="text-xs font-medium">Smart Routing</div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-green-500 to-green-600 p-3 rounded-lg text-white text-center hover:scale-105 transform transition-all duration-300">
+                    <Workflow className="w-5 h-5 mx-auto mb-1" />
+                    <div className="text-xs font-medium">Process Automation</div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-3 rounded-lg text-white text-center hover:scale-105 transform transition-all duration-300">
+                    <Target className="w-5 h-5 mx-auto mb-1" />
+                    <div className="text-xs font-medium">Predictive Analytics</div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-lg text-white text-center hover:scale-105 transform transition-all duration-300">
+                    <Sparkles className="w-5 h-5 mx-auto mb-1" />
+                    <div className="text-xs font-medium">Auto-Learning</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Performance Metrics */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="bg-blue-50 rounded-lg p-4 text-center hover:scale-105 transform transition-all duration-300">
+                <div className="text-2xl font-bold text-blue-600">&lt; 1sec</div>
+                <div className="text-sm text-gray-600">Response Time</div>
+              </div>
+              <div className="bg-green-50 rounded-lg p-4 text-center hover:scale-105 transform transition-all duration-300">
+                <div className="text-2xl font-bold text-green-600">99.9%</div>
+                <div className="text-sm text-gray-600">Uptime</div>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-4 text-center hover:scale-105 transform transition-all duration-300">
+                <div className="text-2xl font-bold text-purple-600">50+</div>
+                <div className="text-sm text-gray-600">Languages</div>
+              </div>
+              <div className="bg-orange-50 rounded-lg p-4 text-center hover:scale-105 transform transition-all duration-300">
+                <div className="text-2xl font-bold text-orange-600">24/7</div>
+                <div className="text-sm text-gray-600">Availability</div>
+              </div>
+            </div>
+          </div>
+
+          {/* AI Agent Types */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-6 border-2 border-black shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all duration-300">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                <Image
+                  src="/images/integrations/icons8-whatsapp-48.png"
+                  alt="WhatsApp"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
+              </div>
+              <h5 className="text-xl font-semibold text-gray-900 mb-3">WhatsApp Agent</h5>
+              <p className="text-gray-600 mb-4">Intelligent WhatsApp bots for seamless customer interactions on the world's most popular messaging platform</p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Multi-turn conversations</li>
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Rich media support</li>
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Business API integration</li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-black shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all duration-300">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <Phone className="w-6 h-6 text-purple-600" />
+              </div>
+              <h5 className="text-xl font-semibold text-gray-900 mb-3">Voice AI</h5>
+              <p className="text-gray-600 mb-4">Intelligent voice agents for phone-based customer interactions</p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Speech-to-text</li>
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Voice synthesis</li>
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Real-time processing</li>
+              </ul>
+          </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-black shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all duration-300">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                <Globe className="w-6 h-6 text-green-600" />
+            </div>
+              <h5 className="text-xl font-semibold text-gray-900 mb-3">Web Agents</h5>
+              <p className="text-gray-600 mb-4">Smart web-based assistants integrated across digital touchpoints</p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Website integration</li>
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Live chat support</li>
+                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-500 mr-2" /> Proactive engagement</li>
               </ul>
             </div>
           </div>
@@ -160,7 +327,7 @@ export default function AboutPage() {
       </section>
 
       <Footer />
-    </>
+    </div>
   )
 }
 

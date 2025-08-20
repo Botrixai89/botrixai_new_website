@@ -6,6 +6,17 @@ import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smart
 import Link from "next/link"
 import Image from "next/image"
 
+// Custom WhatsApp Icon Component
+const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <Image 
+    src="/images/integrations/icons8-whatsapp-48.png" 
+    alt="WhatsApp" 
+    width={16} 
+    height={16}
+    className={className}
+  />
+)
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
@@ -30,6 +41,11 @@ export default function Header() {
       title: "AI Voice Agent",
       icon: Phone,
       slug: "voice-agent",
+    },
+    {
+      title: "WhatsApp Bot & Automation",
+      icon: WhatsAppIcon,
+      slug: "whatsapp-bot",
     }
   ]
 
@@ -48,12 +64,12 @@ export default function Header() {
   const industries = [
     { name: "AI Agents for Automotive", icon: Car, slug: "automotive" },
     { name: "AI Agents for Aviation & logistics", icon: Plane, slug: "aviation-logistics" },
-    { name: "AI Agent for Banking & Financial services", icon: Banknote, slug: "banking-financial-services" },
+    { name: "AI Agent for Banking & Financial services", icon: Banknote, slug: "banking-financial" },
     { name: "AI Agent for Insurance", icon: Shield, slug: "insurance" },
     { name: "AI Agents for Healthcare", icon: Heart, slug: "healthcare" },
     { name: "AI Agent Manufacturing", icon: Settings, slug: "manufacturing" },
-    { name: "AI Agents for Retail & E-Commerce", icon: ShoppingCart, slug: "retail-e-commerce" },
-    { name: "AI Agents for Public Services & Utilities", icon: Users, slug: "public-services-utilities" },
+    { name: "AI Agents for Retail & E-Commerce", icon: ShoppingCart, slug: "retail-ecommerce" },
+    { name: "AI Agents for Public Services & Utilities", icon: Users, slug: "utilities" },
     { name: "AI Agents for Education", icon: GraduationCap, slug: "education" },
     { name: "AI Agents for Travel & Tourism", icon: MapPin, slug: "travel-tourism" }
   ]
@@ -141,7 +157,7 @@ export default function Header() {
                         
                         <div className="space-y-3">
                           <h4 className="font-semibold text-gray-900">
-                            Meet our AI Agent <span className="underline">Aradhya</span> By Category
+                            AI Agents By Category
                           </h4>
                           <div className="space-y-2">
                             {aiAgentCategories.map((category, index) => (
@@ -217,9 +233,7 @@ export default function Header() {
               <Link href="/features" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
                 Features
               </Link>
-              <Link href="/pricing" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
-                Pricing
-              </Link>
+
               <Link href="/integrations" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
                 Integrations
               </Link>
@@ -231,6 +245,7 @@ export default function Header() {
               <Button
                 variant="outline"
                 className="border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white bg-transparent font-medium"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Book Demo
               </Button>
@@ -364,7 +379,11 @@ export default function Header() {
                 Integrations
               </Link>
               <div className="pt-4 space-y-3">
-                <Button variant="outline" className="w-full border-[#00D563] text-[#00D563] bg-transparent font-medium">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-[#00D563] text-[#00D563] bg-transparent font-medium"
+                  onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+                >
                   Book Demo
                 </Button>
               </div>

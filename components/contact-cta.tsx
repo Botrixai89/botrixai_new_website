@@ -65,6 +65,7 @@ export default function ContactCTA() {
             <Button
               size="lg"
               className="bg-white text-[#00D563] hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
             >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Demo

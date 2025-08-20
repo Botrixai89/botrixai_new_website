@@ -302,6 +302,7 @@ export default function ProductDemo() {
                 variant="outline" 
                 size="lg"
                 className="w-full border-2 border-white text-white hover:bg-white hover:text-[#00D563] bg-transparent font-semibold transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Schedule Demo
               </Button>

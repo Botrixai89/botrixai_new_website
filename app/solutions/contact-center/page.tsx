@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -27,9 +29,137 @@ export default function ContactCenterPage() {
               Transform your contact center with AI agents that handle calls, route inquiries, and provide intelligent support. Reduce wait times and improve customer satisfaction.
             </p>
             <div className="flex justify-center">
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button 
+                variant="outline" 
+                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+              >
                 Schedule Demo
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Dashboard Demo Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left Content */}
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Real-Time Call Center Intelligence
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Experience our AI-powered call center dashboard that intelligently routes calls, analyzes sentiment, and provides real-time insights to boost efficiency.
+              </p>
+              
+              {/* Key Stats */}
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-[#00D563] mb-1">80%</div>
+                  <div className="text-sm text-gray-600">Call Resolution</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-[#00D563] mb-1">30s</div>
+                  <div className="text-sm text-gray-600">Avg Wait Time</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-[#00D563] mb-1">95%</div>
+                  <div className="text-sm text-gray-600">Customer Satisfaction</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Call Center Visualization */}
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-6 border border-gray-200">
+                <div className="flex items-center mb-4 bg-purple-600 text-white p-3 rounded-lg">
+                  <Phone className="w-6 h-6 mr-3" />
+                  <span className="font-semibold">Call Center Dashboard</span>
+                  <div className="ml-auto flex items-center">
+                    <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
+                    <span className="ml-2 text-sm">Live</span>
+                  </div>
+                </div>
+                
+                {/* Call Flow Visualization */}
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Live Call Orchestration</h3>
+                  </div>
+                  
+                  {/* Incoming Call */}
+                  <div className="flex items-center justify-between bg-blue-50 p-3 rounded-lg">
+                    <div className="flex items-center">
+                      <Phone className="w-5 h-5 text-blue-600 mr-2" />
+                      <span className="text-sm font-medium">Incoming Call #1247</span>
+                    </div>
+                    <div className="text-xs text-blue-600 bg-blue-200 px-2 py-1 rounded">Routing...</div>
+                  </div>
+
+                  {/* Intent Detection */}
+                  <div className="flex items-center">
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-[#00D563] h-2 rounded-full w-3/4 animate-pulse"></div>
+                    </div>
+                    <span className="ml-2 text-xs text-gray-600">Intent: Billing Issue</span>
+                  </div>
+
+                  {/* Agent Assignment */}
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <Headphones className="w-5 h-5 text-green-600 mr-2" />
+                        <div>
+                          <div className="text-sm font-medium">AI Agent Sarah</div>
+                          <div className="text-xs text-gray-500">Billing Specialist</div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-green-600 bg-green-200 px-2 py-1 rounded">Connected</div>
+                    </div>
+                  </div>
+
+                  {/* Live Metrics */}
+                  <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="text-sm font-medium mb-2">Real-time Metrics</div>
+                    <div className="grid grid-cols-2 gap-4 text-xs">
+                      <div>
+                        <div className="text-gray-500">Queue Time</div>
+                        <div className="font-semibold text-[#00D563]">12s</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500">Resolution Rate</div>
+                        <div className="font-semibold text-[#00D563]">87%</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500">Active Calls</div>
+                        <div className="font-semibold text-[#00D563]">23</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500">Avg Rating</div>
+                        <div className="font-semibold text-[#00D563]">4.8⭐</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Queue Status */}
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium">Current Queue</div>
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between bg-yellow-50 p-2 rounded text-xs">
+                        <span>Call #1248 - Technical</span>
+                        <span className="text-yellow-600">Waiting: 8s</span>
+                      </div>
+                      <div className="flex items-center justify-between bg-yellow-50 p-2 rounded text-xs">
+                        <span>Call #1249 - Sales</span>
+                        <span className="text-yellow-600">Waiting: 15s</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -187,16 +317,59 @@ export default function ContactCenterPage() {
             <div className="relative bg-white p-8 rounded-2xl shadow-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50" />
               <div className="relative z-10">
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">Live Call Orchestration</h4>
-                <p className="text-gray-600 mb-6">Animated call flow shows how intents are detected and routed in milliseconds.</p>
-                <div className="relative h-56 rounded-xl bg-white/70 backdrop-blur border border-gray-200 overflow-hidden">
-                  <Image src="/placeholder.jpg" alt="Contact Center AI" fill className="object-cover" />
+                <h4 className="text-2xl font-bold text-gray-900 mb-4">Call Routing Intelligence</h4>
+                <p className="text-gray-600 mb-6">Smart call distribution based on agent expertise and customer intent.</p>
+                
+                {/* Call Flow Diagram */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="bg-blue-100 p-3 rounded-lg flex items-center">
+                      <Phone className="w-5 h-5 text-blue-600 mr-2" />
+                      <span className="text-sm font-medium">Incoming Call</span>
+                    </div>
+                    <div className="flex-1 mx-3 border-t-2 border-dashed border-gray-300"></div>
+                    <div className="bg-yellow-100 p-3 rounded-lg flex items-center">
+                      <Globe className="w-5 h-5 text-yellow-600 mr-2" />
+                      <span className="text-sm font-medium">Intent Analysis</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="flex-1 border-l-2 border-dashed border-gray-300 h-8"></div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-green-100 p-3 rounded-lg text-center">
+                      <Headphones className="w-5 h-5 text-green-600 mx-auto mb-1" />
+                      <span className="text-xs font-medium">Support Agent</span>
+                      <div className="text-xs text-gray-600">Available</div>
+                    </div>
+                    <div className="bg-purple-100 p-3 rounded-lg text-center">
+                      <Users className="w-5 h-5 text-purple-600 mx-auto mb-1" />
+                      <span className="text-xs font-medium">Sales Agent</span>
+                      <div className="text-xs text-gray-600">Busy</div>
+                    </div>
+                    <div className="bg-orange-100 p-3 rounded-lg text-center">
+                      <ArrowRight className="w-5 h-5 text-orange-600 mx-auto mb-1" />
+                      <span className="text-xs font-medium">Billing Agent</span>
+                      <div className="text-xs text-gray-600">Available</div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                    <div className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
+                      <span className="text-sm font-medium text-green-800">Connected to Best Agent</span>
+                    </div>
+                    <div className="text-xs text-gray-600 mt-1">Routing completed in 0.8 seconds</div>
+                  </div>
                 </div>
               </div>
+              
+              {/* Floating animations */}
               <div className="pointer-events-none">
-                <Phone className="absolute top-6 left-6 w-8 h-8 text-blue-500 animate-float" />
-                <Headphones className="absolute bottom-6 right-8 w-8 h-8 text-green-500 animate-float animate-float-slow animate-delay-500" />
-                <Globe className="absolute bottom-10 left-1/3 w-8 h-8 text-purple-500 animate-float animate-float-fast animate-delay-200" />
+                <div className="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-purple-500/20 blur-xl animate-pulse" />
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-blue-400/20 blur-2xl animate-pulse" />
               </div>
             </div>
           </div>
@@ -313,7 +486,11 @@ export default function ContactCenterPage() {
             Join leading companies that have already deployed AI contact center agents
           </p>
           <div className="flex justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
+              onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+            >
               Schedule Demo
             </Button>
           </div>

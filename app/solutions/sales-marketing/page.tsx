@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -27,9 +29,140 @@ export default function SalesMarketingPage() {
               Transform your sales and marketing operations with AI agents that generate leads, qualify prospects, and drive conversions. Boost revenue while reducing acquisition costs.
             </p>
             <div className="flex justify-center">
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button 
+                variant="outline" 
+                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+              >
                 Schedule Demo
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sales Dashboard Demo Section */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left Content */}
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                AI-Powered Sales Intelligence
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Watch our AI agents identify high-value prospects, nurture leads, and close deals while providing detailed analytics and insights for your sales team.
+              </p>
+              
+              {/* Key Stats */}
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-[#00D563] mb-1">45%</div>
+                  <div className="text-sm text-gray-600">More Qualified Leads</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-[#00D563] mb-1">67%</div>
+                  <div className="text-sm text-gray-600">Faster Sales Cycle</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-[#00D563] mb-1">3x</div>
+                  <div className="text-sm text-gray-600">ROI Increase</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Sales Dashboard Visualization */}
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-6 border border-gray-200">
+                <div className="flex items-center mb-4 bg-orange-600 text-white p-3 rounded-lg">
+                  <BarChart3 className="w-6 h-6 mr-3" />
+                  <span className="font-semibold">Sales Intelligence Hub</span>
+                  <div className="ml-auto flex items-center">
+                    <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
+                    <span className="ml-2 text-sm">Live</span>
+                  </div>
+                </div>
+                
+                {/* Sales Pipeline Visualization */}
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Live Sales Pipeline</h3>
+                  </div>
+                  
+                  {/* Lead Scoring */}
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium">Hot Lead Identified</span>
+                      <div className="text-xs text-blue-600 bg-blue-200 px-2 py-1 rounded">Score: 95/100</div>
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      <span className="font-medium">TechCorp Inc.</span> - Downloaded 3 whitepapers, visited pricing page 5 times
+                    </div>
+                  </div>
+
+                  {/* AI Recommendation */}
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <div className="flex items-center mb-2">
+                      <Target className="w-4 h-4 text-green-600 mr-2" />
+                      <span className="text-sm font-medium text-green-800">AI Recommendation</span>
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      Send personalized demo invite + case study for similar company size
+                    </div>
+                    <button className="mt-2 bg-[#00D563] text-white px-3 py-1 rounded text-xs hover:bg-green-600">
+                      Execute Action
+                    </button>
+                  </div>
+
+                  {/* Sales Funnel Progress */}
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium">Pipeline Progress</div>
+                    
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between bg-gray-50 p-2 rounded text-xs">
+                        <span>🔍 Lead Qualification</span>
+                        <span className="text-[#00D563] font-medium">15 leads</span>
+                      </div>
+                      <div className="flex items-center justify-between bg-yellow-50 p-2 rounded text-xs">
+                        <span>📞 Discovery Call</span>
+                        <span className="text-yellow-600 font-medium">8 scheduled</span>
+                      </div>
+                      <div className="flex items-center justify-between bg-orange-50 p-2 rounded text-xs">
+                        <span>🎯 Proposal Sent</span>
+                        <span className="text-orange-600 font-medium">4 pending</span>
+                      </div>
+                      <div className="flex items-center justify-between bg-green-50 p-2 rounded text-xs">
+                        <span>✅ Deal Closed</span>
+                        <span className="text-green-600 font-medium">2 won</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Performance Metrics */}
+                  <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="text-sm font-medium mb-2">Today's Performance</div>
+                    <div className="grid grid-cols-2 gap-4 text-xs">
+                      <div>
+                        <div className="text-gray-500">Conversion Rate</div>
+                        <div className="font-semibold text-[#00D563]">23.5%</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500">Avg Deal Size</div>
+                        <div className="font-semibold text-[#00D563]">$12,400</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500">Response Time</div>
+                        <div className="font-semibold text-[#00D563]">3 min</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-500">Revenue Today</div>
+                        <div className="font-semibold text-[#00D563]">$48.6K</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -187,16 +320,58 @@ export default function SalesMarketingPage() {
             <div className="relative bg-white p-8 rounded-2xl shadow-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50" />
               <div className="relative z-10">
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">Pipeline Visualizer</h4>
-                <p className="text-gray-600 mb-6">Animated cards flow through stages to illustrate automated lead nurturing.</p>
-                <div className="relative h-56 rounded-xl bg-white/70 backdrop-blur border border-gray-200 overflow-hidden">
-                  <Image src="/placeholder.jpg" alt="Sales & Marketing AI" fill className="object-cover" />
+                <h4 className="text-2xl font-bold text-gray-900 mb-4">Sales Pipeline Flow</h4>
+                <p className="text-gray-600 mb-6">Automated lead progression through your sales funnel with AI optimization.</p>
+                
+                {/* Pipeline Flow Diagram */}
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-blue-100 p-3 rounded-lg flex-1 text-center">
+                      <Target className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                      <span className="text-sm font-medium">Lead Generation</span>
+                      <div className="text-xs text-gray-600">234 new leads</div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                    <div className="bg-yellow-100 p-3 rounded-lg flex-1 text-center">
+                      <Users className="w-5 h-5 text-yellow-600 mx-auto mb-1" />
+                      <span className="text-sm font-medium">Qualification</span>
+                      <div className="text-xs text-gray-600">89 qualified</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-orange-100 p-3 rounded-lg flex-1 text-center">
+                      <BarChart3 className="w-5 h-5 text-orange-600 mx-auto mb-1" />
+                      <span className="text-sm font-medium">Demo/Proposal</span>
+                      <div className="text-xs text-gray-600">34 in progress</div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                    <div className="bg-green-100 p-3 rounded-lg flex-1 text-center">
+                      <DollarSign className="w-5 h-5 text-green-600 mx-auto mb-1" />
+                      <span className="text-sm font-medium">Closed Won</span>
+                      <div className="text-xs text-gray-600">12 deals</div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-50 to-green-50 p-3 rounded-lg border border-green-200">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-sm font-medium text-green-800">Conversion Rate</span>
+                        <div className="text-xs text-gray-600">Lead to Customer: 5.1%</div>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-sm font-medium text-green-800">Pipeline Value</span>
+                        <div className="text-xs text-gray-600">$186,400</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              
+              {/* Floating animations */}
               <div className="pointer-events-none">
-                <Target className="absolute top-6 left-6 w-8 h-8 text-blue-500 animate-float" />
-                <TrendingUp className="absolute bottom-6 right-8 w-8 h-8 text-green-500 animate-float animate-float-slow animate-delay-500" />
-                <Globe className="absolute bottom-10 left-1/3 w-8 h-8 text-purple-500 animate-float animate-float-fast animate-delay-200" />
+                <div className="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-orange-500/20 blur-xl animate-pulse" />
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-blue-400/20 blur-2xl animate-pulse" />
               </div>
             </div>
           </div>
@@ -313,7 +488,11 @@ export default function SalesMarketingPage() {
             Join successful companies that have already deployed AI sales and marketing agents
           </p>
           <div className="flex justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
+              onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+            >
               Schedule Demo
             </Button>
           </div>

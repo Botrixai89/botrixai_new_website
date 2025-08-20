@@ -12,38 +12,25 @@ export default function Footer() {
         { name: "AI Agents for Contact Center", href: "/solutions/contact-center" },
         { name: "AI Agents for Sales & Marketing", href: "/solutions/sales-marketing" },
         { name: "AI Voice Agents", href: "/solutions/voice-agent" },
-        { name: "AI Avataar Aradhya", href: "/solutions/enterprise" },
+        { name: "WhatsApp Bot & Automation", href: "/solutions/whatsapp-bot" },
       ],
     },
     {
       title: "Industries",
       links: [
-        { name: "Automotive", href: "/solutions/enterprise" },
-        { name: "Aviation & Logistics", href: "/solutions/enterprise" },
-        { name: "Banking & Financial Services", href: "/solutions/enterprise" },
-        { name: "Healthcare", href: "/solutions/enterprise" },
-        { name: "Insurance", href: "/solutions/enterprise" },
-        { name: "Manufacturing", href: "/solutions/enterprise" },
-        { name: "Retail & E-Commerce", href: "/solutions/enterprise" },
-        { name: "Public Services & Utilities", href: "/solutions/enterprise" },
-        { name: "Education", href: "/solutions/enterprise" },
-        { name: "Travel & Tourism", href: "/solutions/enterprise" },
+        { name: "Automotive", href: "/solutions/industries/automotive" },
+        { name: "Aviation & Logistics", href: "/solutions/industries/aviation-logistics" },
+        { name: "Banking & Financial Services", href: "/solutions/industries/banking-financial" },
+        { name: "Healthcare", href: "/solutions/industries/healthcare" },
+        { name: "Insurance", href: "/solutions/industries/insurance" },
+        { name: "Manufacturing", href: "/solutions/industries/manufacturing" },
+        { name: "Retail & E-Commerce", href: "/solutions/industries/retail-ecommerce" },
+        { name: "Public Services & Utilities", href: "/solutions/industries/utilities" },
+        { name: "Education", href: "/solutions/industries/education" },
+        { name: "Travel & Tourism", href: "/solutions/industries/travel-tourism" },
       ],
     },
-    {
-      title: "Platform",
-      links: [
-        { name: "BotrixAI Platform", href: "/product" },
-        { name: "AI Agent Co-Pilot", href: "/product" },
-        { name: "AI Search", href: "/product" },
-        { name: "Vernacular", href: "/product" },
-        { name: "Multimodal", href: "/product" },
-        { name: "AI Multi-Agents", href: "/product" },
-        { name: "Analytics & Reporting", href: "/product" },
-        { name: "Enterprise Integrations", href: "/integrations" },
-        { name: "Live Chat Agent", href: "/product" },
-      ],
-    },
+
 
     {
       title: "Company",
@@ -58,7 +45,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
             <div className="flex items-center">
@@ -153,25 +140,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Platform */}
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-base sm:text-lg font-semibold text-white">Platform</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {footerSections[2].links.map((link, linkIndex) => (
-                <li key={linkIndex}>
-                  <Link href={link.href} className="text-sm sm:text-base text-gray-400 hover:text-[#00D563] transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
 
           {/* Company */}
           <div className="space-y-3 sm:space-y-4">
             <h3 className="text-base sm:text-lg font-semibold text-white">Company</h3>
             <ul className="space-y-2 sm:space-y-3">
-              {footerSections[3].links.map((link, linkIndex) => (
+              {footerSections[2].links.map((link, linkIndex) => (
                 <li key={linkIndex}>
                   <Link href={link.href} className="text-sm sm:text-base text-gray-400 hover:text-[#00D563] transition-colors">
                     {link.name}

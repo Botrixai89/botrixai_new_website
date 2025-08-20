@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -27,7 +29,11 @@ export default function EnterprisePage() {
               Enterprise-grade AI infrastructure designed for large-scale business operations with advanced security, compliance, and customization capabilities for Fortune 500 companies.
             </p>
             <div className="flex justify-center">
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button 
+                variant="outline" 
+                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+              >
                 Schedule Demo
               </Button>
             </div>
@@ -331,7 +337,11 @@ export default function EnterprisePage() {
             Join Fortune 500 companies that have already deployed BotrixAI Enterprise Solutions
           </p>
           <div className="flex justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
+              onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+            >
               Schedule Demo
             </Button>
           </div>

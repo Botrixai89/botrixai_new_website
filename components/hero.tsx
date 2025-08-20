@@ -44,12 +44,12 @@ export default function Hero() {
           {/* Mobile Image First */}
           <div className="w-full lg:hidden order-1">
             <div className="relative w-full max-w-sm mx-auto">
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                 <Image
                   src={imageSrc}
                   alt="Hero visual"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 640px) 90vw, 50vw"
                   priority
                   onError={() => setImageSrc("/placeholder.jpg")}
@@ -60,10 +60,7 @@ export default function Hero() {
           
           {/* Content */}
           <div className="w-full space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1">
-            {/* Badge */}
-            <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-white rounded-full border border-[#00D563]/20 shadow-sm">
-              <span className="text-xs sm:text-sm font-medium text-gray-800">🏆 #1 AI Platform for Customer Support Automation</span>
-            </div>
+
 
             {/* Headlines */}
             <div className="space-y-3 sm:space-y-4">
@@ -136,6 +133,7 @@ export default function Hero() {
                 size="lg"
                 variant="outline"
                 className="border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-transparent"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Watch Live Demo
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
@@ -305,12 +303,12 @@ export default function Hero() {
           {/* Desktop Image */}
           <div className="hidden lg:block relative order-2">
             <div className="relative z-10 rounded-xl sm:rounded-2xl overflow-hidden w-full max-w-[560px] mx-auto">
-              <div className="relative w-full aspect-[4/3]">
+              <div className="relative w-full aspect-square">
                 <Image
                   src={imageSrc}
                   alt="Hero visual"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="50vw"
                   priority
                   onError={() => setImageSrc("/placeholder.jpg")}

@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -156,7 +158,11 @@ export default function ProductPage() {
               Transform your customer engagement with intelligent automation. Deploy AI agents across web, WhatsApp, and voice channels with enterprise-grade security, scalability, and performance that drives measurable business outcomes.
             </p>
             <div className="flex justify-center">
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button 
+                variant="outline" 
+                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+              >
                 Schedule Demo
               </Button>
             </div>
@@ -329,7 +335,10 @@ export default function ProductPage() {
             Join 500+ companies that have already automated their customer support with BotrixAI
           </p>
            <div className="flex justify-center">
-             <Button className="bg-white text-[#00D563] hover:bg-white/90 px-12 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/60">
+             <Button 
+               className="bg-white text-[#00D563] hover:bg-white/90 px-12 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/60"
+               onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+             >
                Schedule Demo
              </Button>
            </div>

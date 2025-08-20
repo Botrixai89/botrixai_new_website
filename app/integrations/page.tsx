@@ -138,7 +138,7 @@ export default function IntegrationsPage() {
             <div className="flex animate-scroll space-x-8">
               {/* First set of logos */}
               {integrationPartners.map((partner, index) => (
-                <div key={index} className="flex-shrink-0 flex items-center space-x-3 bg-white rounded-xl px-6 py-4 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div key={index} className="flex-shrink-0 flex items-center space-x-3 bg-gray-800 rounded-xl px-6 py-4 border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
                       src={partner.logo}
@@ -149,15 +149,15 @@ export default function IntegrationsPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-gray-900">{partner.name}</span>
-                    <span className="text-xs text-gray-500 block">{partner.category}</span>
+                    <span className="text-sm font-semibold text-white">{partner.name}</span>
+                    <span className="text-xs text-gray-300 block">{partner.category}</span>
                   </div>
                 </div>
               ))}
               
               {/* Duplicate set for seamless loop */}
               {integrationPartners.map((partner, index) => (
-                <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center space-x-3 bg-white rounded-xl px-6 py-4 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center space-x-3 bg-gray-800 rounded-xl px-6 py-4 border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     <Image
                       src={partner.logo}
@@ -168,8 +168,8 @@ export default function IntegrationsPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-gray-900">{partner.name}</span>
-                    <span className="text-xs text-gray-500 block">{partner.category}</span>
+                    <span className="text-sm font-semibold text-white">{partner.name}</span>
+                    <span className="text-xs text-gray-300 block">{partner.category}</span>
                   </div>
                 </div>
               ))}

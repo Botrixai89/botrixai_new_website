@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -307,7 +309,11 @@ export default function FeaturesPage() {
             Start your free trial today and explore all the powerful features BotrixAI has to offer. Transform your customer engagement and drive business growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
+              onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+            >
               Schedule Demo
             </Button>
           </div>

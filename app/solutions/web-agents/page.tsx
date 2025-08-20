@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -27,7 +29,11 @@ export default function WebAgentsPage() {
               Transform your website into a 24/7 customer engagement powerhouse with AI-powered conversational agents that capture leads, provide instant support, and drive conversions.
             </p>
             <div className="flex justify-center">
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button 
+                variant="outline" 
+                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+              >
                 Schedule Demo
               </Button>
             </div>
@@ -147,9 +153,9 @@ export default function WebAgentsPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl mx-auto">
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
                 Key Benefits
               </h3>
               <div className="space-y-6">
@@ -183,40 +189,6 @@ export default function WebAgentsPage() {
                 </div>
               </div>
             </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-xl">
-              <div className="text-center mb-6">
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">Starting Price</h4>
-                <div className="text-4xl font-bold text-[#00D563] mb-2">₹2,499</div>
-                <p className="text-gray-600">per month</p>
-              </div>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Unlimited Conversations</span>
-                  <CheckCircle className="w-5 h-5 text-[#00D563]" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-600">50+ Languages</span>
-                  <CheckCircle className="w-5 h-5 text-[#00D563]" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-600">CRM Integration</span>
-                  <CheckCircle className="w-5 h-5 text-[#00D563]" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Advanced Analytics</span>
-                  <CheckCircle className="w-5 h-5 text-[#00D563]" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-600">24/7 Support</span>
-                  <CheckCircle className="w-5 h-5 text-[#00D563]" />
-                </div>
-              </div>
-              <Button className="w-full bg-[#00D563] hover:bg-[#00D563]/90 text-white py-3">
-                Get Started Now
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -231,7 +203,11 @@ export default function WebAgentsPage() {
             Join 500+ companies that have already automated their customer engagement with BotrixAI Web Agents
           </p>
           <div className="flex justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent"
+              onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+            >
               Schedule Demo
             </Button>
           </div>
