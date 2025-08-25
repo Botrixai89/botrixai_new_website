@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainPages = [
     '',
     '/about',
+    '/botrixai',
     '/features',
     '/blog',
     '/faq',
@@ -65,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
                     page.startsWith('/solutions/') ? 'monthly' : 
                     'yearly' as 'yearly' | 'daily' | 'weekly' | 'monthly',
     priority: page === '' ? 1 :
+             page === '/botrixai' ? 0.95 :
              page.startsWith('/solutions/whatsapp') || page.startsWith('/solutions/voice') || page.startsWith('/solutions/customer') ? 0.9 :
              page.startsWith('/solutions/') || page === '/features' || page === '/about' ? 0.8 :
              page.startsWith('/blog/') || page === '/faq' ? 0.7 :

@@ -6,13 +6,48 @@ import CookieConsent from '@/components/cookie-consent'
 import BackgroundLines from '@/components/background-lines'
 
 export const metadata: Metadata = {
-  title: 'BotrixAI - AI-Powered Customer Support Agents',
-  description: 'Transform your customer experience with intelligent AI agents across WhatsApp, Voice, and Web platforms.',
+  title: 'BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service',
+  description: 'BotrixAI is the premier AI automation platform for WhatsApp marketing, voice bots, and customer service. Transform business communication with intelligent AI agents from BotrixAI.',
   generator: 'BotrixAI',
+  keywords: ['BotrixAI', 'Botrix AI', 'Botrix', 'BotrixAI platform', 'BotrixAI WhatsApp automation', 'BotrixAI customer service', 'BotrixAI voice bots'],
+  applicationName: 'BotrixAI Platform',
+  referrer: 'origin-when-cross-origin',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
     apple: '/favicon.png',
+  },
+  openGraph: {
+    siteName: 'BotrixAI',
+    title: 'BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service',
+    description: 'BotrixAI is the premier AI automation platform for WhatsApp marketing, voice bots, and customer service. Transform business communication with intelligent AI agents from BotrixAI.',
+    url: 'https://botrixai.com',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@BotrixAI',
+    creator: '@BotrixAI',
+    title: 'BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service',
+    description: 'BotrixAI is the premier AI automation platform for WhatsApp marketing, voice bots, and customer service. Transform business communication with intelligent AI agents from BotrixAI.',
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    other: {
+      'msvalidate.01': 'your-bing-verification-code',
+    },
   },
 }
 

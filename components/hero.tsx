@@ -65,14 +65,15 @@ export default function Hero() {
             {/* Headlines */}
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                <span className="text-[#00D563]">Automate Customer Support</span>
+                <span className="text-[#00D563]">BotrixAI</span>
+                <span className="text-gray-900"> - Automate Customer Support</span>
                 <br />
                 <span className="text-gray-900">with AI That Actually</span>
                 <br />
                 <span className="text-gray-900">Works</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 leading-relaxed">
-                Reduce support costs by 60% while improving customer satisfaction. Deploy AI agents in 10 minutes, not 10 weeks.
+                BotrixAI reduces support costs by 60% while improving customer satisfaction. Deploy BotrixAI agents in 10 minutes, not 10 weeks.
               </p>
             </div>
 

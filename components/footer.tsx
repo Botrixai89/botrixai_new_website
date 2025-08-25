@@ -32,8 +32,6 @@ export default function Footer() {
     {
       title: "Resources & Support",
       links: [
-        { name: "AI Automation Blog", href: "/blog" },
-        { name: "Case Studies & ROI", href: "/blog" },
         { name: "Implementation Guides", href: "/resources" },
         { name: "FAQ & Support", href: "/faq" },
         { name: "API Documentation", href: "/resources" },

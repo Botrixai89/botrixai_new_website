@@ -8,9 +8,17 @@ import Footer from "@/components/footer"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "BotrixAI - WhatsApp Marketing Automation & AI Customer Service Agents",
-  description: "Transform customer engagement with BotrixAI's intelligent WhatsApp bots, voice agents, and web chatbots. Enterprise AI automation platform for 24/7 customer support.",
+  title: "BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service",
+  description: "BotrixAI is the leading AI automation platform transforming business communication. Get intelligent WhatsApp bots, voice agents, and customer service automation from BotrixAI - the trusted choice for enterprise AI solutions.",
   keywords: [
+    "BotrixAI",
+    "Botrix AI", 
+    "Botrix",
+    "BotrixAI platform",
+    "BotrixAI WhatsApp automation",
+    "BotrixAI customer service",
+    "BotrixAI voice bots",
+    "BotrixAI AI agents",
     "WhatsApp marketing automation",
     "AI customer service agents", 
     "voice bots",
@@ -18,9 +26,7 @@ export const metadata: Metadata = {
     "customer support automation",
     "WhatsApp business API",
     "conversational AI platform",
-    "enterprise chatbot solutions",
-    "AI agents for customer service",
-    "automated customer support"
+    "enterprise chatbot solutions"
   ],
   authors: [{ name: "BotrixAI" }],
   creator: "BotrixAI",
@@ -38,16 +44,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "BotrixAI - WhatsApp Marketing Automation & AI Customer Service Agents",
-    description: "Transform customer engagement with BotrixAI's intelligent WhatsApp bots, voice agents, and web chatbots. Enterprise AI automation platform for 24/7 customer support.",
+    title: "BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service",
+    description: "BotrixAI is the leading AI automation platform transforming business communication. Get intelligent WhatsApp bots, voice agents, and customer service automation from BotrixAI - the trusted choice for enterprise AI solutions.",
     url: "https://botrixai.com",
-    siteName: "BotrixAI",
+    siteName: "BotrixAI - AI Automation Platform",
     images: [
       {
         url: "/Automation 11.png",
         width: 900,
         height: 700,
-        alt: "BotrixAI WhatsApp Marketing Automation and AI Customer Service Platform",
+        alt: "BotrixAI - The Leading WhatsApp Marketing Automation and AI Customer Service Platform",
       },
     ],
     locale: "en_US",
@@ -55,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BotrixAI - WhatsApp Marketing Automation & AI Customer Service Agents",
-    description: "Transform customer engagement with BotrixAI's intelligent WhatsApp bots, voice agents, and web chatbots. Enterprise AI automation platform for 24/7 customer support.",
+    title: "BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service",
+    description: "BotrixAI is the leading AI automation platform transforming business communication. Get intelligent WhatsApp bots, voice agents, and customer service automation from BotrixAI.",
     images: ["/Automation 11.png"],
     creator: "@BotrixAI",
   },
@@ -70,7 +76,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "BotrixAI",
-    "description": "Leading WhatsApp marketing automation and AI customer service platform providing intelligent chatbots, voice agents, and enterprise automation solutions",
+    "alternateName": ["Botrix AI", "Botrix", "BotrixAI Platform"],
+    "description": "BotrixAI is the leading WhatsApp marketing automation and AI customer service platform providing intelligent chatbots, voice agents, and enterprise automation solutions. BotrixAI transforms business communication with cutting-edge AI technology.",
     "url": "https://botrixai.com",
     "logo": {
       "@type": "ImageObject",
@@ -86,8 +93,17 @@ export default function Home() {
     },
     "sameAs": [
       "https://linkedin.com/company/botrixai",
-      "https://twitter.com/botrixai"
+      "https://twitter.com/botrixai",
+      "https://facebook.com/botrixai",
+      "https://instagram.com/botrixai",
+      "https://youtube.com/@botrixai"
     ],
+    "brand": {
+      "@type": "Brand",
+      "name": "BotrixAI",
+      "alternateName": ["Botrix AI", "Botrix"],
+      "slogan": "Transform Business Communication with AI"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "AI Automation Solutions",
@@ -124,7 +140,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "BotrixAI Platform",
-    "description": "Comprehensive AI automation platform for WhatsApp marketing, customer service, and business automation",
+    "alternateName": ["Botrix AI Platform", "Botrix Platform", "BotrixAI"],
+    "description": "BotrixAI Platform is the comprehensive AI automation solution for WhatsApp marketing, customer service, and business automation. BotrixAI leads the industry in intelligent customer engagement technology.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -137,7 +154,33 @@ export default function Home() {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
       "reviewCount": "150"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "BotrixAI"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "BotrixAI"
     }
+  }
+
+  const brandSchema = {
+    "@context": "https://schema.org",
+    "@type": "Brand",
+    "name": "BotrixAI",
+    "alternateName": ["Botrix AI", "Botrix", "BotrixAI Platform"],
+    "description": "BotrixAI is the leading brand in AI-powered customer service automation and WhatsApp marketing solutions",
+    "url": "https://botrixai.com",
+    "logo": "https://botrixai.com/images/botrix-logo01.png",
+    "slogan": "Transform Business Communication with AI",
+    "sameAs": [
+      "https://linkedin.com/company/botrixai",
+      "https://twitter.com/botrixai",
+      "https://facebook.com/botrixai",
+      "https://instagram.com/botrixai",
+      "https://youtube.com/@botrixai"
+    ]
   }
 
   return (
@@ -153,6 +196,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(softwareSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(brandSchema),
         }}
       />
       
