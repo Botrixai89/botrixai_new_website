@@ -3,66 +3,241 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
 import { CheckCircle, Globe, Sparkles, MessageSquare, Brain, Zap, Settings, Bot, Workflow, Target, Phone } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About BotrixAI - WhatsApp Marketing Automation & AI Agents",
+  description: "Leading AI automation platform for WhatsApp marketing, voice bots, and web agents. 24/7 customer service automation solutions for businesses.",
+  authors: [{ name: "BotrixAI" }],
+  creator: "BotrixAI",
+  publisher: "BotrixAI",
+  viewport: "width=device-width, initial-scale=1",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: "About BotrixAI - WhatsApp Marketing Automation & AI Agents",
+    description: "Leading AI automation platform for WhatsApp marketing, voice bots, and web agents. 24/7 customer service automation solutions for businesses.",
+    url: "https://botrixai.com/about",
+    siteName: "BotrixAI",
+    images: [
+      {
+        url: "/Automation 11.png",
+        width: 900,
+        height: 700,
+        alt: "BotrixAI WhatsApp Marketing Automation and AI Agents Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About BotrixAI - WhatsApp Marketing Automation & AI Agents",
+    description: "Leading AI automation platform for WhatsApp marketing, voice bots, and web agents. 24/7 customer service automation solutions for businesses.",
+    images: ["/Automation 11.png"],
+    creator: "@BotrixAI",
+  },
+  alternates: {
+    canonical: "https://botrixai.com/about",
+  },
+}
 
 export default function AboutPage() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BotrixAI",
+    "description": "Leading WhatsApp marketing automation and AI agent platform providing voice bots, web agents, and customer service automation solutions",
+    "url": "https://botrixai.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://botrixai.com/images/botrix-logo01.png",
+      "width": 200,
+      "height": 100
+    },
+    "foundingDate": "2023",
+    "sameAs": [
+      "https://linkedin.com/company/botrixai",
+      "https://twitter.com/botrixai"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": ["English", "Spanish", "French", "German", "Italian"],
+      "areaServed": "Worldwide"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Automation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "WhatsApp Marketing Automation",
+            "description": "Automated WhatsApp business solutions for customer engagement and marketing campaigns"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Voice Agents",
+            "description": "Intelligent voice bots for automated customer support and phone interactions"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Chatbots",
+            "description": "AI-powered web agents for website customer service automation"
+          }
+        }
+      ]
+    }
+  }
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BotrixAI Platform",
+    "description": "WhatsApp marketing automation and AI agent platform for businesses",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR", 
+      "price": "2499",
+      "billingIncrement": "Monthly",
+      "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+      "WhatsApp Business API Integration",
+      "AI Voice Agents", 
+      "Web Chatbots",
+      "Multi-language Support",
+      "Real-time Analytics",
+      "CRM Integration",
+      "24/7 Customer Support"
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "BotrixAI"
+    }
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://botrixai.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://botrixai.com/about"
+      }
+    ]
+  }
+
   return (
     <div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 lg:pt-36 pb-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <main>
+      <section className="pt-28 lg:pt-36 pb-16 bg-gradient-to-br from-gray-50 to-blue-50" itemScope itemType="https://schema.org/Organization">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-flex items-center rounded-full bg-white px-3 py-1 text-sm text-gray-600 border border-gray-200 shadow-sm mb-4">
               <Sparkles className="w-4 h-4 text-[#00D563] mr-2" /> About BotrixAI
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Building the future of AI-powered customer engagement
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6" itemProp="name">
+              Leading WhatsApp Marketing Automation & AI Agent Platform
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              BotrixAI is a global leader in AI-powered customer service solutions, delivering cutting-edge chatbot and AI agent automation to revolutionize customer interactions. Our platform enables businesses to provide instant, personalized, and intelligent support across multiple channels, 24/7.
+            <p className="text-lg text-gray-600 leading-relaxed" itemProp="description">
+              BotrixAI is the premier WhatsApp marketing automation platform and AI agent provider. We specialize in voice bots, web agents, WhatsApp business automation, and intelligent customer service solutions. Transform your business with our cutting-edge AI agents that deliver 24/7 automated customer engagement across multiple channels.
             </p>
           </div>
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-[#00D563]/20 blur-xl animate-pulse" />
             <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-blue-400/20 blur-2xl animate-pulse" />
             <Image
-              src={"/ChatGPT Image Aug 8, 2025, 09_21_02 PM.png"}
-              alt="BotrixAI Team"
+              src={"/Automation 11.png"}
+              alt="BotrixAI WhatsApp Marketing Automation and AI Agents Platform - Voice Bots, Web Agents, Customer Service Automation"
               width={900}
               height={700}
               priority
-              className="rounded-2xl shadow-2xl ring-1 ring-gray-200 bg-white object-cover"
+              className="rounded-2xl shadow-2xl ring-1 ring-gray-200 bg-white object-cover shadow-[0_0_50px_rgba(0,213,99,0.3),0_0_100px_rgba(0,213,99,0.2),0_0_150px_rgba(0,213,99,0.1)]"
             />
           </div>
         </div>
       </section>
 
       {/* Empowering */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" aria-labelledby="empowering-businesses">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Empowering businesses with AI-driven automation</h2>
+          <h2 id="empowering-businesses" className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Empowering Businesses with WhatsApp Marketing Automation & AI Agents</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700">
-            <li className="flex items-start space-x-2"><CheckCircle className="w-5 h-5 text-[#00D563] mt-1" /><span>Seamless human-like conversations</span></li>
-            <li className="flex items-start space-x-2"><CheckCircle className="w-5 h-5 text-[#00D563] mt-1" /><span>Global reach with multi-language support</span></li>
-            <li className="flex items-start space-x-2"><CheckCircle className="w-5 h-5 text-[#00D563] mt-1" /><span>Be part of the future of AI-driven customer engagement</span></li>
+            <li className="flex items-start space-x-2"><CheckCircle className="w-5 h-5 text-[#00D563] mt-1" /><span>WhatsApp Business API integration for automated customer engagement</span></li>
+            <li className="flex items-start space-x-2"><CheckCircle className="w-5 h-5 text-[#00D563] mt-1" /><span>AI voice bots with multi-language support across 50+ languages</span></li>
+            <li className="flex items-start space-x-2"><CheckCircle className="w-5 h-5 text-[#00D563] mt-1" /><span>Intelligent web agents for seamless customer service automation</span></li>
           </ul>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50" aria-labelledby="our-mission">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h3>
+            <h2 id="our-mission" className="text-3xl font-bold text-gray-900 mb-4">Our Mission: Revolutionizing Customer Engagement with AI Automation</h2>
             <div className="space-y-5 text-gray-700 leading-relaxed">
               <p>
-                At BotrixAI, our mission is to empower businesses with advanced AI solutions that enhance customer experience, streamline operations, and drive growth.
+                At BotrixAI, our mission is to revolutionize business communication through WhatsApp marketing automation, AI voice agents, and intelligent web chatbots. We empower businesses to deliver exceptional customer experiences with our comprehensive AI automation platform.
               </p>
-              <p><span className="font-semibold">Enhance Customer Experience:</span> Personalized AI interactions that understand and anticipate customer needs.</p>
-              <p><span className="font-semibold">Streamline Operations:</span> Automation that reduces costs and improves efficiency.</p>
-              <p><span className="font-semibold">Drive Business Growth:</span> Always-on support that scales effortlessly.</p>
-              <p>We believe the future lies in the perfect blend of human-like AI interactions and intelligent automation.</p>
+              <p><span className="font-semibold">WhatsApp Marketing Excellence:</span> Automated WhatsApp business solutions that engage customers on their preferred messaging platform with personalized, AI-driven conversations.</p>
+              <p><span className="font-semibold">Voice AI Innovation:</span> Advanced voice bots that handle phone-based customer interactions with natural language processing and speech recognition technology.</p>
+              <p><span className="font-semibold">Web Agent Intelligence:</span> Smart web chatbots that provide 24/7 customer support, lead generation, and automated customer service across digital touchpoints.</p>
+              <p>We envision a future where AI agents seamlessly integrate with business operations, providing intelligent automation that scales customer engagement while reducing operational costs. Learn more about our <a href="/solutions" className="text-[#00D563] hover:underline">AI solutions</a> and how they can transform your business.</p>
             </div>
           </div>
           <div className="relative bg-white rounded-2xl p-6 shadow-xl overflow-hidden">
@@ -78,9 +253,9 @@ export default function AboutPage() {
       </section>
 
       {/* Expertise */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" aria-labelledby="our-expertise">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8">Our Expertise</h3>
+          <h2 id="our-expertise" className="text-3xl font-bold text-gray-900 mb-8">Our Expertise</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Conversational AI", desc: "Intelligent assistants that understand context and intent with human-like interactions." },
@@ -325,6 +500,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

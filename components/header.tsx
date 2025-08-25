@@ -237,6 +237,9 @@ export default function Header() {
               <Link href="/integrations" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
                 Integrations
               </Link>
+              <Link href="/blog" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
+                Blog
+              </Link>
             </nav>
 
             {/* Right Side CTAs */}
@@ -365,18 +368,18 @@ export default function Header() {
                 Features
               </Link>
               <Link 
-                href="/pricing" 
-                className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pricing
-              </Link>
-              <Link 
                 href="/integrations" 
                 className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Integrations
+              </Link>
+              <Link 
+                href="/blog" 
+                className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
               </Link>
               <div className="pt-4 space-y-3">
                 <Button 
