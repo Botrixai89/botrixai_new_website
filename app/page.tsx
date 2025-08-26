@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "BotrixAI - AI Agent & Automation Platform for WhatsApp & Customer Service",
   description: "BotrixAI is the leading AI automation platform transforming business communication. Get intelligent WhatsApp bots, voice agents, and customer service automation from BotrixAI - the trusted choice for enterprise AI solutions.",
   keywords: [
+    "Botrix",
     "BotrixAI",
     "Botrix AI", 
     "Botrix",

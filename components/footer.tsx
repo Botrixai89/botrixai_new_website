@@ -32,9 +32,6 @@ export default function Footer() {
     {
       title: "Resources & Support",
       links: [
-        { name: "Implementation Guides", href: "/resources" },
-        { name: "FAQ & Support", href: "/faq" },
-        { name: "API Documentation", href: "/resources" },
         { name: "Integration Marketplace", href: "/integrations" },
         { name: "Partner Program", href: "/partners" },
       ],
@@ -44,10 +41,8 @@ export default function Footer() {
       links: [
         { name: "About BotrixAI", href: "/about" },
         { name: "Contact & Demo", href: "/contact" },
-        { name: "Enterprise Sales", href: "/contact" },
         { name: "Privacy Policy", href: "/privacy" },
         { name: "Terms of Service", href: "/terms" },
-        { name: "Security & Compliance", href: "/about" },
       ],
     },
   ]
@@ -156,7 +151,7 @@ export default function Footer() {
           <div className="space-y-3 sm:space-y-4">
             <h3 className="text-base sm:text-lg font-semibold text-white">Company</h3>
             <ul className="space-y-2 sm:space-y-3">
-              {footerSections[2].links.map((link, linkIndex) => (
+              {footerSections[3].links.map((link, linkIndex) => (
                 <li key={linkIndex}>
                   <Link href={link.href} className="text-sm sm:text-base text-gray-400 hover:text-[#00D563] transition-colors">
                     {link.name}

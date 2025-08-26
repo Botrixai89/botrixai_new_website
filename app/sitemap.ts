@@ -56,7 +56,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/security-compliance-ai-agents'
   ]
 
-  const allPages = [...mainPages, ...solutionPages, ...industryPages, ...blogPosts]
+  // Social media SEO pages
+  const socialPages = [
+    '/social',
+    '/social/linkedin',
+    '/social/facebook',
+    '/social/instagram',
+    '/social/twitter',
+    '/social/youtube'
+  ]
+
+  const allPages = [...mainPages, ...solutionPages, ...industryPages, ...blogPosts, ...socialPages]
 
   return allPages.map((page) => ({
     url: `${baseUrl}${page}`,
@@ -64,12 +74,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: page === '' ? 'daily' : 
                     page.startsWith('/blog/') ? 'weekly' :
                     page.startsWith('/solutions/') ? 'monthly' : 
+                    page.startsWith('/social/') ? 'monthly' :
                     'yearly' as 'yearly' | 'daily' | 'weekly' | 'monthly',
     priority: page === '' ? 1 :
              page === '/botrixai' ? 0.95 :
              page.startsWith('/solutions/whatsapp') || page.startsWith('/solutions/voice') || page.startsWith('/solutions/customer') ? 0.9 :
              page.startsWith('/solutions/') || page === '/features' || page === '/about' ? 0.8 :
              page.startsWith('/blog/') || page === '/faq' ? 0.7 :
+             page.startsWith('/social/') ? 0.5 :
              0.6,
   }))
 }

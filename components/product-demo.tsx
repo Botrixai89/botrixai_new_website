@@ -1,18 +1,78 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Play, MessageCircle, Smartphone, Mic, ArrowRight, Send, Bot, User, Zap, Clock, TrendingUp } from "lucide-react"
+import { Play, Pause, MessageCircle, Smartphone, Mic, ArrowRight, Send, Bot, User, Zap, Clock, TrendingUp, Volume2 } from "lucide-react"
 
 export default function ProductDemo() {
   const [activeTab, setActiveTab] = useState("web-agents")
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [demoStep, setDemoStep] = useState(0)
+  const [isTyping, setIsTyping] = useState(false)
   const [chatMessages, setChatMessages] = useState([
     { type: "bot", message: "Hi! I'm your AI assistant. How can I help you today?", time: "Just now" },
-    { type: "user", message: "I need help with my order", time: "Just now" },
-    { type: "bot", message: "I'd be happy to help! Can you provide your order number?", time: "Just now" }
   ])
   const [inputMessage, setInputMessage] = useState("")
+  const [showWaveform, setShowWaveform] = useState(false)
+
+  // Demo sequences for different tabs
+  const demoSequences = {
+    "web-agents": [
+      { type: "bot", message: "Hi! I'm your AI assistant. How can I help you today?", time: "Just now" },
+      { type: "user", message: "I need help with my order", time: "Just now" },
+      { type: "bot", message: "I'd be happy to help! Can you provide your order number?", time: "Just now" },
+      { type: "user", message: "It's #ORD-2024-001", time: "Just now" },
+      { type: "bot", message: "Perfect! I found your order. It's currently being processed and will ship within 24 hours. You'll receive tracking information via email.", time: "Just now" }
+    ],
+    "whatsapp": [
+      { type: "bot", message: "🚀 Welcome to our store! Check out our latest offers:", time: "Just now" },
+      { type: "user", message: "Show me the deals", time: "Just now" },
+      { type: "bot", message: "🎉 FLASH SALE: 50% off on all items!\n⏰ Limited time offer\n🛒 Use code: FLASH50", time: "Just now" },
+      { type: "user", message: "I want to buy a laptop", time: "Just now" },
+      { type: "bot", message: "Great choice! 💻 Here are our top laptop deals:\n\n1. MacBook Air M2 - ₹89,999 (was ₹1,19,999)\n2. Dell XPS 13 - ₹64,999 (was ₹84,999)\n3. HP Pavilion - ₹39,999 (was ₹54,999)\n\nWhich one interests you?", time: "Just now" }
+    ],
+    "voice-agents": [
+      { type: "bot", message: "Hello! I'm your AI voice assistant. How can I help you today?", time: "Just now" },
+      { type: "user", message: "I need to schedule an appointment", time: "Just now" },
+      { type: "bot", message: "I'd be happy to help! What type of appointment do you need?", time: "Just now" },
+      { type: "user", message: "Doctor appointment for next week", time: "Just now" },
+      { type: "bot", message: "I can help schedule that. I have availability on Tuesday at 2 PM or Thursday at 10 AM. Which works better for you?", time: "Just now" }
+    ]
+  }
+
+  // Auto-play demo functionality
+  useEffect(() => {
+    let interval: NodeJS.Timeout
+    if (isPlaying && demoStep < demoSequences[activeTab as keyof typeof demoSequences].length) {
+      setIsTyping(true)
+      interval = setTimeout(() => {
+        setChatMessages(demoSequences[activeTab as keyof typeof demoSequences].slice(0, demoStep + 1))
+        setDemoStep(prev => prev + 1)
+        setIsTyping(false)
+      }, 2000)
+    } else if (demoStep >= demoSequences[activeTab as keyof typeof demoSequences].length) {
+      setIsPlaying(false)
+    }
+    return () => clearTimeout(interval)
+  }, [isPlaying, demoStep, activeTab])
+
+  // Reset demo when changing tabs
+  useEffect(() => {
+    setIsPlaying(false)
+    setDemoStep(0)
+    setChatMessages([demoSequences[activeTab as keyof typeof demoSequences][0]])
+  }, [activeTab])
+
+  // Start/stop demo
+  const toggleDemo = () => {
+    if (!isPlaying && demoStep >= demoSequences[activeTab as keyof typeof demoSequences].length) {
+      // Restart demo
+      setDemoStep(0)
+      setChatMessages([demoSequences[activeTab as keyof typeof demoSequences][0]])
+    }
+    setIsPlaying(!isPlaying)
+  }
 
   const demos = {
     "web-agents": {
@@ -26,23 +86,32 @@ export default function ProductDemo() {
                 <Bot className="w-4 h-4 text-white" />
               </div>
               <span className="font-semibold">BotrixAI Assistant</span>
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-green-400 animate-pulse' : 'bg-green-400'}`}></div>
             </div>
 
-            <div className="bg-blue-50 rounded-lg p-4">
+            <div className="bg-blue-50 rounded-lg p-4 max-h-80 overflow-y-auto">
               <div className="space-y-3">
-                <div className="bg-white rounded-lg p-3 max-w-xs">
-                  <p className="text-sm">Hi! I'm your AI assistant. How can I help you today?</p>
-                  <p className="text-xs text-gray-500 mt-1">Just now</p>
-                </div>
-                <div className="bg-[#00D563] text-white rounded-lg p-3 max-w-xs ml-auto">
-                  <p className="text-sm">I need help with my order</p>
-                  <p className="text-xs opacity-70 mt-1">Just now</p>
-                </div>
-                <div className="bg-white rounded-lg p-3 max-w-xs">
-                  <p className="text-sm">I'd be happy to help! Can you provide your order number?</p>
-                  <p className="text-xs text-gray-500 mt-1">Just now</p>
-                </div>
+                {chatMessages.map((msg, index) => (
+                  <div key={index} className={`animate-fadeIn ${msg.type === 'user' ? 'ml-auto' : ''} max-w-xs`}>
+                    <div className={`rounded-lg p-3 ${
+                      msg.type === 'bot' 
+                        ? 'bg-white' 
+                        : 'bg-[#00D563] text-white ml-auto'
+                    }`}>
+                      <p className="text-sm whitespace-pre-line">{msg.message}</p>
+                      <p className={`text-xs mt-1 ${msg.type === 'bot' ? 'text-gray-500' : 'opacity-70'}`}>{msg.time}</p>
+                    </div>
+                  </div>
+                ))}
+                {isTyping && (
+                  <div className="bg-white rounded-lg p-3 max-w-xs">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -71,22 +140,32 @@ export default function ProductDemo() {
                 <Smartphone className="w-4 h-4 text-white" />
               </div>
               <span className="font-semibold">WhatsApp Business</span>
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-green-400 animate-pulse' : 'bg-green-400'}`}></div>
             </div>
 
-            <div className="bg-green-50 rounded-lg p-4">
+            <div className="bg-green-50 rounded-lg p-4 max-h-80 overflow-y-auto">
               <div className="space-y-3">
-                <div className="bg-white rounded-lg p-3 max-w-xs">
-                  <p className="text-sm">🚀 Welcome to our store! Check out our latest offers:</p>
-                </div>
-                <div className="bg-green-500 text-white rounded-lg p-3 max-w-xs ml-auto">
-                  <p className="text-sm">Show me the deals</p>
-                </div>
-                <div className="bg-white rounded-lg p-3 max-w-xs">
-                  <p className="text-sm">🎉 FLASH SALE: 50% off on all items!</p>
-                  <p className="text-sm">⏰ Limited time offer</p>
-                  <p className="text-sm">🛒 Use code: FLASH50</p>
-                </div>
+                {activeTab === 'whatsapp' && chatMessages.map((msg, index) => (
+                  <div key={index} className={`animate-fadeIn ${msg.type === 'user' ? 'ml-auto' : ''} max-w-xs`}>
+                    <div className={`rounded-lg p-3 ${
+                      msg.type === 'bot' 
+                        ? 'bg-white' 
+                        : 'bg-green-500 text-white ml-auto'
+                    }`}>
+                      <p className="text-sm whitespace-pre-line">{msg.message}</p>
+                      <p className={`text-xs mt-1 ${msg.type === 'bot' ? 'text-gray-500' : 'opacity-70'}`}>{msg.time}</p>
+                    </div>
+                  </div>
+                ))}
+                {isTyping && activeTab === 'whatsapp' && (
+                  <div className="bg-white rounded-lg p-3 max-w-xs">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -115,24 +194,56 @@ export default function ProductDemo() {
                 <Mic className="w-4 h-4 text-white" />
               </div>
               <span className="font-semibold">Voice Assistant</span>
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-green-400 animate-pulse' : 'bg-green-400'}`}></div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-4">
+            <div className="bg-purple-50 rounded-lg p-4 max-h-80 overflow-y-auto">
               <div className="space-y-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-600">Call in progress...</span>
+                <div className="flex items-center space-x-2 mb-2">
+                  <div className={`w-3 h-3 rounded-full ${isPlaying ? 'bg-red-400 animate-pulse' : 'bg-gray-400'}`}></div>
+                  <span className="text-sm text-gray-600">{isPlaying ? 'Call in progress...' : 'Call ready'}</span>
+                  <Volume2 className="w-4 h-4 text-purple-500" />
                 </div>
-                <div className="bg-white rounded-lg p-3">
-                  <p className="text-sm">🎵 "Hello! I'm your AI assistant. How can I help you today?"</p>
-                </div>
-                <div className="bg-purple-500 text-white rounded-lg p-3 max-w-xs ml-auto">
-                  <p className="text-sm">I need to schedule an appointment</p>
-                </div>
-                <div className="bg-white rounded-lg p-3">
-                  <p className="text-sm">I'd be happy to help! What type of appointment do you need?</p>
-                </div>
+                
+                {/* Voice Waveform Animation */}
+                {isPlaying && (
+                  <div className="flex items-center justify-center space-x-1 py-2">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-1 bg-purple-400 rounded-full animate-pulse"
+                        style={{
+                          height: `${Math.random() * 20 + 10}px`,
+                          animationDelay: `${i * 0.1}s`,
+                          animationDuration: '0.8s'
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {activeTab === 'voice-agents' && chatMessages.map((msg, index) => (
+                  <div key={index} className={`animate-fadeIn ${msg.type === 'user' ? 'ml-auto' : ''} max-w-xs`}>
+                    <div className={`rounded-lg p-3 ${
+                      msg.type === 'bot' 
+                        ? 'bg-white' 
+                        : 'bg-purple-500 text-white ml-auto'
+                    }`}>
+                      {msg.type === 'bot' && <span className="text-sm mr-1">🎵</span>}
+                      <p className="text-sm whitespace-pre-line">{msg.message}</p>
+                      <p className={`text-xs mt-1 ${msg.type === 'bot' ? 'text-gray-500' : 'opacity-70'}`}>{msg.time}</p>
+                    </div>
+                  </div>
+                ))}
+                {isTyping && activeTab === 'voice-agents' && (
+                  <div className="bg-white rounded-lg p-3 max-w-xs">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -247,9 +358,16 @@ export default function ProductDemo() {
                     {demos[activeTab as keyof typeof demos].description}
                   </p>
                 </div>
-                <div className="w-12 h-12 bg-[#00D563] rounded-xl flex items-center justify-center">
-                  <Play className="w-6 h-6 text-white" />
-                </div>
+                <button 
+                  onClick={toggleDemo}
+                  className="w-12 h-12 bg-[#00D563] hover:bg-green-600 rounded-xl flex items-center justify-center transition-colors cursor-pointer group"
+                >
+                  {isPlaying ? (
+                    <Pause className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                  ) : (
+                    <Play className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                  )}
+                </button>
               </div>
               
               {demos[activeTab as keyof typeof demos].content}
