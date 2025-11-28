@@ -229,6 +229,7 @@ export default function ContactPage() {
     phone: "",
     option: "",
     message: "",
+    agreeToTerms: false,
   })
 
   const [errors, setErrors] = useState({
@@ -237,6 +238,7 @@ export default function ContactPage() {
     phone: "",
     option: "",
     message: "",
+    agreeToTerms: "",
   })
 
   const [countrySearch, setCountrySearch] = useState("")
@@ -286,6 +288,7 @@ export default function ContactPage() {
       phone: "",
       option: "",
       message: "",
+      agreeToTerms: "",
     }
 
     // Name validation
@@ -317,6 +320,11 @@ export default function ContactPage() {
     // Message validation
     if (!formData.message.trim()) {
       newErrors.message = "Message is required"
+    }
+
+    // Terms and conditions validation
+    if (!formData.agreeToTerms) {
+      newErrors.agreeToTerms = "You must agree to the terms and conditions"
     }
 
     setErrors(newErrors)
@@ -365,6 +373,7 @@ export default function ContactPage() {
             phone: "",
             option: "",
             message: "",
+            agreeToTerms: false,
           })
           setErrors({
             name: "",
@@ -372,6 +381,7 @@ export default function ContactPage() {
             phone: "",
             option: "",
             message: "",
+            agreeToTerms: "",
           })
         } else {
           alert(`Error submitting form: ${result.error || 'Unknown error'}`)
@@ -385,7 +395,7 @@ export default function ContactPage() {
     }
   }
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }))
     // Clear error when user starts typing
     if (errors[field as keyof typeof errors]) {
@@ -639,30 +649,53 @@ export default function ContactPage() {
                   )}
                 </div>
 
-                                  <Button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full group bg-gradient-to-r from-[#00D563] to-green-600 hover:from-green-600 hover:to-[#00D563] text-white font-semibold py-4 px-8 rounded-xl border-2 border-green-700 shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300 hover:scale-[1.02] transform flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  >
-                   {isSubmitting ? (
-                     <>
-                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                       <span>Submitting...</span>
-                     </>
-                   ) : (
-                     <>
-                       <span>Send Message</span>
-                       <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                       </svg>
-                     </>
-                   )}
-                  </Button>
-                
-                <p className="text-center text-sm text-gray-500">
-                  By submitting this form, you agree to our{" "}
-                  <a href="/privacy" className="text-[#00D563] hover:underline">Privacy Policy</a>
-                </p>
+                <div className="group">
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      id="agreeToTerms"
+                      checked={formData.agreeToTerms}
+                      onChange={(e) => handleInputChange("agreeToTerms", e.target.checked)}
+                      className={`mt-1 w-4 h-4 text-[#00D563] bg-gray-50 border-2 rounded focus:ring-2 focus:ring-[#00D563]/20 cursor-pointer transition-all duration-300 ${
+                        errors.agreeToTerms ? "border-red-500" : "border-gray-300"
+                      }`}
+                    />
+                    <label htmlFor="agreeToTerms" className="text-sm text-gray-700 cursor-pointer">
+                      By clicking submit, I agree to the{" "}
+                      <a href="/terms" className="text-[#00D563] hover:underline font-medium">
+                        terms & conditions
+                      </a>{" "}
+                      and{" "}
+                      <a href="/privacy" className="text-[#00D563] hover:underline font-medium">
+                        privacy policy
+                      </a>{" "}
+                      and give my consent to receive updates through SMS/Email.
+                    </label>
+                  </div>
+                  {errors.agreeToTerms && (
+                    <p className="text-red-500 text-sm mt-1 ml-7 animate-fade-in">{errors.agreeToTerms}</p>
+                  )}
+                </div>
+
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full group bg-gradient-to-r from-[#00D563] to-green-600 hover:from-green-600 hover:to-[#00D563] text-white font-semibold py-4 px-8 rounded-xl border-2 border-green-700 shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300 hover:scale-[1.02] transform flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit</span>
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </>
+                  )}
+                </Button>
               </form>
             </div>
           </div>
