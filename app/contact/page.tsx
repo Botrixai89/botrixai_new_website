@@ -669,7 +669,7 @@ export default function ContactPage() {
                       <a href="/privacy" className="text-[#00D563] hover:underline font-medium">
                         privacy policy
                       </a>{" "}
-                      and give my consent to receive updates through SMS/Email.
+                      and give my consent to receive updates through SMS/Email/WhatsApp/RCS.
                     </label>
                   </div>
                   {errors.agreeToTerms && (
