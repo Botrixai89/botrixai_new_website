@@ -2,16 +2,16 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smartphone, Mic, Building, Headphones, BarChart3, Phone, Car, Plane, Banknote, Shield, Heart, Settings, ShoppingCart, Users, GraduationCap, MapPin } from "lucide-react"
+import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smartphone, Mic, Building, Headphones, BarChart3, Phone, Car, Plane, Banknote, Shield, Heart, Settings, ShoppingCart, Users, GraduationCap, MapPin, Mail, Instagram } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 // Custom WhatsApp Icon Component
 const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
-  <Image 
-    src="/images/integrations/icons8-whatsapp-48.png" 
-    alt="WhatsApp" 
-    width={16} 
+  <Image
+    src="/images/integrations/icons8-whatsapp-48.png"
+    alt="WhatsApp"
+    width={16}
     height={16}
     className={className}
   />
@@ -46,6 +46,21 @@ export default function Header() {
       title: "WhatsApp Bot & Automation",
       icon: WhatsAppIcon,
       slug: "whatsapp-bot",
+    },
+    {
+      title: "RCS Messaging",
+      icon: Smartphone,
+      slug: "rcs-messaging",
+    },
+    {
+      title: "Email Marketing",
+      icon: Mail,
+      slug: "email-marketing",
+    },
+    {
+      title: "Instagram DM Automation",
+      icon: Instagram,
+      slug: "instagram-automation",
     }
   ]
 
@@ -77,7 +92,7 @@ export default function Header() {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-gradient-to-r from-green-50 via-blue-50 to-purple-50 border-b border-green-100">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-50/85 via-blue-50/85 to-purple-50/85 border-b border-green-100 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center py-3">
             <Sparkles className="w-4 h-4 text-[#00D563] mr-2" />
@@ -87,7 +102,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+      <header className="fixed top-[52px] left-0 right-0 z-[999] bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -104,26 +119,30 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8 relative z-50">
               {/* Solutions Dropdown */}
-              <div 
-                className="relative"
+              <div
+                className="relative z-50"
                 onMouseEnter={() => setIsSolutionsOpen(true)}
                 onMouseLeave={() => setIsSolutionsOpen(false)}
               >
                 <button
-                  className="flex items-center space-x-1 text-gray-700 hover:text-[#00D563] cursor-pointer font-medium transition-colors"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-[#00D563] cursor-pointer font-medium transition-colors relative z-50"
+                  onMouseEnter={() => setIsSolutionsOpen(true)}
+                  onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                  style={{ pointerEvents: 'auto' }}
                 >
                   <span>Solutions</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isSolutionsOpen ? 'rotate-180' : ''}`} />
                 </button>
-                
+
                 {/* Dropdown Menu */}
                 {isSolutionsOpen && (
-                  <div 
-                    className="absolute top-full left-0 mt-0 w-[900px] bg-white rounded-xl shadow-2xl border border-gray-200 py-6 z-50"
+                  <div
+                    className="absolute top-full left-0 mt-0 w-[900px] bg-white rounded-xl shadow-2xl border border-gray-200 py-6 z-[9999]"
                     onMouseEnter={() => setIsSolutionsOpen(true)}
                     onMouseLeave={() => setIsSolutionsOpen(false)}
+                    style={{ pointerEvents: 'auto' }}
                   >
                     <div className="grid grid-cols-3 gap-8 px-6">
                       {/* Left Column: Smart AI Workforce */}
@@ -154,7 +173,7 @@ export default function Header() {
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="space-y-3">
                           <h4 className="font-semibold text-gray-900">
                             AI Agents By Category
@@ -189,10 +208,10 @@ export default function Header() {
                               onClick={() => setIsSolutionsOpen(false)}
                             >
                               <div className="w-6 h-6 flex items-center justify-center">
-                                <Image 
-                                  src={integration.logo} 
-                                  alt={integration.name} 
-                                  width={20} 
+                                <Image
+                                  src={integration.logo}
+                                  alt={integration.name}
+                                  width={20}
                                   height={20}
                                   className="w-5 h-5 object-contain"
                                 />
@@ -280,10 +299,10 @@ export default function Header() {
                         Turn your Traditional Customer Engagements into 24X7 customer delightful Experience.
                       </p>
                       <div className="space-y-2">
-                          {aiAgentCategories.map((category, index) => (
+                        {aiAgentCategories.map((category, index) => (
                           <Link
                             key={index}
-                              href={`/solutions/${category.slug}`}
+                            href={`/solutions/${category.slug}`}
                             className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors"
                             onClick={() => {
                               setIsSolutionsOpen(false)
@@ -296,7 +315,7 @@ export default function Header() {
                         ))}
                       </div>
                     </div>
-                    
+
                     {/* Enterprise Integrations Section */}
                     <div className="space-y-3">
                       <h4 className="font-semibold text-gray-900">Enterprise Integrations</h4>
@@ -312,10 +331,10 @@ export default function Header() {
                             }}
                           >
                             <div className="w-5 h-5 flex items-center justify-center">
-                              <Image 
-                                src={integration.logo} 
-                                alt={integration.name} 
-                                width={16} 
+                              <Image
+                                src={integration.logo}
+                                alt={integration.name}
+                                width={16}
                                 height={16}
                                 className="w-4 h-4 object-contain"
                               />
@@ -325,7 +344,7 @@ export default function Header() {
                         ))}
                       </div>
                     </div>
-                    
+
                     {/* Industries Section */}
                     <div className="space-y-3">
                       <h4 className="font-semibold text-gray-900">By Industry</h4>
@@ -349,31 +368,31 @@ export default function Header() {
                   </div>
                 )}
               </div>
-              
-              <Link 
-                href="/product" 
+
+              <Link
+                href="/product"
                 className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Product
               </Link>
-              <Link 
-                href="/features" 
+              <Link
+                href="/features"
                 className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Features
               </Link>
-              <Link 
-                href="/integrations" 
+              <Link
+                href="/integrations"
                 className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Integrations
               </Link>
               <div className="pt-4 space-y-3">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full border-[#00D563] text-[#00D563] bg-transparent font-medium"
                   onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
                 >
