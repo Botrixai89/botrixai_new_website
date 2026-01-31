@@ -96,9 +96,16 @@ export default function Particles({
         const y = Math.floor(Math.random() * canvasSize.current.h);
         const translateX = 0;
         const translateY = 0;
-        const size = Math.floor(Math.random() * 3) + 1; // Random size 1-4
+        const isMobile = canvasSize.current.w < 768;
+        const size = isMobile
+            ? Math.floor(Math.random() * 2) + 1  // Mobile: 1-2px
+            : Math.floor(Math.random() * 3) + 1; // Desktop: 1-4px
+
         const alpha = 0;
-        const targetAlpha = parseFloat((Math.random() * 0.5 + 0.3).toFixed(1));
+        const targetAlpha = isMobile
+            ? parseFloat((Math.random() * 0.3 + 0.1).toFixed(1)) // Mobile: 0.1-0.4
+            : parseFloat((Math.random() * 0.5 + 0.3).toFixed(1)); // Desktop: 0.3-0.8
+
         const dx = (Math.random() - 0.5) * 0.2;
         const dy = (Math.random() - 0.5) * 0.2;
         const magnetism = 0.1 + Math.random() * 4;

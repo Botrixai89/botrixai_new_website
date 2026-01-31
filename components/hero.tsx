@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Particles
           className="absolute inset-0 w-full h-full"
-          quantity={300}
+          quantity={150}
           staticity={30} // Lower = move more with mouse
           ease={50}
         />
