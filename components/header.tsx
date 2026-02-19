@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smartphone, Mic, Building, Headphones, BarChart3, Phone, Car, Plane, Banknote, Shield, Heart, Settings, ShoppingCart, Users, GraduationCap, MapPin, Mail, Instagram } from "lucide-react"
+import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smartphone, Mic, Building, Headphones, BarChart3, Phone, Car, Plane, Banknote, Shield, Heart, Settings, ShoppingCart, Users, GraduationCap, MapPin, Mail, Instagram, Headset, PhoneCall, TrendingUp, Mic2, MessageSquareCode } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 

@@ -2,7 +2,28 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://botrixai.com'
-  
+
+  // New SEO Landing Pages
+  const seoLandingPages = [
+    '/whatsapp-business-api-provider-india',
+    '/whatsapp-automation-platform',
+    '/rcs-messaging-platform',
+    '/instagram-automation-tool',
+    '/ai-chatbot-company-raipur',
+    '/best-chatbot-automation-raipur',
+    '/automation-platform-for-business',
+    '/chatbot-for-hospitals',
+    '/chatbot-for-real-estate',
+    '/chatbot-for-education',
+    '/chatbot-for-finance',
+    '/chatbot-for-ecommerce',
+    '/chatbot-for-automobile',
+    '/chatbot-for-government',
+    '/chatbot-company-in-raipur',
+    '/whatsapp-business-api-raipur',
+    '/automation-company-in-chhattisgarh'
+  ]
+
   // Main pages
   const mainPages = [
     '',
@@ -71,17 +92,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
-    changeFrequency: page === '' ? 'daily' : 
-                    page.startsWith('/blog/') ? 'weekly' :
-                    page.startsWith('/solutions/') ? 'monthly' : 
-                    page.startsWith('/social/') ? 'monthly' :
-                    'yearly' as 'yearly' | 'daily' | 'weekly' | 'monthly',
+    changeFrequency: page === '' ? 'daily' :
+      page.startsWith('/blog/') ? 'weekly' :
+        page.startsWith('/solutions/') ? 'monthly' :
+          page.startsWith('/social/') ? 'monthly' :
+            'yearly' as 'yearly' | 'daily' | 'weekly' | 'monthly',
     priority: page === '' ? 1 :
-             page === '/botrixai' ? 0.95 :
-             page.startsWith('/solutions/whatsapp') || page.startsWith('/solutions/voice') || page.startsWith('/solutions/customer') ? 0.9 :
-             page.startsWith('/solutions/') || page === '/features' || page === '/about' ? 0.8 :
-             page.startsWith('/blog/') || page === '/faq' ? 0.7 :
-             page.startsWith('/social/') ? 0.5 :
-             0.6,
+      page === '/botrixai' ? 0.95 :
+        page.startsWith('/solutions/whatsapp') || page.startsWith('/solutions/voice') || page.startsWith('/solutions/customer') ? 0.9 :
+          page.startsWith('/solutions/') || page === '/features' || page === '/about' ? 0.8 :
+            page.startsWith('/blog/') || page === '/faq' ? 0.7 :
+              page.startsWith('/social/') ? 0.5 :
+                0.6,
   }))
 }

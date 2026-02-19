@@ -32,9 +32,9 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-6 max-w-4xl mx-auto leading-[1.1] animate-fadeUp" style={{ animationDelay: '100ms' }}>
-          Intelligent Automation for <br className="hidden sm:block" />
-          <span className="bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">Modern Businesses.</span>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-6 max-w-5xl mx-auto leading-[1.1] animate-fadeUp" style={{ animationDelay: '100ms' }}>
+          Best AI Automation Platform & <br className="hidden sm:block" />
+          <span className="bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">WhatsApp Business API.</span>
         </h1>
 
         {/* Subheadline */}

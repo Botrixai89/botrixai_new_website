@@ -1,5 +1,7 @@
 import Header from "@/components/header"
 import Hero from "@/components/hero"
+import { LocalBusinessSchema } from '@/components/schema/local-business-schema'
+import { FAQSchema } from '@/components/schema/faq-schema'
 import Features from "@/components/features"
 import IntegrationShowcase from "@/components/integration-showcase"
 import ProductDemo from "@/components/product-demo"
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
   keywords: [
     "Botrix",
     "BotrixAI",
-    "Botrix AI", 
+    "Botrix AI",
     "Botrix",
     "BotrixAI platform",
     "BotrixAI WhatsApp automation",
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
     "BotrixAI voice bots",
     "BotrixAI AI agents",
     "WhatsApp marketing automation",
-    "AI customer service agents", 
+    "AI customer service agents",
     "voice bots",
     "web chatbots",
     "customer support automation",
@@ -118,7 +120,7 @@ export default function Home() {
           }
         },
         {
-          "@type": "Offer", 
+          "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "AI Voice Agents",
@@ -128,7 +130,7 @@ export default function Home() {
         {
           "@type": "Offer",
           "itemOffered": {
-            "@type": "Service", 
+            "@type": "Service",
             "name": "Web Chatbots",
             "description": "AI-powered website customer service automation"
           }
@@ -184,9 +186,33 @@ export default function Home() {
     ]
   }
 
+  const faqItems = [
+    {
+      question: "What is BotrixAI?",
+      answer: "BotrixAI is an AI agent and automation platform designed for WhatsApp and customer service, helping businesses automate communication and enhance customer engagement."
+    },
+    {
+      question: "How can BotrixAI help my business?",
+      answer: "BotrixAI can help your business by providing intelligent WhatsApp bots, voice agents, and customer service automation to streamline operations, improve response times, and boost customer satisfaction."
+    },
+    {
+      question: "What types of AI agents does BotrixAI offer?",
+      answer: "BotrixAI offers various AI agents including WhatsApp bots for marketing and support, AI voice agents for call automation, and web chatbots for website customer service."
+    },
+    {
+      question: "Is BotrixAI suitable for small businesses or enterprises?",
+      answer: "BotrixAI is designed to scale and is suitable for businesses of all sizes, from small businesses looking to automate initial customer interactions to large enterprises needing comprehensive AI solutions."
+    },
+    {
+      question: "How do I get started with BotrixAI?",
+      answer: "You can get started with BotrixAI by visiting our website, exploring our solutions, and contacting our sales team for a personalized demo and consultation."
+    }
+  ];
+
   return (
     <div className="w-full overflow-x-hidden">
-      {/* Structured Data */}
+      <LocalBusinessSchema />
+      <FAQSchema items={faqItems} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -199,13 +225,7 @@ export default function Home() {
           __html: JSON.stringify(softwareSchema),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(brandSchema),
-        }}
-      />
-      
+
       <Header />
       <main className="relative">
         <Hero />
