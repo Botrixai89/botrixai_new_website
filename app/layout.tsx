@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   creator: 'BotrixAI',
   publisher: 'BotrixAI',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   openGraph: {
     type: 'website',
