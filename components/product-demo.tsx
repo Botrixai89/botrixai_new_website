@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Play, Pause, MessageCircle, Smartphone, Mic, ArrowRight, Send, Bot, User, Zap, Clock, TrendingUp, Volume2 } from "lucide-react"
+import { Play, Pause, MessageCircle, Smartphone, Mic, ArrowRight, Send, Bot, User, Volume2 } from "lucide-react"
 
 export default function ProductDemo() {
   const [activeTab, setActiveTab] = useState("web-agents")
@@ -290,12 +289,6 @@ export default function ProductDemo() {
     }, 1000)
   }
 
-  const demoStats = [
-    { icon: Clock, value: "200ms", label: "Response Time" },
-    { icon: TrendingUp, value: "99.9%", label: "Accuracy" },
-    { icon: Zap, value: "24/7", label: "Availability" }
-  ]
-
   return (
     <section className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -308,21 +301,6 @@ export default function ProductDemo() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Experience our AI agents across different channels. Try the interactive demos below to see how they work in real-time.
           </p>
-        </div>
-
-        {/* Demo Stats */}
-        <div className="mb-16">
-          <div className="grid md:grid-cols-3 gap-8">
-            {demoStats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-[#00D563] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Demo Tabs */}
@@ -376,39 +354,22 @@ export default function ProductDemo() {
 
           {/* Demo Info */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Key Features
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-[#00D563] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Real-time Processing</h4>
-                    <p className="text-gray-600 text-sm">Instant responses with sub-200ms latency</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-[#00D563] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Context Awareness</h4>
-                    <p className="text-gray-600 text-sm">Maintains conversation context across sessions</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-[#00D563] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Multi-language Support</h4>
-                    <p className="text-gray-600 text-sm">50+ languages with regional dialects</p>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Try the interactive demo</h3>
+              <ol className="space-y-4 text-gray-600">
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D563] text-white text-sm font-bold flex items-center justify-center">1</span>
+                  <span>Switch between <strong className="text-gray-900">Web</strong>, <strong className="text-gray-900">WhatsApp</strong>, and <strong className="text-gray-900">Voice</strong> tabs above.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D563] text-white text-sm font-bold flex items-center justify-center">2</span>
+                  <span>Press the play button to watch a sample conversation unfold automatically.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D563] text-white text-sm font-bold flex items-center justify-center">3</span>
+                  <span>Type your own message in the chat box to see how the bot responds in real time.</span>
+                </li>
+              </ol>
             </div>
 
             <div className="bg-gradient-to-r from-[#00D563] to-green-600 rounded-2xl p-6 sm:p-8 text-white">

@@ -116,25 +116,6 @@ export default function TechnologyStack() {
           </div>
         </div>
 
-        {/* Performance Stats */}
-        <div className="mt-16 grid md:grid-cols-4 gap-8 text-center">
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-[#00D563]">{"<"}50ms</div>
-            <div className="text-gray-600">Average Response Time</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-[#00D563]">99.9%</div>
-            <div className="text-gray-600">Uptime SLA</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-[#00D563]">50+</div>
-            <div className="text-gray-600">Languages Supported</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-[#00D563]">1M+</div>
-            <div className="text-gray-600">Messages Processed Daily</div>
-          </div>
-        </div>
       </div>
     </section>
   )
