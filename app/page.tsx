@@ -6,6 +6,7 @@ import Features from "@/components/features"
 import IntegrationShowcase from "@/components/integration-showcase"
 import ProductDemo from "@/components/product-demo"
 import TechnologyStack from "@/components/technology-stack"
+import OurClients from "@/components/our-clients"
 import Footer from "@/components/footer"
 import { Metadata } from "next"
 
@@ -229,6 +230,7 @@ export default function Home() {
       <Header />
       <main className="relative">
         <Hero />
+        <OurClients />
         <Features />
         <IntegrationShowcase />
         <ProductDemo />
