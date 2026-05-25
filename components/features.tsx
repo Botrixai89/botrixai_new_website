@@ -191,7 +191,7 @@ export default function Features() {
       icon: MessageCircle,
       title: "WhatsApp Business Chatbots",
       description:
-        "Automate customer chats, broadcast campaigns, and support on WhatsApp Business API — the channel your customers already use every day.",
+        "Automate customer chats, broadcast campaigns, and support on WhatsApp Business API the channel your customers already use every day.",
       unique: true,
       technical: "Official WhatsApp Business API",
     },
@@ -215,7 +215,7 @@ export default function Features() {
       icon: Wand2,
       title: "No-Code Chatbot Builder",
       description:
-        "Design conversation flows with drag-and-drop — deploy chatbots across channels in minutes without writing a single line of code.",
+        "Design conversation flows with drag-and-drop, Deploy chatbots across channels in minutes without writing a single line of code.",
       unique: false,
       technical: "Visual Flow Designer",
     },
@@ -223,7 +223,7 @@ export default function Features() {
       icon: Plug,
       title: "CRM & Tool Integrations",
       description:
-        "Sync conversations with Salesforce, HubSpot, Zoho, and 100+ platforms — every chat logged, every lead captured automatically.",
+        "Sync conversations with Salesforce, HubSpot, Zoho, and 100+ platforms every chat logged, every lead captured automatically.",
       unique: false,
       technical: "100+ Pre-built Connectors",
     },
@@ -271,7 +271,7 @@ export default function Features() {
             <span className="text-[#00D563]"> BotrixAI?</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            From WhatsApp to your website and phone lines — intelligent chatbots that automate support, capture leads, and delight customers around the clock
+            From WhatsApp to your website and phone lines intelligent chatbots that automate support, capture leads, and delight customers around the clock
           </p>
         </div>
 
