@@ -10,7 +10,7 @@ const clients = [
   { src: "/clients/Logo-Goto.webp",              name: "Goto" },
   { src: "/clients/Logo-Medikart.png",           name: "Medikart" },
   { src: "/clients/Logo-Prasiddhi.jpeg",         name: "Prasiddhi" },
-  { src: "/clients/Logo-T-SeriesEducation.png",  name: "T-Series Education" },
+  // { src: "/clients/Logo-T-SeriesEducation.png",  name: "T-Series Education" },
   { src: "/clients/Logo-TheVilton.jpeg",         name: "The Vilton" },
   { src: "/clients/Logo-ThinkGas.png",           name: "ThinkGas" },
   { src: "/clients/Logo-Tstageworks.png",        name: "Tstageworks" },
