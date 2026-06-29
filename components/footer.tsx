@@ -48,12 +48,18 @@ export default function Footer() {
         { name: "Terms of Service", href: "/terms" },
       ],
     },
+    {
+      title: "Products & Solutions",
+      links: [
+        { name: "Swara - The Fashion Street", href: "#" },
+      ],
+    },
   ]
 
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
             <div className="flex items-center">
@@ -121,6 +127,7 @@ export default function Footer() {
           </div>
 
           {/* Solutions */}
+          
           <div className="space-y-3 sm:space-y-4">
             <h3 className="text-base sm:text-lg font-semibold text-white">Solutions</h3>
             <ul className="space-y-2 sm:space-y-3">
@@ -163,6 +170,20 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+            {/* Products */}
+          <div className="space-y-3 sm:space-y-4">
+            <h3 className="text-base sm:text-lg font-semibold text-white">Products</h3>
+            <ul className="space-y-2 sm:space-y-3">
+              {footerSections[4].links.map((link, linkIndex) => (
+                <li key={linkIndex}>
+                  <Link href={link.href} className="text-sm sm:text-base text-gray-400 hover:text-[#00D563] transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom Bar */}
@@ -176,6 +197,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+      
       </div>
     </footer>
   )
