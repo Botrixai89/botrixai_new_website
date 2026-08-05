@@ -52,6 +52,8 @@ export default function Footer() {
       title: "Products & Solutions",
       links: [
         { name: "Swara - The Fashion Street", href: "#" },
+        { name: "Voltas", href: "#" },
+        { name: "Chhattisgarh Solar Welfare Association", href: "#" },
       ],
     },
   ]
