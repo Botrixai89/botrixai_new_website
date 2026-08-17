@@ -54,6 +54,7 @@ export default function Footer() {
         { name: "Swara - The Fashion Street", href: "#" },
         { name: "Voltas", href: "#" },
         { name: "Chhattisgarh Solar Welfare Association", href: "#" },
+        { name: "Syed Ahmed Saud", href: "#" },
       ],
     },
   ]
