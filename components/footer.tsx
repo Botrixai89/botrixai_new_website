@@ -51,7 +51,7 @@ export default function Footer() {
     {
       title: "Products & Solutions",
       links: [
-        { name: "Eishwar Jewellers PVT. LTD.", href: "#" },
+        { name: "Hemant Jewellers", href: "#" },
       ],
     },
   ]
