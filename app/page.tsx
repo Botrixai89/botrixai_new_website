@@ -227,7 +227,7 @@ export default function Home() {
         }}
       />
 
-      <Header />
+      <Header transparentOnTop />
       <main className="relative">
         <Hero />
         <OurClients />
