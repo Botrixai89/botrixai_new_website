@@ -22,22 +22,22 @@ export default function Hero() {
         }
       `}</style>
 
-      <section className="relative isolate w-full min-h-[100svh] bg-[#040806] overflow-hidden rounded-b-[2rem] sm:rounded-b-[3rem] flex items-center justify-center pt-[116px]">
+      <section className="relative z-10 isolate w-full min-h-[100svh] bg-white overflow-hidden flex items-center justify-center pb-[170px] pt-16 sm:pb-[220px]">
 
         <HeroHorizon contentRef={contentRef} />
 
         {/* ── Main content ── */}
-        <div className="relative z-10 w-full px-4 sm:px-6 py-16 sm:py-20 flex justify-center">
+        <div className="relative z-10 w-full px-4 sm:px-6 py-4 sm:py-6 flex justify-center">
           <div ref={contentRef} className="w-fit max-w-full flex flex-col items-center text-center">
 
             {/* Headline */}
             <h1
-              className="animate-fadeUp text-4xl sm:text-5xl xl:text-[3.5rem] font-semibold leading-[1.08] tracking-[-0.03em] mb-6 bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent pb-1"
+              className="animate-fadeUp text-4xl sm:text-5xl xl:text-[3.5rem] font-semibold leading-[1.08] tracking-[-0.03em] mb-6 text-gray-900 pb-1"
               style={{ animationDelay: '200ms' }}
             >
               Best AI Automation Platform &amp;{' '}
               <br className="hidden sm:block" />
-              <span className="bg-gradient-to-b from-[#7ef0b4] to-[#1fbf73] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-b from-[#00b85a] to-[#008f4c] bg-clip-text text-transparent">
                 WhatsApp Business
               </span>{' '}
               API.
@@ -45,7 +45,7 @@ export default function Hero() {
 
             {/* Subheading */}
             <p
-              className="animate-fadeUp text-[15px] sm:text-lg text-white/55 leading-relaxed mb-9 max-w-[34rem]"
+              className="animate-fadeUp text-[15px] sm:text-lg text-gray-600 leading-relaxed mb-9 max-w-[34rem]"
               style={{ animationDelay: '500ms' }}
             >
               BotrixAI brings AI automation to your fingertips to streamline tasks, reduce costs, and delight your customers instantly.
@@ -58,7 +58,7 @@ export default function Hero() {
             >
               <Button
                 size="lg"
-                className="group bg-[#00D563] hover:bg-[#14de72] text-[#04160c] font-medium text-base px-7 py-6 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_8px_24px_-12px_rgba(0,213,99,0.6)] transition-colors duration-200"
+                className="group bg-[#00D563] hover:bg-[#14de72] text-[#04160c] font-medium text-base px-7 py-6 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_10px_24px_-10px_rgba(0,160,75,0.55)] transition-colors duration-200"
                 onClick={() =>
                   window.open(
                     'https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08',

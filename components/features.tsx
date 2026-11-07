@@ -1,297 +1,211 @@
 "use client"
 
-import { useEffect, useRef, useState, type ReactNode } from "react"
+import { useRef, type PointerEvent, type ReactNode } from "react"
+import { gsap, ScrollTrigger, SplitText, useGSAP, MOTION_OK } from "@/lib/gsap"
 import {
-  MessageCircle,
-  Bot,
-  Mic,
-  Clock,
-  Plug,
-  Wand2,
-  Shield,
-  Zap,
-  Users,
-  type LucideIcon,
-} from "lucide-react"
+  WhatsAppVisual,
+  VoiceVisual,
+  WebChatVisual,
+  BuilderVisual,
+  IntegrationsVisual,
+  SecurityVisual,
+} from "@/components/features-visuals"
 import { cn } from "@/lib/utils"
 
-function useInView(threshold = 0.12) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [isInView, setIsInView] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true)
-          observer.unobserve(el)
-        }
-      },
-      { threshold, rootMargin: "0px 0px -48px 0px" }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [threshold])
-
-  return { ref, isInView }
-}
-
-function AnimatedCard({
-  children,
-  index,
-  className,
-  large = false,
-}: {
-  children: ReactNode
-  index: number
-  className?: string
-  large?: boolean
-}) {
-  const { ref, isInView } = useInView()
-
-  return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${index * 90}ms` }}
-      className={cn(
-        "group relative rounded-xl sm:rounded-2xl border-2 border-[#00D563]/30 bg-white shadow-lg",
-        "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        "hover:-translate-y-2 hover:border-[#00D563] hover:shadow-2xl hover:shadow-[#00D563]/15",
-        "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-        large ? "p-7 sm:p-9 lg:p-10 min-h-[220px] lg:min-h-[260px]" : "p-6 sm:p-7 lg:p-8 min-h-[200px] lg:min-h-[220px]",
-        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-        className
-      )}
-    >
-      <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#00D563]/0 to-[#00D563]/0 group-hover:from-[#00D563]/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
-      <div className="relative">{children}</div>
-    </div>
-  )
-}
-
-function FeatureCardContent({
-  icon: Icon,
-  title,
-  description,
-  technical,
-  unique,
-  large,
-}: {
-  icon: LucideIcon
+type Feature = {
   title: string
   description: string
   technical: string
-  unique?: boolean
-  large?: boolean
+  unique: boolean
+}
+
+const FEATURES: Record<"whatsapp" | "web" | "voice" | "builder" | "crm" | "security", Feature> = {
+  whatsapp: {
+    title: "WhatsApp Business Chatbots",
+    description:
+      "Automate customer chats, broadcast campaigns, and support on WhatsApp Business API the channel your customers already use every day.",
+    unique: true,
+    technical: "Official WhatsApp Business API",
+  },
+  web: {
+    title: "Intelligent Web Chatbots",
+    description:
+      "Engage website visitors 24/7, capture leads, and answer FAQs instantly with AI-powered chat widgets trained on your business.",
+    unique: true,
+    technical: "GenAI + Lead Capture",
+  },
+  voice: {
+    title: "AI Voice Agents",
+    description:
+      "Handle inbound calls with natural voice bots for bookings, support, and IVR — reducing wait times and staffing costs.",
+    unique: true,
+    technical: "Multi-language Voice AI",
+  },
+  builder: {
+    title: "No-Code Chatbot Builder",
+    description:
+      "Design conversation flows with drag-and-drop, Deploy chatbots across channels in minutes without writing a single line of code.",
+    unique: false,
+    technical: "Visual Flow Designer",
+  },
+  crm: {
+    title: "CRM & Tool Integrations",
+    description:
+      "Sync conversations with Salesforce, HubSpot, Zoho, and 100+ platforms every chat logged, every lead captured automatically.",
+    unique: false,
+    technical: "100+ Pre-built Connectors",
+  },
+  security: {
+    title: "Secure & Compliant",
+    description:
+      "Enterprise-grade encryption, GDPR-ready data handling, and WhatsApp policy compliance so your customer data stays protected.",
+    unique: false,
+    technical: "SOC 2 · GDPR · E2E Encryption",
+  },
+}
+
+// Cursor-following spotlight on the card surface and its border
+function trackPointer(e: PointerEvent<HTMLElement>) {
+  const el = e.currentTarget
+  const r = el.getBoundingClientRect()
+  el.style.setProperty("--mx", `${e.clientX - r.left}px`)
+  el.style.setProperty("--my", `${e.clientY - r.top}px`)
+}
+
+function BentoCard({
+  feature,
+  visual,
+  visualClassName,
+  horizontal = false,
+  className,
+}: {
+  feature: Feature
+  visual: ReactNode
+  visualClassName?: string
+  horizontal?: boolean
+  className?: string
 }) {
   return (
-    <div className="space-y-3 sm:space-y-4 h-full flex flex-col">
-      <div className="flex items-center justify-between">
-        <div
-          className={cn(
-            "rounded-xl sm:rounded-2xl flex items-center justify-center bg-[#00D563]",
-            "transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3",
-            large ? "w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20" : "w-12 h-12 sm:w-14 sm:h-14"
-          )}
-        >
-          <Icon
-            className={cn(
-              "text-white transition-transform duration-500 group-hover:scale-105",
-              large ? "w-7 h-7 sm:w-8 sm:h-8" : "w-6 h-6 sm:w-7 sm:h-7"
-            )}
-          />
-        </div>
-        {unique && (
-          <span className="bg-[#00D563] text-white px-2 sm:px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
-            UNIQUE
-          </span>
-        )}
-      </div>
-      <h3
-        className={cn(
-          "font-bold text-gray-900",
-          large ? "text-xl sm:text-2xl lg:text-3xl" : "text-lg sm:text-xl"
-        )}
-      >
-        {title}
-      </h3>
-      <p
-        className={cn(
-          "text-gray-600 leading-relaxed flex-1",
-          large ? "text-base sm:text-lg" : "text-sm sm:text-base"
-        )}
-      >
-        {description}
-      </p>
-      <div className="bg-gray-50 rounded-lg p-2 sm:p-3 transition-colors duration-300 group-hover:bg-[#00D563]/5">
-        <p className="text-xs sm:text-sm font-medium text-gray-700">{technical}</p>
-      </div>
-    </div>
-  )
-}
-
-function getZigzagSpan(index: number) {
-  const row = Math.floor(index / 2)
-  const posInRow = index % 2
-  const isLarge = (row % 2 === 0 && posInRow === 0) || (row % 2 === 1 && posInRow === 1)
-  return { isLarge, colSpan: isLarge ? "lg:col-span-7" : "lg:col-span-5" }
-}
-
-const PLATFORM_STATS = [
-  { icon: Users, value: "500+", label: "Businesses Automated" },
-  { icon: MessageCircle, value: "10M+", label: "Chats Handled Monthly" },
-  { icon: Zap, value: "< 200ms", label: "Chat Response" },
-  { icon: Clock, value: "24/7", label: "AI Availability" },
-] as const
-
-function StatsBar() {
-  const { ref, isInView } = useInView(0.2)
-
-  return (
-    <div
-      ref={ref}
+    <article
+      onPointerMove={trackPointer}
       className={cn(
-        "bg-gradient-to-r from-[#00D563] to-[#00B553] rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white",
-        "transition-all duration-700 ease-out",
-        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        "fx-card group relative flex flex-col overflow-hidden rounded-3xl border border-gray-200/80 bg-white p-2",
+        "shadow-[0_1px_2px_rgba(16,24,20,0.04),0_16px_40px_-24px_rgba(16,24,20,0.18)]",
+        "transition-shadow duration-500 hover:shadow-[0_1px_2px_rgba(16,24,20,0.04),0_28px_60px_-28px_rgba(16,24,20,0.28)]",
+        horizontal && "xl:flex-row-reverse xl:items-stretch",
+        className
       )}
     >
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-        {PLATFORM_STATS.map((stat, index) => {
-          const Icon = stat.icon
-          return (
-            <div
-              key={stat.label}
-              style={{ transitionDelay: `${index * 100}ms` }}
-              className={cn(
-                "text-center transition-all duration-500 ease-out",
-                isInView ? "opacity-100 scale-100" : "opacity-0 scale-95"
-              )}
-            >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1">{stat.value}</div>
-              <div className="text-xs sm:text-sm text-green-100">{stat.label}</div>
-            </div>
-          )
-        })}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{ background: "radial-gradient(480px circle at var(--mx) var(--my), rgba(0,213,99,0.06), transparent 45%)" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          padding: 1,
+          background: "radial-gradient(320px circle at var(--mx) var(--my), rgba(0,184,90,0.45), transparent 45%)",
+          WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+          WebkitMaskComposite: "xor",
+          maskComposite: "exclude",
+        }}
+      />
+
+      <div className={cn("relative", horizontal ? "xl:min-w-0 xl:flex-1" : "", visualClassName)}>{visual}</div>
+
+      <div className={cn("relative px-4 pb-4 pt-5 sm:px-5 sm:pb-5", horizontal && "xl:w-[38%] xl:self-center xl:px-7")}>
+        <div className="mb-2.5 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.08em] text-gray-500">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#00D563]" />
+          {feature.technical}
+          {feature.unique && (
+            <span className="ml-auto rounded-full bg-[#00D563]/10 px-2 py-0.5 text-[10px] font-semibold tracking-[0.06em] text-[#00894a]">
+              Unique
+            </span>
+          )}
+        </div>
+        <h3 className="text-lg font-semibold tracking-tight text-gray-900 sm:text-xl">{feature.title}</h3>
+        <p className="mt-1.5 text-[14px] leading-relaxed text-gray-600 sm:text-[15px]">{feature.description}</p>
       </div>
-    </div>
+    </article>
   )
 }
 
 export default function Features() {
-  const features = [
-    {
-      icon: MessageCircle,
-      title: "WhatsApp Business Chatbots",
-      description:
-        "Automate customer chats, broadcast campaigns, and support on WhatsApp Business API the channel your customers already use every day.",
-      unique: true,
-      technical: "Official WhatsApp Business API",
-    },
-    {
-      icon: Bot,
-      title: "Intelligent Web Chatbots",
-      description:
-        "Engage website visitors 24/7, capture leads, and answer FAQs instantly with AI-powered chat widgets trained on your business.",
-      unique: true,
-      technical: "GenAI + Lead Capture",
-    },
-    {
-      icon: Mic,
-      title: "AI Voice Agents",
-      description:
-        "Handle inbound calls with natural voice bots for bookings, support, and IVR — reducing wait times and staffing costs.",
-      unique: true,
-      technical: "Multi-language Voice AI",
-    },
-    {
-      icon: Wand2,
-      title: "No-Code Chatbot Builder",
-      description:
-        "Design conversation flows with drag-and-drop, Deploy chatbots across channels in minutes without writing a single line of code.",
-      unique: false,
-      technical: "Visual Flow Designer",
-    },
-    {
-      icon: Plug,
-      title: "CRM & Tool Integrations",
-      description:
-        "Sync conversations with Salesforce, HubSpot, Zoho, and 100+ platforms every chat logged, every lead captured automatically.",
-      unique: false,
-      technical: "100+ Pre-built Connectors",
-    },
-    {
-      icon: Shield,
-      title: "Secure & Compliant",
-      description:
-        "Enterprise-grade encryption, GDPR-ready data handling, and WhatsApp policy compliance so your customer data stays protected.",
-      unique: false,
-      technical: "SOC 2 · GDPR · E2E Encryption",
-    },
-  ]
+  const root = useRef<HTMLElement>(null)
 
-  const headerRef = useRef<HTMLDivElement>(null)
-  const [headerVisible, setHeaderVisible] = useState(false)
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia()
+      mm.add(MOTION_OK, () => {
+        const split = SplitText.create(".fx-title", { type: "words", mask: "words" })
+        const head = gsap.timeline({ scrollTrigger: { trigger: ".fx-title", start: "top 85%" } })
+        head
+          .from(split.words, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.07 })
+          .from(".fx-sub", { y: 16, autoAlpha: 0, duration: 0.8, ease: "power3.out" }, "-=0.55")
 
-  useEffect(() => {
-    const el = headerRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true)
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.3 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
+        gsap.set(".fx-card", { autoAlpha: 0, y: 60, rotateX: -10, transformPerspective: 1200, transformOrigin: "50% 0%" })
+        ScrollTrigger.batch(".fx-card", {
+          start: "top 90%",
+          once: true,
+          onEnter: (cards) =>
+            gsap.to(cards, { autoAlpha: 1, y: 0, rotateX: 0, duration: 1.1, ease: "power3.out", stagger: 0.12 }),
+        })
+      })
+    },
+    { scope: root }
+  )
 
   return (
-    <section className="w-full py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          ref={headerRef}
-          className={cn(
-            "text-center mb-12 sm:mb-16 transition-all duration-700 ease-out",
-            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          )}
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Why Choose
-            <span className="text-[#00D563]"> BotrixAI?</span>
+    <section ref={root} className="relative -mt-12 bg-[#f7f9f8] pb-16 pt-24 sm:-mt-16 sm:pb-20 sm:pt-28">
+      <style>{`
+        @keyframes fv-dot { 0%, 60%, 100% { transform: translateY(0); opacity: .45; } 30% { transform: translateY(-3px); opacity: 1; } }
+        .fv-dot { animation: fv-dot 1.1s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) { .fv-dot { animation: none; } }
+      `}</style>
+
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[600px] [mask-image:linear-gradient(to_bottom,black,transparent)]"
+        style={{ backgroundImage: "radial-gradient(rgba(16,24,20,0.07) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
+      />
+
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
+          <h2 className="fx-title text-3xl/[1.2] font-semibold tracking-[-0.03em] text-gray-900 sm:text-4xl/[1.2] lg:text-5xl/[1.2]">
+            Why Choose <span className="text-[#00b85a]">BotrixAI?</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="fx-sub mt-4 text-base leading-relaxed text-gray-600 sm:mt-5 sm:text-lg">
             From WhatsApp to your website and phone lines intelligent chatbots that automate support, capture leads, and delight customers around the clock
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 mb-16 sm:mb-20">
-          {features.map((feature, index) => {
-            const { isLarge, colSpan } = getZigzagSpan(index)
-            return (
-              <AnimatedCard
-                key={feature.title}
-                index={index}
-                large={isLarge}
-                className={cn("col-span-1", colSpan)}
-              >
-                <FeatureCardContent {...feature} large={isLarge} />
-              </AnimatedCard>
-            )
-          })}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 lg:gap-5">
+          <BentoCard
+            feature={FEATURES.whatsapp}
+            visual={<WhatsAppVisual />}
+            horizontal
+            className="md:col-span-2 lg:col-span-12 xl:col-span-7"
+          />
+          <BentoCard
+            feature={FEATURES.voice}
+            visual={<VoiceVisual />}
+            visualClassName="h-[190px]"
+            className="md:col-span-2 lg:col-span-12 xl:col-span-5"
+          />
+          <BentoCard feature={FEATURES.web} visual={<WebChatVisual />} visualClassName="h-[180px]" className="lg:col-span-6 xl:col-span-4" />
+          <BentoCard feature={FEATURES.builder} visual={<BuilderVisual />} visualClassName="h-[180px]" className="lg:col-span-6 xl:col-span-4" />
+          <BentoCard
+            feature={FEATURES.crm}
+            visual={<IntegrationsVisual />}
+            visualClassName="h-[180px]"
+            className="md:col-span-2 lg:col-span-12 xl:col-span-4"
+          />
+          <BentoCard
+            feature={FEATURES.security}
+            visual={<SecurityVisual badges={FEATURES.security.technical.split(" · ")} />}
+            horizontal
+            className="md:col-span-2 lg:col-span-12"
+          />
         </div>
-
-        <StatsBar />
       </div>
     </section>
   )

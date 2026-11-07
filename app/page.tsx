@@ -4,7 +4,7 @@ import { LocalBusinessSchema } from '@/components/schema/local-business-schema'
 import { FAQSchema } from '@/components/schema/faq-schema'
 import Features from "@/components/features"
 import IntegrationShowcase from "@/components/integration-showcase"
-import ProductDemo from "@/components/product-demo"
+// import ProductDemo from "@/components/product-demo"
 import TechnologyStack from "@/components/technology-stack"
 import OurClients from "@/components/our-clients"
 import Footer from "@/components/footer"
@@ -211,7 +211,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-clip">
       <LocalBusinessSchema />
       <FAQSchema items={faqItems} />
       <script
@@ -227,13 +227,13 @@ export default function Home() {
         }}
       />
 
-      <Header transparentOnTop />
+      <Header />
       <main className="relative">
         <Hero />
-        <OurClients />
         <Features />
+        <OurClients />
         <IntegrationShowcase />
-        <ProductDemo />
+        {/* <ProductDemo /> */}
         <TechnologyStack />
       </main>
       <Footer />

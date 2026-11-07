@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type RefObject } from "react"
 import { Facebook, Instagram, Mail, Phone, Smartphone, type LucideIcon } from "lucide-react"
 import WhatsAppGlyph from "@/components/whatsapp-glyph"
+import BotrixMark from "@/components/botrix-mark"
 
 type Glyph = LucideIcon | typeof WhatsAppGlyph
 
@@ -28,6 +29,7 @@ const CONVERSATIONS = [
 ]
 
 const CARD_H = 118
+const CARD_TOP = 84 // keeps the side cards clear of the fixed header
 
 type Card = { x: number; y: number; w: number; depth: number }
 type Layout = {
@@ -49,7 +51,7 @@ function computeLayout(root: DOMRect, c: DOMRect): Layout {
   // Planet-edge horizon: wide, gently curved, crest just below the text block; the channel hub sits on it
   const R = Math.max(w * 0.95, 520)
   const compact = w < 720
-  const crest = Math.min(Math.max(bottom + (compact ? 105 : 140), h * 0.8), h - (compact ? 78 : 100))
+  const crest = Math.min(Math.max(bottom + (compact ? 105 : 140), h * 0.76), h - (compact ? 78 : 100))
   const cy = crest + R
 
   const cards: Card[] = []
@@ -58,7 +60,7 @@ function computeLayout(root: DOMRect, c: DOMRect): Layout {
     const cw = Math.min(272, gutter - 44)
     const rimY = (x: number) => cy - Math.sqrt(Math.max(0, R * R - (x - w / 2) ** 2))
     const place = (x: number, y: number, depth: number) =>
-      cards.push({ x, y: Math.min(y, rimY(x + (x < w / 2 ? cw : 0)) - CARD_H - 24), w: cw, depth })
+      cards.push({ x, y: Math.max(CARD_TOP, Math.min(y, rimY(x + (x < w / 2 ? cw : 0)) - CARD_H - 24)), w: cw, depth })
     const xl = (left - cw) / 2
     const xr = right + (w - right - cw) / 2
     const gap = CARD_H + 44
@@ -83,55 +85,39 @@ function ConversationCard({ card, state, index }: { card: Card; state: CardState
         left: card.x,
         top: card.y,
         width: card.w,
-        opacity: 0.35 + card.depth * 0.55,
+        opacity: 0.5 + card.depth * 0.5,
         transform: `scale(${card.depth})`,
         filter: card.depth < 0.9 ? "blur(0.6px)" : undefined,
         animationDelay: `${-index * 2.1}s`,
       }}
     >
-      <div className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.8)] backdrop-blur-md">
+      <div className="rounded-2xl border border-gray-200/80 bg-white/85 p-4 shadow-[0_1px_2px_rgba(16,24,20,0.04),0_20px_40px_-24px_rgba(16,24,20,0.25)] backdrop-blur-md">
         <div className="mb-3 flex items-center gap-2">
-          <span className="grid h-6 w-6 place-items-center rounded-md bg-white/[0.06] text-white/70">
+          <span className="grid h-6 w-6 place-items-center rounded-md bg-gray-100 text-gray-600">
             <Icon size={13} strokeWidth={1.75} />
           </span>
-          <span className="text-[11px] font-medium text-white/50">{label}</span>
-          <span className="ml-auto text-[10px] text-white/30">now</span>
+          <span className="text-[11px] font-medium text-gray-500">{label}</span>
+          <span className="ml-auto text-[10px] text-gray-400">now</span>
         </div>
-        <div key={`q${state.rev}`} className="hz-in text-[13px] leading-snug text-white/85">
+        <div key={`q${state.rev}`} className="hz-in text-[13px] leading-snug text-gray-900">
           {convo.q}
         </div>
-        <div className="mt-2.5 flex min-h-[34px] items-start gap-2 border-t border-white/[0.06] pt-2.5">
-          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#00D563]/80" />
+        <div className="mt-2.5 flex min-h-[34px] items-start gap-2 border-t border-gray-100 pt-2.5">
+          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#00b85a]" />
           {state.phase === "typing" ? (
             <span key={`t${state.rev}`} className="hz-in flex gap-1 pt-1.5">
               {[0, 1, 2].map((d) => (
-                <span key={d} className="hz-dot h-1 w-1 rounded-full bg-white/50" style={{ animationDelay: `${d * 0.16}s` }} />
+                <span key={d} className="hz-dot h-1 w-1 rounded-full bg-gray-400" style={{ animationDelay: `${d * 0.16}s` }} />
               ))}
             </span>
           ) : state.phase === "a" ? (
-            <span key={`a${state.rev}`} className="hz-in text-[12px] leading-snug text-white/55">
+            <span key={`a${state.rev}`} className="hz-in text-[12px] leading-snug text-gray-600">
               {convo.a}
             </span>
           ) : null}
         </div>
       </div>
     </div>
-  )
-}
-
-// Botrix mark cropped out of the white logo (mark occupies x 52–192, y 86–221 of the 752×332 PNG)
-function BotrixMark({ size }: { size: number }) {
-  const k = size / 140
-  return (
-    <div
-      style={{
-        width: size,
-        height: 135 * k,
-        backgroundImage: "url(/images/botrix-logo.png)",
-        backgroundSize: `${752 * k}px ${332 * k}px`,
-        backgroundPosition: `${-52 * k}px ${-86 * k}px`,
-      }}
-    />
   )
 }
 
@@ -216,21 +202,21 @@ function ChannelHub({ layout, ping }: { layout: Layout; ping: Ping }) {
       {/* Light from the core spilling onto the horizon */}
       <div
         className={`absolute left-1/2 top-1/2 h-24 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2fd486] blur-3xl transition-opacity duration-700 ${
-          busy ? "opacity-30" : "opacity-[0.14]"
+          busy ? "opacity-25" : "opacity-10"
         }`}
       />
 
       <svg className="absolute inset-0 overflow-visible" width={W} height={H} viewBox={`0 0 ${W} ${H}`} fill="none">
         {tiles.map((tile, i) => (
           <g key={i} strokeLinecap="round">
-            <path d={tile.path} stroke="#ffffff" strokeOpacity="0.09" strokeWidth="1" />
+            <path d={tile.path} stroke="#101814" strokeOpacity="0.14" strokeWidth="1" />
             <path
               ref={(el) => {
                 glowRefs.current[i] = el
               }}
               d={tile.path}
-              stroke="#7ef0b4"
-              strokeOpacity="0.18"
+              stroke="#00b85a"
+              strokeOpacity="0.16"
               strokeWidth="5"
               strokeDasharray="0 100000"
             />
@@ -239,9 +225,9 @@ function ChannelHub({ layout, ping }: { layout: Layout; ping: Ping }) {
                 beamRefs.current[i] = el
               }}
               d={tile.path}
-              stroke="#d4fbe6"
-              strokeOpacity="0.85"
-              strokeWidth="1.25"
+              stroke="#00a650"
+              strokeOpacity="0.9"
+              strokeWidth="1.5"
               strokeDasharray="0 100000"
             />
           </g>
@@ -252,14 +238,14 @@ function ChannelHub({ layout, ping }: { layout: Layout; ping: Ping }) {
           cx={cx}
           cy={cy}
           r={c / 2 + 7}
-          stroke="#7ef0b4"
-          strokeOpacity={busy ? 0.7 : 0}
+          stroke="#00b85a"
+          strokeOpacity={busy ? 0.8 : 0}
           strokeWidth="1.25"
           strokeLinecap="round"
           strokeDasharray={`${(c / 2 + 7) * 1.4} ${(c / 2 + 7) * 5}`}
           style={{ transformBox: "fill-box", transformOrigin: "center", transition: "stroke-opacity .4s" }}
         />
-        <circle cx={cx} cy={cy} r={c / 2 + 7} stroke="#ffffff" strokeOpacity="0.06" />
+        <circle cx={cx} cy={cy} r={c / 2 + 7} stroke="#101814" strokeOpacity="0.08" />
       </svg>
 
       {tiles.map((tile, i) => {
@@ -268,8 +254,8 @@ function ChannelHub({ layout, ping }: { layout: Layout; ping: Ping }) {
         return (
           <div
             key={label}
-            className={`absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-xl border bg-[#09110d]/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_12px_24px_-12px_rgba(0,0,0,0.9)] backdrop-blur-md transition-all duration-500 ${
-              on ? "border-[#7ef0b4]/35 text-[#a9f5cc]" : "border-white/[0.09] text-white/55"
+            className={`absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-xl border bg-white shadow-[0_1px_2px_rgba(16,24,20,0.05),0_12px_24px_-14px_rgba(16,24,20,0.3)] transition-all duration-500 ${
+              on ? "border-[#00b85a]/50 text-[#00894a]" : "border-gray-200 text-gray-500"
             }`}
             style={{ left: tile.x, top: tile.y, width: t, height: t }}
           >
@@ -279,7 +265,7 @@ function ChannelHub({ layout, ping }: { layout: Layout; ping: Ping }) {
       })}
 
       <div
-        className="absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[20px] border border-white/[0.12] bg-[linear-gradient(180deg,#112019,#070d0a)] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_20px_40px_-16px_rgba(0,0,0,0.95)]"
+        className="absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[20px] border border-gray-200 bg-[linear-gradient(180deg,#ffffff,#f3faf6)] shadow-[0_1px_2px_rgba(16,24,20,0.05),0_20px_40px_-18px_rgba(0,120,60,0.35)]"
         style={{ left: cx, top: cy, width: c, height: c }}
       >
         <BotrixMark size={c * 0.5} />
@@ -372,14 +358,14 @@ export default function HeroHorizon({ contentRef }: { contentRef: RefObject<HTML
       `}</style>
 
       {/* Haze */}
-      <div className="hz-drift-a absolute left-[8%] top-[6%] h-[55%] w-[55%] rounded-full bg-[#0e3b2a] opacity-60 blur-[120px]" />
-      <div className="hz-drift-b absolute right-[4%] top-[18%] h-[45%] w-[45%] rounded-full bg-[#0c3233] opacity-50 blur-[120px]" />
+      <div className="hz-drift-a absolute left-[8%] top-[6%] h-[55%] w-[55%] rounded-full bg-[#d3f5e2] opacity-70 blur-[120px]" />
+      <div className="hz-drift-b absolute right-[4%] top-[18%] h-[45%] w-[45%] rounded-full bg-[#d8f1f1] opacity-60 blur-[120px]" />
 
       {/* Dot grid */}
       <div
         className="absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black_20%,transparent_75%)]"
         style={{
-          backgroundImage: "radial-gradient(rgba(255,255,255,0.09) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(16,24,20,0.1) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -388,21 +374,21 @@ export default function HeroHorizon({ contentRef }: { contentRef: RefObject<HTML
         <svg className="absolute inset-0 h-full w-full" viewBox={`0 0 ${layout.w} ${layout.h}`}>
           <defs>
             <radialGradient id="hz-sky" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#3ddc97" stopOpacity="0.28" />
-              <stop offset="40%" stopColor="#1f8a62" stopOpacity="0.1" />
-              <stop offset="100%" stopColor="#0b2a1e" stopOpacity="0" />
+              <stop offset="0%" stopColor="#00D563" stopOpacity="0.2" />
+              <stop offset="40%" stopColor="#00D563" stopOpacity="0.07" />
+              <stop offset="100%" stopColor="#00D563" stopOpacity="0" />
             </radialGradient>
             <radialGradient id="hz-planet" cx="50%" cy="0%" r="55%">
-              <stop offset="0%" stopColor="#0c1f17" />
-              <stop offset="18%" stopColor="#050b08" />
-              <stop offset="100%" stopColor="#020403" />
+              <stop offset="0%" stopColor="#e6f9ef" />
+              <stop offset="18%" stopColor="#f3faf6" />
+              <stop offset="100%" stopColor="#f7f9f8" />
             </radialGradient>
             <linearGradient id="hz-rim" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={layout.w} y2="0">
-              <stop offset="0%" stopColor="#d9f7e8" stopOpacity="0" />
-              <stop offset="28%" stopColor="#d9f7e8" stopOpacity="0.18" />
-              <stop offset="50%" stopColor="#ecfff5" stopOpacity="0.75" />
-              <stop offset="72%" stopColor="#d9f7e8" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#d9f7e8" stopOpacity="0" />
+              <stop offset="0%" stopColor="#00b85a" stopOpacity="0" />
+              <stop offset="28%" stopColor="#00b85a" stopOpacity="0.2" />
+              <stop offset="50%" stopColor="#00b85a" stopOpacity="0.6" />
+              <stop offset="72%" stopColor="#00b85a" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#00b85a" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -430,25 +416,15 @@ export default function HeroHorizon({ contentRef }: { contentRef: RefObject<HTML
         </svg>
       )}
 
+      {/* Foot fades into the next section's background */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f7f9f8] to-transparent" />
+
       {layout && <ChannelHub layout={layout} ping={ping} />}
 
       {/* Conversation cards (wide screens only, placed in the side gutters) */}
       {layout?.cards.map((card, i) => (
         <ConversationCard key={i} card={card} state={cards[i]} index={i} />
       ))}
-
-      {/* Grain */}
-      <div
-        className="absolute inset-0 opacity-[0.06] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }}
-      />
-
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_75%_at_50%_45%,transparent_45%,rgba(2,4,3,0.75)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#020403]/80 to-transparent" />
     </div>
   )
 }

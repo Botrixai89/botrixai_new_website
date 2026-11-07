@@ -104,7 +104,10 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
 
   return (
     <>
-      {/* Announcement Bar */}
+      {/* Announcement Bar: disabled for now. To re-enable, uncomment this block and restore the bar's height:
+            - header below: top-0 -> top-[52px]
+            - components/hero.tsx: pt-16 -> pt-[116px]
+            - components/technology-stack.tsx: HEADER_OFFSET 64 -> 116, and lg:h-[calc(100vh-64px)] -> lg:h-[calc(100vh-116px)]
       <div className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md transition-colors duration-300 ${isDark ? "bg-white/[0.03] border-white/10" : "bg-gradient-to-r from-green-50/85 via-blue-50/85 to-purple-50/85 border-green-100"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center py-3">
@@ -113,9 +116,10 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
           </div>
         </div>
       </div>
+      */}
 
       {/* Main Header */}
-      <header className={`fixed top-[52px] left-0 right-0 z-[999] backdrop-blur-md border-b transition-colors duration-300 ${isDark ? "bg-transparent border-transparent" : "bg-white/80 border-gray-200 shadow-sm"}`}>
+      <header className={`fixed top-0 left-0 right-0 z-[999] backdrop-blur-md border-b transition-colors duration-300 ${isDark ? "bg-transparent border-transparent" : "bg-white/80 border-gray-200 shadow-sm"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
