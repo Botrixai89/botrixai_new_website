@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smartphone, Mic, Building, Headphones, BarChart3, Phone, Car, Plane, Banknote, Shield, Heart, Settings, ShoppingCart, Users, GraduationCap, MapPin, Mail, Instagram, Headset, PhoneCall, TrendingUp, Mic2, MessageSquareCode } from "lucide-react"
 import Link from "next/link"
@@ -17,9 +17,22 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   />
 )
 
-export default function Header() {
+export default function Header({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    if (!transparentOnTop) return
+    const onScroll = () => setIsScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [transparentOnTop])
+
+  // Over a dark hero: see-through header with light text until the user scrolls
+  const isDark = transparentOnTop && !isScrolled && !isMenuOpen
+  const navText = isDark ? "text-white/80" : "text-gray-700"
 
   const aiAgentCategories = [
     {
@@ -91,25 +104,29 @@ export default function Header() {
 
   return (
     <>
-      {/* Announcement Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-50/85 via-blue-50/85 to-purple-50/85 border-b border-green-100 backdrop-blur-md">
+      {/* Announcement Bar: disabled for now. To re-enable, uncomment this block and restore the bar's height:
+            - header below: top-0 -> top-[52px]
+            - components/hero.tsx: pt-16 -> pt-[116px]
+            - components/technology-stack.tsx: HEADER_OFFSET 64 -> 116, and lg:h-[calc(100vh-64px)] -> lg:h-[calc(100vh-116px)]
+      <div className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md transition-colors duration-300 ${isDark ? "bg-white/[0.03] border-white/10" : "bg-gradient-to-r from-green-50/85 via-blue-50/85 to-purple-50/85 border-green-100"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center py-3">
             <Sparkles className="w-4 h-4 text-[#00D563] mr-2" />
-            <span className="text-sm font-medium text-gray-800">Introducing AI Agent Builder - Deploy intelligent agents in minutes</span>
+            <span className={`text-sm font-medium ${isDark ? "text-white/80" : "text-gray-800"}`}>Introducing AI Agent Builder - Deploy intelligent agents in minutes</span>
           </div>
         </div>
       </div>
+      */}
 
       {/* Main Header */}
-      <header className="fixed top-[52px] left-0 right-0 z-[999] bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <header className={`fixed top-0 left-0 right-0 z-[999] backdrop-blur-md border-b transition-colors duration-300 ${isDark ? "bg-transparent border-transparent" : "bg-white/80 border-gray-200 shadow-sm"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
-                  src="/images/botrix-logo01.png"
+                  src={isDark ? "/images/botrix-logo.png" : "/images/botrix-logo01.png"}
                   alt="BotrixAI Logo"
                   width={80}
                   height={40}
@@ -127,7 +144,7 @@ export default function Header() {
                 onMouseLeave={() => setIsSolutionsOpen(false)}
               >
                 <button
-                  className="flex items-center space-x-1 text-gray-700 hover:text-[#00D563] cursor-pointer font-medium transition-colors relative z-50"
+                  className={`flex items-center space-x-1 ${navText} hover:text-[#00D563] cursor-pointer font-medium transition-colors relative z-50`}
                   onMouseEnter={() => setIsSolutionsOpen(true)}
                   onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
                   style={{ pointerEvents: 'auto' }}
@@ -246,21 +263,21 @@ export default function Header() {
                 )}
               </div>
 
-              <Link href="/product" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
+              <Link href="/product" className={`${navText} hover:text-[#00D563] font-medium transition-colors`}>
                 Product
               </Link>
-              <Link href="/features" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
+              <Link href="/features" className={`${navText} hover:text-[#00D563] font-medium transition-colors`}>
                 Features
               </Link>
 
-              <Link href="/integrations" className="text-gray-700 hover:text-[#00D563] font-medium transition-colors">
+              <Link href="/integrations" className={`${navText} hover:text-[#00D563] font-medium transition-colors`}>
                 Integrations
               </Link>
             </nav>
 
             {/* Right Side CTAs */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Globe className="w-5 h-5 text-gray-500 cursor-pointer hover:text-[#00D563] transition-colors" />
+              <Globe className={`w-5 h-5 ${isDark ? "text-white/60" : "text-gray-500"} cursor-pointer hover:text-[#00D563] transition-colors`} />
               <Button
                 variant="outline"
                 className="border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white bg-transparent font-medium"
@@ -271,7 +288,7 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className={`lg:hidden p-2 ${isDark ? "text-white" : ""}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
