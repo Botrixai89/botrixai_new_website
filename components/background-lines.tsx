@@ -1,6 +1,6 @@
 export default function BackgroundLines() {
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-40 mix-blend-normal">
+    <div aria-hidden data-background-lines className="pointer-events-none fixed inset-0 z-0 opacity-40 mix-blend-normal">
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 1440 1024"

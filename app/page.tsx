@@ -1,13 +1,6 @@
-import Header from "@/components/header"
-import Hero from "@/components/hero"
+import LandingPage from "@/components/landing/LandingPage"
 import { LocalBusinessSchema } from '@/components/schema/local-business-schema'
 import { FAQSchema } from '@/components/schema/faq-schema'
-import Features from "@/components/features"
-import IntegrationShowcase from "@/components/integration-showcase"
-// import ProductDemo from "@/components/product-demo"
-import TechnologyStack from "@/components/technology-stack"
-import OurClients from "@/components/our-clients"
-import Footer from "@/components/footer"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -227,16 +220,7 @@ export default function Home() {
         }}
       />
 
-      <Header />
-      <main className="relative">
-        <Hero />
-        <Features />
-        <OurClients />
-        <IntegrationShowcase />
-        {/* <ProductDemo /> */}
-        <TechnologyStack />
-      </main>
-      <Footer />
+      <LandingPage />
     </div>
   )
 }

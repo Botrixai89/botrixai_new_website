@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Inter_Tight, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import CookieConsent from '@/components/cookie-consent'
-import BackgroundLines from '@/components/background-lines'
+
+// Site-wide type (design.md): Inter Tight for display + body, JetBrains Mono for
+// eyebrows/meta. Inter Tight is variable (wght 100–900) — the home hero uses it.
+const interTight = Inter_Tight({ variable: '--font-display', subsets: ['latin'] })
+const jetbrainsMono = JetBrains_Mono({ variable: '--font-mono-tech', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.botrixai.com'),
@@ -82,9 +85,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`} suppressHydrationWarning>
-        <BackgroundLines />
+    <html lang="en" className={`${interTight.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className="antialiased" suppressHydrationWarning>
         {children}
         <CookieConsent />
         <FloatingWidgets />

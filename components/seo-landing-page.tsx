@@ -1,11 +1,10 @@
 import React from 'react';
-import { Metadata } from 'next';
+import Link from "next/link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { LocalBusinessSchema } from "@/components/schema/local-business-schema"
 import { FAQSchema } from "@/components/schema/faq-schema"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { BookingForm } from "@/components/booking-form"
 
 interface FAQItem {
@@ -21,73 +20,108 @@ interface SEOPageProps {
     ctaText?: string;
 }
 
+const CALENDLY = "https://calendly.com/connectbotrixai/"
+
+/**
+ * Shared template for the location / industry SEO pages (design.md):
+ * canvas hero with blueprint grid, long-form copy beside a sticky booking
+ * card, hairline FAQ rows, and one green spotlight card to close.
+ */
 export const SEOLandingPage = ({ title, subtitle, content, faqs, ctaText = "Book Free Demo" }: SEOPageProps) => {
     return (
-        <div className="w-full overflow-x-hidden pt-20">
+        <div className="w-full overflow-x-clip bg-ink">
             <LocalBusinessSchema />
             <FAQSchema items={faqs} />
             <Header />
 
-            <main className="bg-white">
-                {/* SEO Hero */}
-                <section className="relative py-20 bg-gradient-to-b from-emerald-50 to-white overflow-hidden">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                        <div className="text-center">
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                                {title}
-                            </h1>
-                            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                                {subtitle}
-                            </p>
-                            <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 rounded-xl text-lg font-bold group">
-                                    {ctaText}
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                                <Button size="lg" variant="outline" className="border-emerald-200 text-emerald-700 px-8 py-6 rounded-xl text-lg font-bold">
-                                    View Pricing
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/* Content & Booking Form */}
-                <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                        <div className="lg:col-span-7 prose prose-emerald prose-lg max-w-none">
-                            {content}
-                        </div>
-                        <div className="lg:col-span-5">
-                            <div className="sticky top-32">
-                                <BookingForm />
-                            </div>
+            <main>
+                {/* Hero */}
+                <section className="site-hero px-5 pb-20 pt-36 md:px-8 md:pb-28 md:pt-44">
+                    <div className="mx-auto max-w-5xl text-center">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-surface-1 px-3.5 py-1.5 font-mono text-[10px] tracking-[0.3em] text-bone/70">
+                            <span className="h-1.5 w-1.5 animate-[pulse-dot_1.6s_ease-in-out_infinite] rounded-full bg-signal" />
+                            BOTRIXAI
+                        </span>
+                        <h1 className="mt-6 text-[clamp(2.4rem,6vw,4.8rem)] font-medium leading-[0.98] tracking-[-0.05em] text-bone">
+                            {title}
+                        </h1>
+                        <p className="mx-auto mt-6 max-w-2xl text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.45] text-dim">
+                            {subtitle}
+                        </p>
+                        <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+                            <a
+                                href={CALENDLY}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group inline-flex items-center justify-center gap-3 rounded-full bg-bone px-7 py-4 text-sm font-medium text-ink transition-transform active:scale-95"
+                            >
+                                {ctaText}
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </a>
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center justify-center rounded-full bg-surface-1 px-7 py-4 text-sm font-medium text-bone transition-colors hover:bg-surface-2"
+                            >
+                                View Pricing
+                            </Link>
                         </div>
                     </div>
                 </section>
 
-                {/* FAQ Section */}
-                <section className="py-20 bg-gray-50">
-                    <div className="max-w-4xl mx-auto px-4 sm:px-6">
-                        <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-                        <div className="space-y-6">
+                {/* Content & booking form */}
+                <section className="border-t border-hairline-soft px-5 py-20 md:px-8 md:py-28">
+                    <div className="mx-auto grid max-w-[1240px] grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
+                        <article className="site-prose lg:col-span-7">
+                            {content}
+                        </article>
+                        <aside className="lg:col-span-5">
+                            <div className="sticky top-28">
+                                <BookingForm />
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+
+                {/* FAQ — design.md faq-row: canvas rows split by soft hairlines */}
+                <section className="border-t border-hairline-soft px-5 py-20 md:px-8 md:py-28">
+                    <div className="mx-auto max-w-4xl">
+                        <div className="text-center">
+                            <span className="font-mono text-[11px] tracking-[0.3em] text-signal">FAQ</span>
+                            <h2 className="mt-4 text-[clamp(2rem,4vw,3.2rem)] font-medium leading-[1.02] tracking-[-0.045em] text-bone">
+                                Frequently Asked Questions
+                            </h2>
+                        </div>
+                        <div className="mt-12 divide-y divide-hairline-soft border-y border-hairline-soft">
                             {faqs.map((faq, index) => (
-                                <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                                    <h3 className="text-xl font-bold mb-3">{faq.question}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                                <div key={index} className="grid gap-3 py-7 md:grid-cols-[3rem_1fr]">
+                                    <span className="font-mono text-[12px] tracking-[0.2em] text-dim">{String(index + 1).padStart(2, "0")}</span>
+                                    <div>
+                                        <h3 className="text-[1.2rem] font-medium tracking-[-0.02em] text-bone">{faq.question}</h3>
+                                        <p className="mt-2.5 leading-[1.6] text-dim">{faq.answer}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Global CTA */}
-                <section className="py-20 bg-emerald-900 text-white">
-                    <div className="max-w-5xl mx-auto px-4 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Scale Your Business in Raipur and Beyond?</h2>
-                        <p className="text-xl text-emerald-100 mb-10">Join 50+ businesses trust BotrixAI for their automation needs.</p>
-                        <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 px-10 py-7 rounded-2xl text-xl font-bold">
+                {/* Closing CTA — one gradient spotlight card */}
+                <section className="px-5 pb-24 md:px-8">
+                    <div className="spotlight-card mx-auto max-w-[1240px] rounded-[30px] px-6 py-16 text-center md:py-20">
+                        <span className="font-mono text-[11px] tracking-[0.3em] text-signal">GET STARTED</span>
+                        <h2 className="mx-auto mt-4 max-w-3xl text-[clamp(2rem,4.4vw,3.6rem)] font-medium leading-[1.0] tracking-[-0.045em] text-bone">
+                            Ready to Scale Your Business in Raipur and Beyond?
+                        </h2>
+                        <p className="mx-auto mt-5 max-w-xl text-[1.05rem] leading-[1.45] text-bone/70">
+                            Join 50+ businesses trust BotrixAI for their automation needs.
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="group mt-9 inline-flex items-center gap-3 rounded-full bg-bone px-7 py-4 text-sm font-medium text-ink transition-transform active:scale-95"
+                        >
                             Get in touch now
-                        </Button>
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
                     </div>
                 </section>
             </main>

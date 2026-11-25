@@ -141,26 +141,26 @@ export default function ProductPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ink">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 py-24">
+      <section className="py-24 site-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 mb-8">
-              <span className="text-sm font-medium text-green-800">Enterprise AI Platform</span>
+            <div className="inline-flex items-center px-4 py-2 bg-surface-1/80 backdrop-blur-sm rounded-full border border-signal/30 mb-8">
+              <span className="text-sm font-medium text-signal">Enterprise AI Platform</span>
             </div>
-            <h1 className="text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-6xl text-bone mb-8 leading-tight font-medium tracking-[-0.045em]">
               The Complete AI Agent Platform
             </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim mb-10 max-w-4xl mx-auto leading-relaxed">
               Transform your customer engagement with intelligent automation. Deploy AI agents across web, WhatsApp, and voice channels with enterprise-grade security, scalability, and performance that drives measurable business outcomes.
             </p>
             <div className="flex justify-center">
               <Button 
                 variant="outline" 
-                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                className="px-10 py-4 text-lg transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                 onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Schedule Demo
@@ -171,31 +171,31 @@ export default function ProductPage() {
       </section>
 
       {/* Competitive Advantages */}
-      <section className="py-24">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Why BotrixAI Beats the Competition
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               See how our unique features give you a competitive edge
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {competitiveAdvantages.map((advantage, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl border-2 border-[#00D563] shadow-xl">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl border border-signal/60 light-edge">
                 <div className="space-y-4">
-                  <div className="w-12 h-12 bg-[#00D563] rounded-xl flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-signal rounded-xl flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-bone" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">{advantage.title}</h3>
-                  <p className="text-gray-600">{advantage.description}</p>
-                  <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="text-sm font-medium text-gray-700">{advantage.vsCompetitors}</div>
+                  <h3 className="text-xl text-bone font-medium tracking-[-0.02em]">{advantage.title}</h3>
+                  <p className="text-dim">{advantage.description}</p>
+                  <div className="bg-surface-2 rounded-lg p-3">
+                    <div className="text-sm font-medium text-bone/80">{advantage.vsCompetitors}</div>
                   </div>
-                  <div className="bg-[#E8FFF4] rounded-lg p-3">
-                    <div className="text-sm font-semibold text-[#00D563]">{advantage.impact}</div>
+                  <div className="bg-signal/10 rounded-lg p-3">
+                    <div className="text-sm font-semibold text-signal">{advantage.impact}</div>
                   </div>
                 </div>
               </div>
@@ -205,31 +205,31 @@ export default function ProductPage() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Industry-Specific Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Tailored AI solutions for your specific industry needs
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {industrySolutions.map((industry, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge transition-all duration-300 hover:-translate-y-2">
                 <div className="text-4xl mb-4">{industry.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{industry.name}</h3>
-                <p className="text-gray-600 mb-6">{industry.description}</p>
+                <h3 className="text-xl text-bone mb-2 font-medium tracking-[-0.02em]">{industry.name}</h3>
+                <p className="text-dim mb-6">{industry.description}</p>
                 
                 <div className="space-y-4 mb-6">
-                  <h4 className="font-semibold text-gray-900">Use Cases:</h4>
+                  <h4 className="text-bone font-medium tracking-[-0.01em]">Use Cases:</h4>
                   <div className="space-y-2">
                     {industry.useCases.slice(0, 3).map((useCase, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
-                        <Check className="w-4 h-4 text-[#00D563] flex-shrink-0" />
-                        <span className="text-sm text-gray-700">{useCase}</span>
+                        <Check className="w-4 h-4 text-signal flex-shrink-0" />
+                        <span className="text-sm text-bone/80">{useCase}</span>
                       </div>
                     ))}
                   </div>
@@ -237,13 +237,13 @@ export default function ProductPage() {
                 
                 <div className="space-y-2 mb-6">
                   {industry.metrics.map((metric, idx) => (
-                    <div key={idx} className="bg-[#E8FFF4] rounded-lg p-2 text-center">
-                      <div className="text-sm font-semibold text-[#00D563]">{metric}</div>
+                    <div key={idx} className="bg-signal/10 rounded-lg p-2 text-center">
+                      <div className="text-sm font-semibold text-signal">{metric}</div>
                     </div>
                   ))}
                 </div>
                 
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-dim">
                   Trusted by: {industry.customers.join(", ")}
                 </div>
               </div>
@@ -253,33 +253,33 @@ export default function ProductPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Why Leading Companies Choose BotrixAI
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Enterprise-grade features that scale with your business
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="p-8 rounded-2xl border-2 border-[#00D563] bg-white transition-all duration-300 hover:scale-105 shadow-xl">
+              <div key={index} className="p-8 rounded-2xl border border-signal/60 bg-surface-1 transition-all duration-300 hover:scale-105 light-edge">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[#00D563]">
-                      <feature.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-signal">
+                      <feature.icon className="w-6 h-6 text-bone" />
                     </div>
                     {feature.unique && (
-                      <div className="bg-[#00D563] text-white px-2 py-1 rounded-full text-xs font-semibold">
+                      <div className="bg-signal text-ink px-2 py-1 rounded-full text-xs font-semibold">
                         UNIQUE
                       </div>
                     )}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg text-bone font-medium tracking-[-0.02em]">{feature.title}</h3>
+                  <p className="text-dim text-sm leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -288,32 +288,32 @@ export default function ProductPage() {
       </section>
 
       {/* Technical Specifications */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Technical Specifications
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Enterprise-grade infrastructure and performance
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {technicalSpecs.map((spec, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge">
                 <div className="space-y-6">
-                  <div className="w-16 h-16 bg-[#00D563] rounded-2xl flex items-center justify-center mx-auto">
-                    <spec.icon className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-signal rounded-2xl flex items-center justify-center mx-auto">
+                    <spec.icon className="w-8 h-8 text-bone" />
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{spec.title}</h3>
-                    <p className="text-gray-600 mb-4">{spec.description}</p>
+                    <h3 className="text-xl text-bone mb-2 font-medium tracking-[-0.02em]">{spec.title}</h3>
+                    <p className="text-dim mb-4">{spec.description}</p>
                     <div className="space-y-2">
                       {spec.specs.map((item, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
-                          <Check className="w-4 h-4 text-[#00D563] flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
+                          <Check className="w-4 h-4 text-signal flex-shrink-0" />
+                          <span className="text-sm text-bone/80">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -326,17 +326,17 @@ export default function ProductPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-[#00D563] to-green-600">
+      <section className="py-24 site-cta">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
             Ready to Transform Your Customer Experience?
           </h2>
-          <p className="text-xl text-green-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-bone/75 mb-10 max-w-3xl mx-auto leading-relaxed">
             Join 500+ companies that have already automated their customer support with BotrixAI
           </p>
            <div className="flex justify-center">
              <Button 
-               className="bg-white text-[#00D563] hover:bg-white/90 px-12 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/60"
+               className="px-12 py-4 text-lg transition-all duration-300 hover:scale-105 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
              >
                Schedule Demo

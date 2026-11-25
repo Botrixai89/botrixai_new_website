@@ -12,7 +12,7 @@ export default function ResourcesPage() {
       type: "E-book",
       icon: BookOpen,
       downloads: "2,500+",
-      color: "bg-blue-50 border-blue-200"
+      color: "bg-surface-2 border-hairline"
     },
     {
       title: "WhatsApp Business API Masterclass",
@@ -20,7 +20,7 @@ export default function ResourcesPage() {
       type: "Webinar",
       icon: Video,
       downloads: "1,800+",
-      color: "bg-green-50 border-green-200"
+      color: "bg-surface-2 border-signal/30"
     },
     {
       title: "Industry Templates Library",
@@ -28,7 +28,7 @@ export default function ResourcesPage() {
       type: "Template Library",
       icon: FileText,
       downloads: "3,200+",
-      color: "bg-purple-50 border-purple-200"
+      color: "bg-surface-2 border-hairline"
     }
   ]
 
@@ -161,27 +161,27 @@ export default function ResourcesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ink">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 py-24">
+      <section className="py-24 site-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 mb-8">
-              <span className="text-sm font-medium text-green-800">Knowledge Hub</span>
+            <div className="inline-flex items-center px-4 py-2 bg-surface-1/80 backdrop-blur-sm rounded-full border border-signal/30 mb-8">
+              <span className="text-sm font-medium text-signal">Knowledge Hub</span>
             </div>
-            <h1 className="text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-6xl text-bone mb-8 leading-tight font-medium tracking-[-0.045em]">
               Resources & Learning Center
             </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim mb-10 max-w-4xl mx-auto leading-relaxed">
               Everything you need to master AI automation. From getting started guides to advanced tutorials, industry templates, and thought leadership content.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-gradient-to-r from-[#00D563] to-green-600 hover:from-green-600 hover:to-[#00D563] text-white px-10 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <Button className="from-[#0b5d2f] to-[#063a1e] hover:from-[#0b5d2f] hover:to-[#063a1e] px-10 py-4 text-lg transition-all duration-300 hover:scale-105 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                 Start Learning
               </Button>
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button variant="outline" className="px-10 py-4 text-lg transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                 Browse Templates
               </Button>
             </div>
@@ -190,34 +190,34 @@ export default function ResourcesPage() {
       </section>
 
       {/* Featured Content */}
-      <section className="py-24">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Featured Resources
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Most popular downloads and guides to get you started
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {contentSections.map((content, index) => (
-              <Card key={index} className={`${content.color} hover:shadow-xl transition-all duration-300 hover:-translate-y-2`}>
+              <Card key={index} className={`${content.color} transition-all duration-300 hover:-translate-y-2`}>
                 <CardHeader>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-[#00D563] rounded-xl flex items-center justify-center">
-                      <content.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-signal rounded-xl flex items-center justify-center">
+                      <content.icon className="w-6 h-6 text-bone" />
                     </div>
-                    <span className="text-sm font-medium text-gray-600">{content.type}</span>
+                    <span className="text-sm font-medium text-dim">{content.type}</span>
                   </div>
-                  <CardTitle className="text-xl font-bold text-gray-900">{content.title}</CardTitle>
-                  <CardDescription className="text-gray-600">{content.description}</CardDescription>
+                  <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">{content.title}</CardTitle>
+                  <CardDescription className="text-dim">{content.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{content.downloads} downloads</span>
-                    <Button className="bg-[#00D563] hover:bg-[#00D563]/90 text-white">
+                    <span className="text-sm text-dim">{content.downloads} downloads</span>
+                    <Button className="rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                       Download
                       <Download className="w-4 h-4 ml-2" />
                     </Button>
@@ -230,27 +230,27 @@ export default function ResourcesPage() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Quick Access
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Get started quickly with these essential resources
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {quickLinks.map((link, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge transition-all duration-300 hover:-translate-y-2">
                 <div className="space-y-4">
-                  <div className="w-12 h-12 bg-[#00D563] rounded-xl flex items-center justify-center">
-                    <link.icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-signal rounded-xl flex items-center justify-center">
+                    <link.icon className="w-6 h-6 text-bone" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">{link.title}</h3>
-                  <p className="text-gray-600 text-sm">{link.description}</p>
-                  <Button variant="outline" className="w-full border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white">
+                  <h3 className="text-lg text-bone font-medium tracking-[-0.02em]">{link.title}</h3>
+                  <p className="text-dim text-sm">{link.description}</p>
+                  <Button variant="outline" className="w-full rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                     Access
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -262,31 +262,31 @@ export default function ResourcesPage() {
       </section>
 
       {/* Industry Templates */}
-      <section className="py-24">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Industry Templates
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Pre-built conversation flows tailored for your industry
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {industryTemplates.map((industry, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge transition-all duration-300 hover:-translate-y-2">
                 <div className="text-4xl mb-4">{industry.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{industry.industry}</h3>
+                <h3 className="text-xl text-bone mb-4 font-medium tracking-[-0.02em]">{industry.industry}</h3>
                 <div className="space-y-3 mb-6">
                   {industry.templates.map((template, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-[#00D563] rounded-full"></div>
-                      <span className="text-gray-700">{template}</span>
+                      <div className="w-2 h-2 bg-signal rounded-full"></div>
+                      <span className="text-bone/80">{template}</span>
                     </div>
                   ))}
                 </div>
-                <Button className="w-full bg-[#00D563] hover:bg-[#00D563]/90 text-white">
+                <Button className="w-full rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                   Download Templates
                   <Download className="w-4 h-4 ml-2" />
                 </Button>
@@ -297,37 +297,37 @@ export default function ResourcesPage() {
       </section>
 
       {/* Resource Categories */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Resource Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Explore our comprehensive library of resources
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {resourceCategories.map((category, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge transition-all duration-300 hover:-translate-y-2">
                 <div className="space-y-6">
-                  <div className="w-12 h-12 bg-[#00D563] rounded-xl flex items-center justify-center">
-                    <category.icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-signal rounded-xl flex items-center justify-center">
+                    <category.icon className="w-6 h-6 text-bone" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{category.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{category.description}</p>
+                    <h3 className="text-xl text-bone mb-2 font-medium tracking-[-0.02em]">{category.title}</h3>
+                    <p className="text-dim text-sm mb-4">{category.description}</p>
                     <div className="space-y-2">
                       {category.resources.map((resource, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-1 h-1 bg-[#00D563] rounded-full"></div>
-                          <span className="text-sm text-gray-700">{resource}</span>
+                          <div className="w-1 h-1 bg-signal rounded-full"></div>
+                          <span className="text-sm text-bone/80">{resource}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <Button variant="outline" className="w-full border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white">
+                  <Button variant="outline" className="w-full rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                     Explore
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -339,30 +339,30 @@ export default function ResourcesPage() {
       </section>
 
       {/* Latest Updates */}
-      <section className="py-24">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Latest Updates
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Stay up to date with the latest features and improvements
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {latestUpdates.map((update, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge transition-all duration-300 hover:-translate-y-2">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-500">{update.date}</span>
-                    <span className="bg-[#E8FFF4] text-[#00D563] px-3 py-1 rounded-full text-xs font-semibold">
+                    <span className="text-sm font-medium text-dim">{update.date}</span>
+                    <span className="bg-signal/10 text-signal px-3 py-1 rounded-full text-xs font-semibold">
                       {update.type}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">{update.title}</h3>
-                  <p className="text-gray-600">{update.description}</p>
-                  <Button variant="outline" className="w-full border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white">
+                  <h3 className="text-lg text-bone font-medium tracking-[-0.02em]">{update.title}</h3>
+                  <p className="text-dim">{update.description}</p>
+                  <Button variant="outline" className="w-full rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -374,16 +374,16 @@ export default function ResourcesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-[#00D563] to-green-600">
+      <section className="py-24 site-cta">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-green-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-bone/75 mb-10 max-w-3xl mx-auto leading-relaxed">
             Access all resources and start building your AI automation today
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button variant="outline" className="px-12 py-4 text-lg transition-all duration-300 rounded-full border-0 bg-surface-1 text-bone hover:bg-surface-2 font-medium">
               Contact Support
             </Button>
           </div>
