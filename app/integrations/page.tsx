@@ -96,24 +96,24 @@ export default function IntegrationsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ink">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 py-24">
+      <section className="py-24 site-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 mb-8">
-              <span className="text-sm font-medium text-green-800">Seamless Integration</span>
+            <div className="inline-flex items-center px-4 py-2 bg-surface-1/80 backdrop-blur-sm rounded-full border border-signal/30 mb-8">
+              <span className="text-sm font-medium text-signal">Seamless Integration</span>
             </div>
-            <h1 className="text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-6xl text-bone mb-8 leading-tight font-medium tracking-[-0.045em]">
               Connect with Your Favorite Tools
             </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim mb-10 max-w-4xl mx-auto leading-relaxed">
               Integrate BotrixAI with 100+ popular platforms and tools. Connect your CRM, e-commerce, support, and marketing tools with just a few clicks.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button variant="outline" className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300">
+              <Button variant="outline" className="px-10 py-4 text-lg transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                 View All Integrations
               </Button>
             </div>
@@ -122,13 +122,13 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Scrolling Partners Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl text-bone mb-4 font-medium tracking-[-0.035em] leading-[1.08]">
               Trusted by Leading Platforms
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-dim max-w-2xl mx-auto">
               Seamlessly integrate with the tools you already use and love
             </p>
           </div>
@@ -138,8 +138,8 @@ export default function IntegrationsPage() {
             <div className="flex animate-scroll space-x-8">
               {/* First set of logos */}
               {integrationPartners.map((partner, index) => (
-                <div key={index} className="flex-shrink-0 flex items-center space-x-3 bg-gray-800 rounded-xl px-6 py-4 border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                <div key={index} className="flex-shrink-0 flex items-center space-x-3 bg-surface-2 rounded-xl px-6 py-4 border border-hairline light-edge transition-all duration-300 hover:-translate-y-1">
+                  <div className="w-10 h-10 bg-surface-1 rounded-lg flex items-center justify-center border border-hairline">
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
@@ -149,16 +149,16 @@ export default function IntegrationsPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-white">{partner.name}</span>
-                    <span className="text-xs text-gray-300 block">{partner.category}</span>
+                    <span className="text-sm font-semibold text-bone">{partner.name}</span>
+                    <span className="text-xs text-bone/70 block">{partner.category}</span>
                   </div>
                 </div>
               ))}
               
               {/* Duplicate set for seamless loop */}
               {integrationPartners.map((partner, index) => (
-                <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center space-x-3 bg-gray-800 rounded-xl px-6 py-4 border border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center space-x-3 bg-surface-2 rounded-xl px-6 py-4 border border-hairline light-edge transition-all duration-300 hover:-translate-y-1">
+                  <div className="w-10 h-10 bg-surface-1 rounded-lg flex items-center justify-center border border-hairline">
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
@@ -168,8 +168,8 @@ export default function IntegrationsPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-white">{partner.name}</span>
-                    <span className="text-xs text-gray-300 block">{partner.category}</span>
+                    <span className="text-sm font-semibold text-bone">{partner.name}</span>
+                    <span className="text-xs text-bone/70 block">{partner.category}</span>
                   </div>
                 </div>
               ))}
@@ -179,30 +179,30 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Integration Categories */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Integration Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Connect with tools across all major business categories
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {integrationCategories.map((category, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#00D563] to-green-600 rounded-xl flex items-center justify-center mb-6">
-                  <category.icon className="w-6 h-6 text-white" />
+              <div key={index} className="bg-surface-1 p-8 rounded-2xl light-edge transition-all duration-300 hover:-translate-y-2 border border-hairline">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#0b5d2f] to-[#063a1e] rounded-xl flex items-center justify-center mb-6">
+                  <category.icon className="w-6 h-6 text-bone" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{category.description}</p>
+                <h3 className="text-xl text-bone mb-4 font-medium tracking-[-0.02em]">{category.title}</h3>
+                <p className="text-dim mb-6 leading-relaxed">{category.description}</p>
                 <div className="space-y-2">
                   {category.integrations.map((integration, integrationIndex) => (
                     <div key={integrationIndex} className="flex items-center space-x-2">
-                      <Check className="w-4 h-4 text-[#00D563] flex-shrink-0" />
-                      <span className="text-sm text-gray-700">{integration}</span>
+                      <Check className="w-4 h-4 text-signal flex-shrink-0" />
+                      <span className="text-sm text-bone/80">{integration}</span>
                     </div>
                   ))}
                 </div>
@@ -213,13 +213,13 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Integration Features */}
-      <section className="py-24">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Why Choose Our Integrations?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim max-w-3xl mx-auto leading-relaxed">
               Powerful features that make integration seamless and secure
             </p>
           </div>
@@ -227,11 +227,11 @@ export default function IntegrationsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {integrationFeatures.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00D563] to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#0b5d2f] to-[#063a1e] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <feature.icon className="w-8 h-8 text-bone" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl text-bone mb-4 font-medium tracking-[-0.02em]">{feature.title}</h3>
+                <p className="text-dim leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -239,45 +239,45 @@ export default function IntegrationsPage() {
       </section>
 
       {/* API Documentation Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
                 Custom Integrations with API
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-dim mb-8 leading-relaxed">
                 Need a custom integration? Our comprehensive API allows you to connect with any platform or build your own integrations.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3">
-                  <Check className="w-6 h-6 text-[#00D563] flex-shrink-0" />
-                  <span className="text-gray-700">RESTful API with comprehensive documentation</span>
+                  <Check className="w-6 h-6 text-signal flex-shrink-0" />
+                  <span className="text-bone/80">RESTful API with comprehensive documentation</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-6 h-6 text-[#00D563] flex-shrink-0" />
-                  <span className="text-gray-700">Webhook support for real-time data sync</span>
+                  <Check className="w-6 h-6 text-signal flex-shrink-0" />
+                  <span className="text-bone/80">Webhook support for real-time data sync</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-6 h-6 text-[#00D563] flex-shrink-0" />
-                  <span className="text-gray-700">SDK libraries for popular programming languages</span>
+                  <Check className="w-6 h-6 text-signal flex-shrink-0" />
+                  <span className="text-bone/80">SDK libraries for popular programming languages</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-6 h-6 text-[#00D563] flex-shrink-0" />
-                  <span className="text-gray-700">Dedicated support for custom integrations</span>
+                  <Check className="w-6 h-6 text-signal flex-shrink-0" />
+                  <span className="text-bone/80">Dedicated support for custom integrations</span>
                 </div>
               </div>
-              <Button className="bg-gradient-to-r from-[#00D563] to-green-600 hover:from-green-600 hover:to-[#00D563] text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="from-[#0b5d2f] to-[#063a1e] hover:from-[#0b5d2f] hover:to-[#063a1e] px-8 py-3 transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                 View API Documentation
               </Button>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get Started Today</h3>
-              <p className="text-gray-600 mb-6">
+            <div className="bg-surface-1 p-8 rounded-2xl light-edge border border-hairline">
+              <h3 className="text-2xl text-bone mb-6 font-medium tracking-[-0.02em]">Get Started Today</h3>
+              <p className="text-dim mb-6">
                 Start integrating your tools with BotrixAI and transform your workflow.
               </p>
               <div className="space-y-4">
-                <Button variant="outline" className="w-full border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white py-3 font-semibold transition-all duration-300">
+                <Button variant="outline" className="w-full py-3 transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium">
                   Contact Sales
                 </Button>
               </div>
@@ -287,16 +287,16 @@ export default function IntegrationsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-[#00D563] to-green-600">
+      <section className="py-24 site-cta">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
             Ready to Integrate?
           </h2>
-          <p className="text-xl text-green-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-bone/75 mb-10 max-w-3xl mx-auto leading-relaxed">
             Connect your favorite tools with BotrixAI and start automating your workflows today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-12 py-4 text-lg font-semibold transition-all duration-300 bg-transparent">
+            <Button variant="outline" className="px-12 py-4 text-lg transition-all duration-300 rounded-full border-0 bg-surface-1 text-bone hover:bg-surface-2 font-medium">
               View All Integrations
             </Button>
           </div>

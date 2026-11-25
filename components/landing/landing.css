@@ -1,0 +1,24 @@
+/*
+ * Home landing page extras. The palette, utilities (.spotlight, .shiny,
+ * .blueprint-grid, .grain, .light-edge) and keyframes are global — see
+ * app/globals.css. Only what is specific to the landing lives here.
+ */
+
+.botrix-landing {
+  /* Landing components read var(--muted) as a plain colour; shadcn's global
+     --muted is an HSL channel triple, so redefine it inside the landing only. */
+  --muted: #999999;
+
+  background: var(--ink);
+  color: var(--bone);
+  color-scheme: dark;
+}
+
+/* Custom arrow cursor (native, zero-lag) for precise pointers; links keep the hand. */
+@media (pointer: fine) {
+  .botrix-landing {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M6 3.5v18.2l4.6-4.3 3.1 6.9 3.2-1.4-3.1-6.8 6.3-.3z' fill='%23f2f5f1' stroke='%23090909' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E")
+        6 4,
+      auto;
+  }
+}

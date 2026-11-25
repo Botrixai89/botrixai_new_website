@@ -404,40 +404,40 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ink">
       <Header />
       
       {/* Hero Section with Form */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[#00D563] via-green-500 to-emerald-600 relative overflow-hidden">
-        <div className="absolute inset-8 bg-white/5 backdrop-blur-sm rounded-3xl border-2 border-white/20 shadow-[0_0_50px_rgba(255,255,255,0.2)]"></div>
+      <section className="pt-32 pb-20 relative overflow-hidden site-hero">
+        <div className="absolute inset-8 bg-bone/[0.06] backdrop-blur-sm rounded-3xl border border-white/10"></div>
         {/* Enhanced Background decorative elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-48 -translate-y-48 animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48 animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white/5 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/4 right-1/3 w-24 h-24 bg-white/5 rounded-full animate-bounce delay-700"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-bone/[0.06] rounded-full -translate-x-48 -translate-y-48 animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-bone/[0.06] rounded-full translate-x-48 translate-y-48 animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-bone/[0.06] rounded-full animate-bounce"></div>
+          <div className="absolute top-1/4 right-1/3 w-24 h-24 bg-bone/[0.06] rounded-full animate-bounce delay-700"></div>
           
           {/* Floating particles */}
-          <div className="absolute top-20 left-10 w-2 h-2 bg-white/30 rounded-full animate-ping"></div>
-          <div className="absolute top-40 right-20 w-3 h-3 bg-white/20 rounded-full animate-ping delay-500"></div>
-          <div className="absolute bottom-32 left-1/3 w-2 h-2 bg-white/25 rounded-full animate-ping delay-1000"></div>
+          <div className="absolute top-20 left-10 w-2 h-2 bg-bone/[0.06] rounded-full animate-ping"></div>
+          <div className="absolute top-40 right-20 w-3 h-3 bg-bone/[0.06] rounded-full animate-ping delay-500"></div>
+          <div className="absolute bottom-32 left-1/3 w-2 h-2 bg-bone/[0.06] rounded-full animate-ping delay-1000"></div>
           
           {/* Gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-surface-1 to-transparent"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="text-white space-y-8">
+            <div className="text-bone space-y-8">
               <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                  <span className="text-sm font-medium text-white">✨ Get in Touch</span>
+                <div className="inline-flex items-center px-4 py-2 bg-bone/[0.06] backdrop-blur-sm rounded-full border border-white/10">
+                  <span className="text-sm font-medium text-bone">✨ Get in Touch</span>
                 </div>
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                  How can <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-emerald-200 animate-gradient-x">we help?</span>
+                <h1 className="text-4xl lg:text-6xl leading-tight font-medium tracking-[-0.045em]">
+                  How can <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal via-signal to-[#9dffc6] animate-gradient-x">we help?</span>
                 </h1>
-                <p className="text-xl text-green-100 leading-relaxed max-w-xl">
+                <p className="text-xl text-bone/75 leading-relaxed max-w-xl">
                   Have a question or feedback? Fill out the form below, and we'll get back to you as soon as possible.
                 </p>
               </div>
@@ -445,7 +445,7 @@ export default function ContactPage() {
               <div>
                 <Button 
                   variant="outline" 
-                  className="group border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-8 py-4 text-lg font-semibold transition-all duration-300 bg-[#00D563] shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] hover:scale-105 transform"
+                  className="group px-8 py-4 text-lg transition-all duration-300 hover:scale-105 transform rounded-full border-0 bg-surface-1 text-bone hover:bg-surface-2 font-medium"
                   onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
                 >
                   <span>Book a Demo</span>
@@ -457,30 +457,30 @@ export default function ContactPage() {
               
               {/* Contact info cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border-2 border-white/30 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:bg-white/15 transition-all duration-300">
+                <div className="bg-bone/[0.06] backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-bone/[0.06] transition-all duration-300">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-white/20 rounded-lg">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="p-2 bg-bone/[0.06] rounded-lg">
+                      <svg className="w-5 h-5 text-bone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-green-100">Email</p>
-                      <p className="text-white font-medium">contact@botrixai.com</p>
+                      <p className="text-sm text-bone/75">Email</p>
+                      <p className="text-bone font-medium">contact@botrixai.com</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border-2 border-white/30 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:bg-white/15 transition-all duration-300">
+                <div className="bg-bone/[0.06] backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-bone/[0.06] transition-all duration-300">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-white/20 rounded-lg">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="p-2 bg-bone/[0.06] rounded-lg">
+                      <svg className="w-5 h-5 text-bone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-green-100">Phone</p>
-                      <p className="text-white font-medium">+91 99812 92605</p>
+                      <p className="text-sm text-bone/75">Phone</p>
+                      <p className="text-bone font-medium">+91 99812 92605</p>
                     </div>
                   </div>
                 </div>
@@ -488,51 +488,51 @@ export default function ContactPage() {
             </div>
 
             {/* Right Form */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/30 shadow-[0_0_40px_rgba(16,185,129,0.4)] hover:shadow-[0_0_60px_rgba(16,185,129,0.6)] transition-all duration-500 transform hover:scale-[1.02]">
+            <div className="bg-surface-1/80 backdrop-blur-sm rounded-3xl p-8 border border-white/10 transition-all duration-500 transform hover:scale-[1.02]">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Send us a message</h3>
-                <p className="text-gray-600">We'll get back to you within 24 hours</p>
+                <h3 className="text-2xl text-bone mb-2 font-medium tracking-[-0.02em]">Send us a message</h3>
+                <p className="text-dim">We'll get back to you within 24 hours</p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                  <label className="block text-sm font-medium text-bone/80 mb-2">Full Name *</label>
                   <Input
                     placeholder="Enter your Name"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
-                    className={`h-12 bg-gray-50 text-gray-900 placeholder:text-gray-400 transition-all duration-300 border-2 hover:border-[#00D563]/30 focus:border-[#00D563] focus:ring-2 focus:ring-[#00D563]/20 focus:shadow-[0_0_15px_rgba(16,185,129,0.2)] ${
-                      errors.name ? "border-red-500 focus:border-red-500 focus:ring-red-200" : "border-gray-200"
+                    className={`h-12 bg-surface-2 text-bone placeholder:text-dim transition-all duration-300 border hover:border-signal/30 focus:border-signal/60 focus:ring-2 focus:ring-signal/20 ${
+                      errors.name ? "border-red-500/40 focus:border-red-500/40 focus:ring-red-500/40" : "border-hairline"
                     }`}
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.name}</p>
+                    <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.name}</p>
                   )}
                 </div>
 
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <label className="block text-sm font-medium text-bone/80 mb-2">Email Address *</label>
                   <Input
                     type="email"
                     placeholder="Enter Your Email ID"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
-                    className={`h-12 bg-gray-50 text-gray-900 placeholder:text-gray-400 transition-all duration-300 border-2 hover:border-[#00D563]/30 focus:border-[#00D563] focus:ring-2 focus:ring-[#00D563]/20 focus:shadow-[0_0_15px_rgba(16,185,129,0.2)] ${
-                      errors.email ? "border-red-500 focus:border-red-500 focus:ring-red-200" : "border-gray-200"
+                    className={`h-12 bg-surface-2 text-bone placeholder:text-dim transition-all duration-300 border hover:border-signal/30 focus:border-signal/60 focus:ring-2 focus:ring-signal/20 ${
+                      errors.email ? "border-red-500/40 focus:border-red-500/40 focus:ring-red-500/40" : "border-hairline"
                     }`}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.email}</p>
+                    <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.email}</p>
                   )}
                 </div>
 
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                  <label className="block text-sm font-medium text-bone/80 mb-2">Phone Number *</label>
                   <div className="flex gap-2">
                     {/* Custom Searchable Country Code Dropdown */}
                     <div className="relative w-32" ref={dropdownRef}>
                       <button
                         type="button"
-                        className="w-full h-12 bg-gray-50 border-2 border-gray-200 hover:border-[#00D563]/30 focus:border-[#00D563] focus:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-300 rounded-md px-3 py-2 text-left focus:outline-none flex items-center justify-between"
+                        className="w-full h-12 bg-surface-2 border border-hairline hover:border-signal/30 focus:border-signal/60 transition-all duration-300 rounded-md px-3 py-2 text-left focus:outline-none flex items-center justify-between"
                         onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
                       >
                         <div className="flex items-center gap-2">
@@ -543,16 +543,16 @@ export default function ContactPage() {
                       </button>
                       
                       {isCountryDropdownOpen && (
-                        <div className="absolute z-50 w-80 mt-1 bg-white border-2 border-black rounded-md shadow-[0_0_20px_rgba(16,185,129,0.3)] max-h-60 overflow-hidden">
+                        <div className="absolute z-50 w-80 mt-1 bg-surface-1 border border-hairline rounded-md max-h-60 overflow-hidden">
                           {/* Search Input */}
-                          <div className="p-2 border-b border-gray-200">
+                          <div className="p-2 border-b border-hairline">
                             <div className="relative">
-                              <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+                              <Search className="absolute left-3 top-3 w-4 h-4 text-dim" />
                               <Input
                                 placeholder="Search country or code..."
                                 value={countrySearch}
                                 onChange={(e) => setCountrySearch(e.target.value)}
-                                className="pl-10 h-8 border-gray-200 focus:border-[#00D563] focus:ring-1 focus:ring-[#00D563]"
+                                className="pl-10 h-8 border-hairline focus:border-signal/60 focus:ring-1 focus:ring-signal/60"
                               />
                             </div>
                           </div>
@@ -564,7 +564,7 @@ export default function ContactPage() {
                                 <button
                                   key={index}
                                   type="button"
-                                  className="w-full px-3 py-2 text-left hover:bg-green-50 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)] focus:bg-green-50 focus:outline-none flex items-center gap-3 transition-all duration-200"
+                                  className="w-full px-3 py-2 text-left hover:bg-surface-2 focus:bg-surface-2 focus:outline-none flex items-center gap-3 transition-all duration-200"
                                   onClick={() => {
                                     handleInputChange("countryCode", country.code)
                                     setIsCountryDropdownOpen(false)
@@ -573,11 +573,11 @@ export default function ContactPage() {
                                 >
                                   <span className="text-lg">{country.flag}</span>
                                   <span className="text-sm font-medium min-w-[3rem]">{country.code}</span>
-                                  <span className="text-sm text-gray-600 truncate">{country.country}</span>
+                                  <span className="text-sm text-dim truncate">{country.country}</span>
                                 </button>
                               ))
                             ) : (
-                              <div className="px-3 py-6 text-center text-gray-500 text-sm">
+                              <div className="px-3 py-6 text-center text-dim text-sm">
                                 No countries found
                               </div>
                             )}
@@ -590,21 +590,21 @@ export default function ContactPage() {
                       placeholder="Phone Number"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value.replace(/\D/g, ""))}
-                      className={`h-12 bg-gray-50 text-gray-900 flex-1 transition-all duration-300 border-2 hover:border-[#00D563]/30 focus:border-[#00D563] focus:ring-2 focus:ring-[#00D563]/20 focus:shadow-[0_0_15px_rgba(16,185,129,0.2)] ${
-                        errors.phone ? "border-red-500 focus:border-red-500 focus:ring-red-200" : "border-gray-200"
+                      className={`h-12 bg-surface-2 text-bone flex-1 transition-all duration-300 border hover:border-signal/30 focus:border-signal/60 focus:ring-2 focus:ring-signal/20 ${
+                        errors.phone ? "border-red-500/40 focus:border-red-500/40 focus:ring-red-500/40" : "border-hairline"
                       }`}
                     />
                   </div>
                   {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.phone}</p>
+                    <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.phone}</p>
                   )}
                 </div>
 
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Inquiry Type *</label>
+                  <label className="block text-sm font-medium text-bone/80 mb-2">Inquiry Type *</label>
                   <Select value={formData.option} onValueChange={(value) => handleInputChange("option", value)}>
-                    <SelectTrigger className={`h-12 bg-gray-50 text-gray-500 transition-all duration-300 border-2 hover:border-[#00D563]/30 focus:border-[#00D563] focus:ring-2 focus:ring-[#00D563]/20 focus:shadow-[0_0_15px_rgba(16,185,129,0.2)] ${
-                      errors.option ? "border-red-500 focus:border-red-500 focus:ring-red-200" : "border-gray-200"
+                    <SelectTrigger className={`h-12 bg-surface-2 text-dim transition-all duration-300 border hover:border-signal/30 focus:border-signal/60 focus:ring-2 focus:ring-signal/20 ${
+                      errors.option ? "border-red-500/40 focus:border-red-500/40 focus:ring-red-500/40" : "border-hairline"
                     }`}>
                       <SelectValue placeholder="Please choose an option" />
                     </SelectTrigger>
@@ -630,22 +630,22 @@ export default function ContactPage() {
                     </SelectContent>
                   </Select>
                   {errors.option && (
-                    <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.option}</p>
+                    <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.option}</p>
                   )}
                 </div>
 
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                  <label className="block text-sm font-medium text-bone/80 mb-2">Message *</label>
                   <Textarea
                     placeholder="Tell us how we can help you..."
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
-                    className={`min-h-[120px] bg-gray-50 text-gray-900 placeholder:text-gray-400 resize-none transition-all duration-300 border-2 hover:border-[#00D563]/30 focus:border-[#00D563] focus:ring-2 focus:ring-[#00D563]/20 focus:shadow-[0_0_15px_rgba(16,185,129,0.2)] ${
-                      errors.message ? "border-red-500 focus:border-red-500 focus:ring-red-200" : "border-gray-200"
+                    className={`min-h-[120px] bg-surface-2 text-bone placeholder:text-dim resize-none transition-all duration-300 border hover:border-signal/30 focus:border-signal/60 focus:ring-2 focus:ring-signal/20 ${
+                      errors.message ? "border-red-500/40 focus:border-red-500/40 focus:ring-red-500/40" : "border-hairline"
                     }`}
                   />
                   {errors.message && (
-                    <p className="text-red-500 text-sm mt-1 animate-fade-in">{errors.message}</p>
+                    <p className="text-red-400 text-sm mt-1 animate-fade-in">{errors.message}</p>
                   )}
                 </div>
 
@@ -656,35 +656,35 @@ export default function ContactPage() {
                       id="agreeToTerms"
                       checked={formData.agreeToTerms}
                       onChange={(e) => handleInputChange("agreeToTerms", e.target.checked)}
-                      className={`mt-1 w-4 h-4 text-[#00D563] bg-gray-50 border-2 rounded focus:ring-2 focus:ring-[#00D563]/20 cursor-pointer transition-all duration-300 ${
-                        errors.agreeToTerms ? "border-red-500" : "border-gray-300"
+                      className={`mt-1 w-4 h-4 text-signal bg-surface-2 border rounded focus:ring-2 focus:ring-signal/20 cursor-pointer transition-all duration-300 ${
+                        errors.agreeToTerms ? "border-red-500/40" : "border-hairline"
                       }`}
                     />
-                    <label htmlFor="agreeToTerms" className="text-sm text-gray-700 cursor-pointer">
+                    <label htmlFor="agreeToTerms" className="text-sm text-bone/80 cursor-pointer">
                       By clicking submit, I agree to the{" "}
-                      <a href="/terms" className="text-[#00D563] hover:underline font-medium">
+                      <a href="/terms" className="text-signal hover:underline font-medium">
                         terms & conditions
                       </a>{" "}
                       and{" "}
-                      <a href="/privacy" className="text-[#00D563] hover:underline font-medium">
+                      <a href="/privacy" className="text-signal hover:underline font-medium">
                         privacy policy
                       </a>{" "}
                       and give my consent to receive updates through SMS/Email/WhatsApp/RCS.
                     </label>
                   </div>
                   {errors.agreeToTerms && (
-                    <p className="text-red-500 text-sm mt-1 ml-7 animate-fade-in">{errors.agreeToTerms}</p>
+                    <p className="text-red-400 text-sm mt-1 ml-7 animate-fade-in">{errors.agreeToTerms}</p>
                   )}
                 </div>
 
                 <Button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group bg-gradient-to-r from-[#00D563] to-green-600 hover:from-green-600 hover:to-[#00D563] text-white font-semibold py-4 px-8 rounded-xl border-2 border-green-700 shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300 hover:scale-[1.02] transform flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full group from-[#0b5d2f] to-[#063a1e] hover:from-[#0b5d2f] hover:to-[#063a1e] py-4 px-8 transition-all duration-300 hover:scale-[1.02] transform flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-bone/30 mr-2"></div>
                       <span>Submitting...</span>
                     </>
                   ) : (

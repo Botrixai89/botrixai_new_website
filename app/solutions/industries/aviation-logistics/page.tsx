@@ -13,25 +13,25 @@ export default function AviationLogisticsPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="pt-32 pb-20 site-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center mb-6">
-              <Plane className="w-12 h-12 text-[#00D563] mr-3" />
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900">
+              <Plane className="w-12 h-12 text-signal mr-3" />
+              <h1 className="text-5xl lg:text-6xl text-bone font-medium tracking-[-0.045em] leading-[1.02]">
                 AI Agents for Aviation & Logistics
               </h1>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl lg:text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Streamline Operations with Intelligent Automation
             </h2>
-            <p className="text-xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-dim mb-10 max-w-4xl mx-auto leading-relaxed">
               Transform your aviation and logistics operations with AI agents that handle customer inquiries, track shipments, manage bookings, and provide real-time updates. Enhance efficiency and customer satisfaction across your entire supply chain.
             </p>
             <div className="flex justify-center">
               <Button 
                 variant="outline" 
-                className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                className="px-10 py-4 text-lg transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                 onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Schedule Demo
@@ -42,73 +42,73 @@ export default function AviationLogisticsPage() {
       </section>
 
       {/* Key Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Aviation & Logistics AI Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-dim max-w-3xl mx-auto">
               Specialized AI agents designed for the complex needs of aviation and logistics industries
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-gray-200 hover:border-[#00D563] transition-all duration-300 hover:shadow-lg">
+            <Card className="border border-hairline hover:border-signal/60 transition-all duration-300">
               <CardHeader>
-                <Package className="w-12 h-12 text-[#00D563] mb-4" />
-                <CardTitle className="text-xl font-bold text-gray-900">Shipment Tracking</CardTitle>
-                <CardDescription className="text-gray-600">
+                <Package className="w-12 h-12 text-signal mb-4" />
+                <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">Shipment Tracking</CardTitle>
+                <CardDescription className="text-dim">
                   Provide real-time shipment updates, delivery estimates, and handle tracking inquiries automatically
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-2 border-gray-200 hover:border-[#00D563] transition-all duration-300 hover:shadow-lg">
+            <Card className="border border-hairline hover:border-signal/60 transition-all duration-300">
               <CardHeader>
-                <Plane className="w-12 h-12 text-[#00D563] mb-4" />
-                <CardTitle className="text-xl font-bold text-gray-900">Flight Management</CardTitle>
-                <CardDescription className="text-gray-600">
+                <Plane className="w-12 h-12 text-signal mb-4" />
+                <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">Flight Management</CardTitle>
+                <CardDescription className="text-dim">
                   Handle flight bookings, cancellations, rebooking, and provide flight status updates to passengers
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-2 border-gray-200 hover:border-[#00D563] transition-all duration-300 hover:shadow-lg">
+            <Card className="border border-hairline hover:border-signal/60 transition-all duration-300">
               <CardHeader>
-                <Users className="w-12 h-12 text-[#00D563] mb-4" />
-                <CardTitle className="text-xl font-bold text-gray-900">Customer Support</CardTitle>
-                <CardDescription className="text-gray-600">
+                <Users className="w-12 h-12 text-signal mb-4" />
+                <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">Customer Support</CardTitle>
+                <CardDescription className="text-dim">
                   24/7 customer service for shipping inquiries, claims processing, and general support requests
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-2 border-gray-200 hover:border-[#00D563] transition-all duration-300 hover:shadow-lg">
+            <Card className="border border-hairline hover:border-signal/60 transition-all duration-300">
               <CardHeader>
-                <MapPin className="w-12 h-12 text-[#00D563] mb-4" />
-                <CardTitle className="text-xl font-bold text-gray-900">Route Optimization</CardTitle>
-                <CardDescription className="text-gray-600">
+                <MapPin className="w-12 h-12 text-signal mb-4" />
+                <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">Route Optimization</CardTitle>
+                <CardDescription className="text-dim">
                   Provide route information, delivery windows, and coordinate with customers for optimal delivery times
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-2 border-gray-200 hover:border-[#00D563] transition-all duration-300 hover:shadow-lg">
+            <Card className="border border-hairline hover:border-signal/60 transition-all duration-300">
               <CardHeader>
-                <Shield className="w-12 h-12 text-[#00D563] mb-4" />
-                <CardTitle className="text-xl font-bold text-gray-900">Compliance Support</CardTitle>
-                <CardDescription className="text-gray-600">
+                <Shield className="w-12 h-12 text-signal mb-4" />
+                <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">Compliance Support</CardTitle>
+                <CardDescription className="text-dim">
                   Handle customs documentation, regulatory inquiries, and ensure compliance with international shipping laws
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-2 border-gray-200 hover:border-[#00D563] transition-all duration-300 hover:shadow-lg">
+            <Card className="border border-hairline hover:border-signal/60 transition-all duration-300">
               <CardHeader>
-                <Clock className="w-12 h-12 text-[#00D563] mb-4" />
-                <CardTitle className="text-xl font-bold text-gray-900">Emergency Response</CardTitle>
-                <CardDescription className="text-gray-600">
+                <Clock className="w-12 h-12 text-signal mb-4" />
+                <CardTitle className="text-xl text-bone font-medium tracking-[-0.02em]">Emergency Response</CardTitle>
+                <CardDescription className="text-dim">
                   Immediate assistance for urgent shipments, flight disruptions, and emergency logistics coordination
                 </CardDescription>
               </CardHeader>
@@ -118,21 +118,21 @@ export default function AviationLogisticsPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-ink border-t border-hairline-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Optimize Your Operations
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-dim max-w-3xl mx-auto">
               See how our AI agents can revolutionize your aviation and logistics operations
             </p>
           </div>
 
           <div className="max-w-6xl mx-auto">
             {/* Interactive Logistics Tracking Flow */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl mb-12 border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            <div className="bg-surface-1 rounded-2xl p-8 light-edge mb-12 border border-hairline">
+              <h3 className="text-2xl text-bone mb-8 text-center font-medium tracking-[-0.02em]">
                 Smart Logistics & Aviation AI System
               </h3>
               
@@ -140,81 +140,81 @@ export default function AviationLogisticsPage() {
                 {/* Main Flow */}
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
                   {/* Package/Flight Origin */}
-                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white text-center">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="bg-gradient-to-br from-surface-2 to-surface-1 rounded-xl p-4 text-bone text-center">
+                    <div className="w-8 h-8 bg-bone/[0.06] rounded-full flex items-center justify-center mx-auto mb-2">
                       <Plane className="w-4 h-4" />
                     </div>
-                    <h4 className="font-semibold text-sm mb-1">Origin</h4>
+                    <h4 className="text-sm mb-1 font-medium tracking-[-0.01em]">Origin</h4>
                     <p className="text-xs opacity-90">Package/Flight Dispatch</p>
                   </div>
                   
                   {/* Transit Hub 1 */}
-                  <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-4 text-white text-center">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="bg-gradient-to-br from-surface-2 to-surface-1 rounded-xl p-4 text-bone text-center">
+                    <div className="w-8 h-8 bg-bone/[0.06] rounded-full flex items-center justify-center mx-auto mb-2">
                       <Building className="w-4 h-4" />
                     </div>
-                    <h4 className="font-semibold text-sm mb-1">Hub 1</h4>
+                    <h4 className="text-sm mb-1 font-medium tracking-[-0.01em]">Hub 1</h4>
                     <p className="text-xs opacity-90">Processing Center</p>
                   </div>
                   
                   {/* Transit Hub 2 */}
-                  <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-4 text-white text-center">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="bg-gradient-to-br from-surface-2 to-surface-1 rounded-xl p-4 text-bone text-center">
+                    <div className="w-8 h-8 bg-bone/[0.06] rounded-full flex items-center justify-center mx-auto mb-2">
                       <Truck className="w-4 h-4" />
                     </div>
-                    <h4 className="font-semibold text-sm mb-1">Transit</h4>
+                    <h4 className="text-sm mb-1 font-medium tracking-[-0.01em]">Transit</h4>
                     <p className="text-xs opacity-90">En Route</p>
                   </div>
                   
                   {/* Final Hub */}
-                  <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-4 text-white text-center">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="bg-gradient-to-br from-[#0b5d2f] to-[#063a1e] rounded-xl p-4 text-bone text-center">
+                    <div className="w-8 h-8 bg-bone/[0.06] rounded-full flex items-center justify-center mx-auto mb-2">
                       <MapPin className="w-4 h-4" />
                     </div>
-                    <h4 className="font-semibold text-sm mb-1">Local Hub</h4>
+                    <h4 className="text-sm mb-1 font-medium tracking-[-0.01em]">Local Hub</h4>
                     <p className="text-xs opacity-90">Final Sort</p>
                   </div>
                   
                   {/* Destination */}
-                  <div className="bg-gradient-to-br from-gray-600 to-gray-700 rounded-xl p-4 text-white text-center">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="bg-gradient-to-br from-surface-1 to-surface-1 rounded-xl p-4 text-bone text-center">
+                    <div className="w-8 h-8 bg-bone/[0.06] rounded-full flex items-center justify-center mx-auto mb-2">
                       <Users className="w-4 h-4" />
                     </div>
-                    <h4 className="font-semibold text-sm mb-1">Delivered</h4>
+                    <h4 className="text-sm mb-1 font-medium tracking-[-0.01em]">Delivered</h4>
                     <p className="text-xs opacity-90">Customer Received</p>
                   </div>
                 </div>
                 
                 {/* AI Monitoring Dashboard */}
-                <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6 border-2 border-gray-200">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">🤖 AI Monitoring & Customer Communication</h4>
+                <div className="bg-gradient-to-r from-surface-1 to-surface-1 rounded-xl p-6 border border-hairline">
+                  <h4 className="text-lg text-bone mb-4 text-center font-medium tracking-[-0.01em]">🤖 AI Monitoring & Customer Communication</h4>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {/* Real-time Tracking */}
-                    <div className="bg-white rounded-lg p-4 border border-gray-200">
+                    <div className="bg-surface-2 rounded-lg p-4 border border-hairline">
                       <div className="flex items-center mb-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                        <span className="text-sm font-medium text-gray-900">Real-time Updates</span>
+                        <div className="w-2 h-2 bg-signal rounded-full mr-2 animate-pulse"></div>
+                        <span className="text-sm font-medium text-bone">Real-time Updates</span>
                       </div>
-                      <p className="text-xs text-gray-600">Automatic location tracking and status updates sent to customers</p>
+                      <p className="text-xs text-dim">Automatic location tracking and status updates sent to customers</p>
                     </div>
                     
                     {/* Proactive Alerts */}
-                    <div className="bg-white rounded-lg p-4 border border-gray-200">
+                    <div className="bg-surface-2 rounded-lg p-4 border border-hairline">
                       <div className="flex items-center mb-2">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></div>
-                        <span className="text-sm font-medium text-gray-900">Proactive Alerts</span>
+                        <div className="w-2 h-2 bg-surface-2 rounded-full mr-2 animate-pulse"></div>
+                        <span className="text-sm font-medium text-bone">Proactive Alerts</span>
                       </div>
-                      <p className="text-xs text-gray-600">Delay notifications and delivery window updates</p>
+                      <p className="text-xs text-dim">Delay notifications and delivery window updates</p>
                     </div>
                     
                     {/* Instant Support */}
-                    <div className="bg-white rounded-lg p-4 border border-gray-200">
+                    <div className="bg-surface-2 rounded-lg p-4 border border-hairline">
                       <div className="flex items-center mb-2">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
-                        <span className="text-sm font-medium text-gray-900">Instant Support</span>
+                        <div className="w-2 h-2 bg-surface-2 rounded-full mr-2 animate-pulse"></div>
+                        <span className="text-sm font-medium text-bone">Instant Support</span>
                       </div>
-                      <p className="text-xs text-gray-600">24/7 customer queries about shipments and flights</p>
+                      <p className="text-xs text-dim">24/7 customer queries about shipments and flights</p>
                     </div>
                   </div>
                 </div>
@@ -222,56 +222,56 @@ export default function AviationLogisticsPage() {
 
               {/* Performance Metrics */}
               <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-blue-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-blue-600">99.2%</div>
-                  <div className="text-sm text-gray-600">Tracking Accuracy</div>
+                <div className="bg-surface-2 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-semibold text-signal">99.2%</div>
+                  <div className="text-sm text-dim">Tracking Accuracy</div>
                 </div>
-                <div className="bg-green-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-green-600">75%</div>
-                  <div className="text-sm text-gray-600">Reduced Inquiries</div>
+                <div className="bg-surface-2 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-semibold text-signal">75%</div>
+                  <div className="text-sm text-dim">Reduced Inquiries</div>
                 </div>
-                <div className="bg-purple-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-purple-600">60%</div>
-                  <div className="text-sm text-gray-600">Faster Resolution</div>
+                <div className="bg-surface-2 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-semibold text-signal">60%</div>
+                  <div className="text-sm text-dim">Faster Resolution</div>
                 </div>
-                <div className="bg-orange-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-orange-600">92%</div>
-                  <div className="text-sm text-gray-600">Customer Satisfaction</div>
+                <div className="bg-surface-2 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-semibold text-signal">92%</div>
+                  <div className="text-sm text-dim">Customer Satisfaction</div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h3 className="text-3xl text-bone mb-8 text-center font-medium tracking-[-0.02em]">
                 Key Benefits
               </h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-[#00D563] mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-signal mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Reduce Customer Inquiries</h4>
-                    <p className="text-gray-600">Handle 80% of common shipping and flight inquiries automatically, reducing call center volume and improving response times.</p>
+                    <h4 className="text-lg text-bone mb-2 font-medium tracking-[-0.01em]">Reduce Customer Inquiries</h4>
+                    <p className="text-dim">Handle 80% of common shipping and flight inquiries automatically, reducing call center volume and improving response times.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-[#00D563] mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-signal mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Improve Delivery Experience</h4>
-                    <p className="text-gray-600">Proactive updates, delivery coordination, and instant tracking information enhance customer satisfaction and reduce failed deliveries.</p>
+                    <h4 className="text-lg text-bone mb-2 font-medium tracking-[-0.01em]">Improve Delivery Experience</h4>
+                    <p className="text-dim">Proactive updates, delivery coordination, and instant tracking information enhance customer satisfaction and reduce failed deliveries.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-[#00D563] mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-signal mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Streamline Operations</h4>
-                    <p className="text-gray-600">Automate routine tasks, optimize resource allocation, and improve operational efficiency across your logistics network.</p>
+                    <h4 className="text-lg text-bone mb-2 font-medium tracking-[-0.01em]">Streamline Operations</h4>
+                    <p className="text-dim">Automate routine tasks, optimize resource allocation, and improve operational efficiency across your logistics network.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-[#00D563] mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-signal mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Scale Without Limits</h4>
-                    <p className="text-gray-600">Handle increasing shipment volumes and customer inquiries without proportional increases in support staff.</p>
+                    <h4 className="text-lg text-bone mb-2 font-medium tracking-[-0.01em]">Scale Without Limits</h4>
+                    <p className="text-dim">Handle increasing shipment volumes and customer inquiries without proportional increases in support staff.</p>
                   </div>
                 </div>
               </div>
@@ -281,59 +281,59 @@ export default function AviationLogisticsPage() {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Industry Applications
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-dim max-w-3xl mx-auto">
               Real-world solutions transforming aviation and logistics operations
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <div className="border-l-4 border-[#00D563] pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Airlines & Airports</h3>
-                <p className="text-gray-600">
+              <div className="border-l-4 border-signal/60 pl-6">
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">Airlines & Airports</h3>
+                <p className="text-dim">
                   Handle flight bookings, gate changes, baggage inquiries, loyalty program questions, and provide real-time flight status updates to passengers.
                 </p>
               </div>
 
-              <div className="border-l-4 border-[#00D563] pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Shipping & Freight</h3>
-                <p className="text-gray-600">
+              <div className="border-l-4 border-signal/60 pl-6">
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">Shipping & Freight</h3>
+                <p className="text-dim">
                   Automate shipment tracking, delivery notifications, customs clearance updates, and handle customer inquiries about shipping status and costs.
                 </p>
               </div>
 
-              <div className="border-l-4 border-[#00D563] pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Warehouse Management</h3>
-                <p className="text-gray-600">
+              <div className="border-l-4 border-signal/60 pl-6">
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">Warehouse Management</h3>
+                <p className="text-dim">
                   Coordinate inventory inquiries, order processing, pick-up scheduling, and provide real-time warehouse capacity and processing updates.
                 </p>
               </div>
             </div>
 
             <div className="space-y-8">
-              <div className="border-l-4 border-[#00D563] pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Last-Mile Delivery</h3>
-                <p className="text-gray-600">
+              <div className="border-l-4 border-signal/60 pl-6">
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">Last-Mile Delivery</h3>
+                <p className="text-dim">
                   Manage delivery scheduling, route optimization, customer notifications, and handle delivery exceptions and rescheduling requests.
                 </p>
               </div>
 
-              <div className="border-l-4 border-[#00D563] pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Supply Chain Visibility</h3>
-                <p className="text-gray-600">
+              <div className="border-l-4 border-signal/60 pl-6">
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">Supply Chain Visibility</h3>
+                <p className="text-dim">
                   Provide end-to-end supply chain tracking, vendor coordination, inventory management, and proactive issue resolution.
                 </p>
               </div>
 
-              <div className="border-l-4 border-[#00D563] pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">International Trade</h3>
-                <p className="text-gray-600">
+              <div className="border-l-4 border-signal/60 pl-6">
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">International Trade</h3>
+                <p className="text-dim">
                   Handle customs documentation, trade compliance, international shipping regulations, and cross-border logistics coordination.
                 </p>
               </div>
@@ -343,17 +343,17 @@ export default function AviationLogisticsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#00D563] to-green-600">
+      <section className="py-20 site-cta">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
             Ready to Optimize Your Operations?
           </h2>
-          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-bone/75 mb-8 max-w-2xl mx-auto">
             Join leading aviation and logistics companies using AI to enhance efficiency and customer satisfaction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              className="bg-white text-[#00D563] hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+              className="px-8 py-4 text-lg rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
               onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
             >
               Schedule Demo
@@ -361,7 +361,7 @@ export default function AviationLogisticsPage() {
             </Button>
             <Button 
               variant="outline" 
-              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[#00D563] px-8 py-4 text-lg font-semibold"
+              className="px-8 py-4 text-lg rounded-full border-0 bg-surface-1 text-bone hover:bg-surface-2 font-medium"
               onClick={() => window.location.href = '/contact'}
             >
               Contact Sales

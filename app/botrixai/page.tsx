@@ -118,21 +118,21 @@ export default function BotrixAIPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-28 lg:pt-36 pb-16 bg-gradient-to-br from-[#00D563]/5 via-white to-blue-50" itemScope itemType="https://schema.org/Brand">
+        <section className="pt-28 lg:pt-36 pb-16 site-hero" itemScope itemType="https://schema.org/Brand">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center rounded-full bg-[#00D563]/10 px-4 py-2 text-sm text-[#00D563] border border-[#00D563]/20 shadow-sm mb-6">
+              <div className="inline-flex items-center rounded-full bg-signal/10 px-4 py-2 text-sm text-signal border border-signal/20 mb-6">
                 <Award className="w-4 h-4 mr-2" />
                 Official BotrixAI Platform
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6" itemProp="name">
-                <span className="text-[#00D563]">BotrixAI</span> - The #1 Trusted Brand
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl text-bone mb-6 font-medium tracking-[-0.045em] leading-[1.02]" itemProp="name">
+                <span className="text-signal">BotrixAI</span> - The #1 Trusted Brand
                 <br />
                 in AI Automation
               </h1>
               
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8" itemProp="description">
+              <p className="text-xl text-dim max-w-4xl mx-auto leading-relaxed mb-8" itemProp="description">
                 <strong>BotrixAI</strong> is the leading AI automation platform trusted by 50,000+ businesses worldwide. 
                 Discover why <strong>BotrixAI</strong> is the premier choice for WhatsApp marketing automation, 
                 voice bots, and intelligent customer service solutions.
@@ -140,7 +140,7 @@ export default function BotrixAIPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Button 
-                  className="bg-[#00D563] hover:bg-[#00D563]/90 text-white px-8 py-4 text-lg font-semibold"
+                  className="px-8 py-4 text-lg rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                   onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
                 >
                   Experience BotrixAI
@@ -148,7 +148,7 @@ export default function BotrixAIPage() {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-2 border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white px-8 py-4 text-lg font-semibold"
+                  className="px-8 py-4 text-lg rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                   onClick={() => window.location.href = '/contact'}
                 >
                   Contact BotrixAI Team
@@ -158,13 +158,13 @@ export default function BotrixAIPage() {
               {/* Brand Stats */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {brandStats.map((stat, index) => (
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                  <div key={index} className="bg-surface-1 rounded-xl p-6 light-edge border border-hairline">
                     <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 bg-[#00D563]/10 rounded-full flex items-center justify-center mb-3">
-                        <stat.icon className="w-6 h-6 text-[#00D563]" />
+                      <div className="w-12 h-12 bg-signal/10 rounded-full flex items-center justify-center mb-3">
+                        <stat.icon className="w-6 h-6 text-signal" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">{stat.metric}</div>
-                      <div className="text-sm text-gray-600 text-center">{stat.label}</div>
+                      <div className="text-2xl font-semibold text-bone mb-1">{stat.metric}</div>
+                      <div className="text-sm text-dim text-center">{stat.label}</div>
                     </div>
                   </div>
                 ))}
@@ -174,17 +174,17 @@ export default function BotrixAIPage() {
         </section>
 
         {/* Why Choose BotrixAI */}
-        <section className="py-16 bg-white" aria-labelledby="why-botrixai">
+        <section className="py-16 bg-ink" aria-labelledby="why-botrixai">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 id="why-botrixai" className="text-3xl font-bold text-gray-900 text-center mb-12">
-              Why Choose <span className="text-[#00D563]">BotrixAI</span>?
+            <h2 id="why-botrixai" className="text-3xl text-bone text-center mb-12 font-medium tracking-[-0.035em] leading-[1.08]">
+              Why Choose <span className="text-signal">BotrixAI</span>?
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               {whyBotrixAI.map((reason, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{reason.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{reason.description}</p>
+                <div key={index} className="bg-surface-2 rounded-xl p-8">
+                  <h3 className="text-xl text-bone mb-4 font-medium tracking-[-0.02em]">{reason.title}</h3>
+                  <p className="text-bone/80 leading-relaxed">{reason.description}</p>
                 </div>
               ))}
             </div>
@@ -192,23 +192,23 @@ export default function BotrixAIPage() {
         </section>
 
         {/* BotrixAI Products */}
-        <section className="py-16 bg-gray-50" aria-labelledby="botrixai-products">
+        <section className="py-16 bg-ink border-t border-hairline-soft" aria-labelledby="botrixai-products">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 id="botrixai-products" className="text-3xl font-bold text-gray-900 text-center mb-12">
-              <span className="text-[#00D563]">BotrixAI</span> Product Suite
+            <h2 id="botrixai-products" className="text-3xl text-bone text-center mb-12 font-medium tracking-[-0.035em] leading-[1.08]">
+              <span className="text-signal">BotrixAI</span> Product Suite
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
               {botrixAIProducts.map((product, index) => (
-                <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{product.name}</h3>
-                  <p className="text-gray-600 mb-6">{product.description}</p>
+                <div key={index} className="bg-surface-1 rounded-xl p-8 light-edge border border-hairline">
+                  <h3 className="text-xl text-bone mb-4 font-medium tracking-[-0.02em]">{product.name}</h3>
+                  <p className="text-dim mb-6">{product.description}</p>
                   
                   <div className="space-y-3">
                     {product.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-[#00D563] mr-3" />
-                        <span className="text-gray-700">{feature}</span>
+                        <CheckCircle className="w-5 h-5 text-signal mr-3" />
+                        <span className="text-bone/80">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -219,18 +219,18 @@ export default function BotrixAIPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-[#00D563]">
+        <section className="py-16 site-cta">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl text-bone mb-4 font-medium tracking-[-0.035em] leading-[1.08]">
               Ready to Experience the Power of <strong>BotrixAI</strong>?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-bone/90 mb-8">
               Join 50,000+ businesses that trust <strong>BotrixAI</strong> for their AI automation needs. 
               Get started with <strong>BotrixAI</strong> today and transform your customer engagement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-white text-[#00D563] hover:bg-gray-100 px-8 py-3 font-semibold"
+                className="px-8 py-3 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                 onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Start with BotrixAI
@@ -238,7 +238,7 @@ export default function BotrixAIPage() {
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-8 py-3 font-semibold"
+                className="px-8 py-3 rounded-full border-0 bg-surface-1 text-bone hover:bg-surface-2 font-medium"
                 onClick={() => window.location.href = '/contact'}
               >
                 Talk to BotrixAI Expert

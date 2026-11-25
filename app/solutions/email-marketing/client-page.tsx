@@ -108,35 +108,35 @@ export default function EmailMarketingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ink">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-40 pb-24 bg-gradient-to-b from-green-50 via-white to-white relative overflow-hidden">
+      <section className="pt-40 pb-24 relative overflow-hidden site-hero">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fadeUp">
-              <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-8 animate-fadeIn shadow-sm">
+              <div className="inline-flex items-center space-x-2 bg-signal/10 text-signal px-4 py-2 rounded-full mb-8 animate-fadeIn">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm font-semibold tracking-wide uppercase">Email Marketing Platform</span>
+                <span className="uppercase font-mono text-[11px] tracking-[0.25em]">Email Marketing Platform</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
+              <h1 className="text-5xl md:text-7xl text-bone mb-8 leading-tight font-medium tracking-[-0.045em]">
                 Email Marketing <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D563] to-teal-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal to-[#9dffc6]">
                   That Delivers
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg animate-fadeUp delay-100">
+              <p className="text-xl text-dim mb-10 leading-relaxed max-w-lg animate-fadeUp delay-100">
                 Create, send, and track powerful email campaigns. The enterprise-grade platform trusted by businesses to boost conversions.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 animate-fadeUp delay-200">
                 <Button 
                   size="lg" 
-                  className="bg-[#00D563] hover:bg-[#00C557] text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1"
+                  className="px-8 py-6 text-lg transition-all duration-300 hover:-translate-y-1 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                   onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
                 >
                   Get Started
@@ -145,7 +145,7 @@ export default function EmailMarketingPage() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-gray-200 text-gray-700 hover:border-green-600 hover:text-green-600 px-8 py-6 text-lg rounded-full hover:bg-green-50 transition-all duration-300"
+                  className="px-8 py-6 text-lg transition-all duration-300 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                   onClick={() => window.open('tel:+919981292605')}
                 >
                   Talk to Sales
@@ -154,8 +154,8 @@ export default function EmailMarketingPage() {
             </div>
             
             <div className="relative animate-float delay-100">
-              <div className="absolute -inset-4 bg-gradient-to-r from-green-400/20 to-teal-500/20 rounded-[2rem] blur-2xl opacity-50"></div>
-              <div className="relative z-10 bg-white rounded-[2rem] p-2 shadow-2xl border border-gray-100 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0b5d2f] to-[#063a1e] rounded-[2rem] blur-2xl opacity-50"></div>
+              <div className="relative z-10 bg-surface-1 rounded-[2rem] p-2 light-edge border border-hairline transform rotate-1 hover:rotate-0 transition-transform duration-500">
                 <Image
                   src="/Email marketing.png"
                   alt="Email Marketing Platform Interface"
@@ -171,17 +171,17 @@ export default function EmailMarketingPage() {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-24 bg-white relative z-10 -mt-10">
+      <section className="py-24 relative z-10 -mt-10 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {statistics.map((stat, index) => (
-              <div key={index} className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+              <div key={index} className="bg-surface-1 rounded-3xl p-8 light-edge border border-hairline hover:-translate-y-2 transition-all duration-500 group">
                 <div className="flex flex-col items-center text-center">
-                  <div className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00D563] to-teal-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-6xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-signal to-[#9dffc6] mb-4 group-hover:scale-110 transition-transform duration-300">
                     {stat.value}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{stat.label}</h3>
-                  <p className="text-gray-600">{stat.description}</p>
+                  <h3 className="text-xl text-bone mb-2 font-medium tracking-[-0.02em]">{stat.label}</h3>
+                  <p className="text-dim">{stat.description}</p>
                 </div>
               </div>
             ))}
@@ -190,26 +190,26 @@ export default function EmailMarketingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-ink border-t border-hairline-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 animate-fadeUp">
-            <span className="text-[#00D563] font-semibold tracking-wider uppercase text-sm">Powerful Tools</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
+            <span className="text-signal uppercase font-mono text-[11px] tracking-[0.25em]">Powerful Tools</span>
+            <h2 className="text-4xl md:text-5xl text-bone mt-2 mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Everything You Need to Succeed
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-dim max-w-3xl mx-auto">
               From automation to analytics, we provide the tools to supercharge your growth.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 group">
-                <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00D563] transition-colors duration-300">
-                  <feature.icon className="w-7 h-7 text-[#00D563] group-hover:text-white transition-colors duration-300" />
+              <div key={index} className="bg-surface-2 rounded-3xl p-8 transition-all duration-300 border border-hairline hover:-translate-y-1 group">
+                <div className="w-14 h-14 bg-surface-2 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-signal transition-colors duration-300">
+                  <feature.icon className="w-7 h-7 text-signal group-hover:text-bone transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">{feature.title}</h3>
+                <p className="text-dim leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -217,24 +217,24 @@ export default function EmailMarketingPage() {
       </section>
 
       {/* Campaign Types Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl text-bone mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Campaigns That Convert
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-dim max-w-3xl mx-auto">
               Covering every stage of the customer journey.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {campaigns.map((campaign, index) => (
-              <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 border border-gray-200 hover:border-green-200 hover:shadow-lg transition-all duration-300 group">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-300">
-                  <campaign.icon className="w-7 h-7 text-[#00D563]" />
+              <div key={index} className="bg-gradient-to-br from-surface-1 to-surface-1 rounded-3xl p-8 border border-hairline hover:border-signal/30 transition-all duration-300 group">
+                <div className="w-14 h-14 bg-surface-2 rounded-2xl flex items-center justify-center mb-6 border border-hairline group-hover:scale-110 transition-transform duration-300">
+                  <campaign.icon className="w-7 h-7 text-signal" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{campaign.title}</h3>
-                <p className="text-gray-600">{campaign.description}</p>
+                <h3 className="text-xl text-bone mb-3 font-medium tracking-[-0.02em]">{campaign.title}</h3>
+                <p className="text-dim">{campaign.description}</p>
               </div>
             ))}
           </div>
@@ -242,24 +242,24 @@ export default function EmailMarketingPage() {
       </section>
 
       {/* Benefits Grid */}
-      <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+      <section className="py-24 text-bone relative overflow-hidden bg-ink">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl mb-6 font-medium tracking-[-0.035em] leading-[1.08]">
               Why Businesses Choose Us
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-dim max-w-3xl mx-auto">
               A complete platform designed for modern marketing teams.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center space-x-4 bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                <div className="flex-shrink-0 w-8 h-8 bg-[#00D563] rounded-full flex items-center justify-center">
-                  <Check className="w-5 h-5 text-white" />
+              <div key={index} className="flex items-center space-x-4 bg-bone/[0.06] rounded-2xl p-5 border border-white/10 hover:bg-bone/[0.06] transition-colors duration-300">
+                <div className="flex-shrink-0 w-8 h-8 bg-signal rounded-full flex items-center justify-center">
+                  <Check className="w-5 h-5 text-bone" />
                 </div>
-                <span className="text-lg text-gray-200 font-medium">{benefit}</span>
+                <span className="text-lg text-bone/85 font-medium">{benefit}</span>
               </div>
             ))}
           </div>
@@ -267,21 +267,21 @@ export default function EmailMarketingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-ink">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#00D563] to-teal-600 rounded-[3rem] p-12 md:p-24 text-center shadow-2xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[#0b5d2f] to-[#063a1e] rounded-[3rem] p-12 md:p-24 text-center light-edge relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-pattern.svg')] opacity-10"></div>
              <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+              <h2 className="text-4xl md:text-6xl text-bone mb-8 font-medium tracking-[-0.035em] leading-[1.08]">
                 Ready to Transform Your Email Marketing?
               </h2>
-              <p className="text-xl md:text-2xl text-green-50 mb-12 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-bone/75 mb-12 max-w-3xl mx-auto">
                 Join thousands of businesses using BotrixAI to drive engagement and revenue.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-white text-[#00D563] hover:bg-gray-100 px-10 py-7 text-lg rounded-full shadow-lg transition-transform hover:-translate-y-1"
+                  className="px-10 py-7 text-lg transition-transform hover:-translate-y-1 rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                   onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
                 >
                   Book Demo
@@ -289,7 +289,7 @@ export default function EmailMarketingPage() {
                 </Button>
                 <Button 
                   size="lg" 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#00D563] px-10 py-7 text-lg rounded-full backdrop-blur-sm transition-all hover:-translate-y-1"
+                  className="px-10 py-7 text-lg backdrop-blur-sm transition-all hover:-translate-y-1 rounded-full border-0 bg-surface-1 text-bone hover:bg-surface-2 font-medium"
                   onClick={() => window.location.href = 'mailto:contact@botrixai.com'}
                 >
                   <Mail className="w-5 h-5 mr-2" />

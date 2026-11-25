@@ -12,7 +12,25 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['var(--font-display)', 'system-ui', 'sans-serif'],
+				display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+				// JetBrains Mono — eyebrows, meta labels, stats
+				mono: ['var(--font-mono-tech, ui-monospace)', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+			},
 			colors: {
+				// Landing page palette (black / white / green) — see components/landing/landing.css
+				ink: '#090909',
+				'surface-1': '#141414',
+				'surface-2': '#1c1c1c',
+				hairline: '#262626',
+				'hairline-soft': '#1a1a1a',
+				dim: '#999999',
+				bone: '#f2f5f1',
+				signal: {
+					DEFAULT: '#2bee7c',
+					deep: '#04923f'
+				},
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {

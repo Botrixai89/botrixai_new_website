@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, Globe, ArrowRight, Sparkles, MessageCircle, Smartphone, Mic, Building, Headphones, BarChart3, Phone, Car, Plane, Banknote, Shield, Heart, Settings, ShoppingCart, Users, GraduationCap, MapPin, Mail, Instagram, Headset, PhoneCall, TrendingUp, Mic2, MessageSquareCode } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -30,9 +29,11 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
     return () => window.removeEventListener("scroll", onScroll)
   }, [transparentOnTop])
 
-  // Over a dark hero: see-through header with light text until the user scrolls
-  const isDark = transparentOnTop && !isScrolled && !isMenuOpen
-  const navText = isDark ? "text-white/80" : "text-gray-700"
+  // Always dark (design.md top-nav). Over the home hero it starts see-through and
+  // frosts to canvas once the user scrolls; every other page is frosted from the start.
+  const isClear = transparentOnTop && !isScrolled && !isMenuOpen
+  const navLink = "rounded-full px-4 py-2 text-sm font-medium text-dim transition-colors hover:bg-surface-1 hover:text-bone"
+  const openCalendly = () => window.open("https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08", "_blank")
 
   const aiAgentCategories = [
     {
@@ -108,35 +109,31 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
             - header below: top-0 -> top-[52px]
             - components/hero.tsx: pt-16 -> pt-[116px]
             - components/technology-stack.tsx: HEADER_OFFSET 64 -> 116, and lg:h-[calc(100vh-64px)] -> lg:h-[calc(100vh-116px)]
-      <div className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md transition-colors duration-300 ${isDark ? "bg-white/[0.03] border-white/10" : "bg-gradient-to-r from-green-50/85 via-blue-50/85 to-purple-50/85 border-green-100"}`}>
+      <div className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md transition-colors duration-300 ${isClear ? "bg-white/[0.03] border-white/10" : "bg-gradient-to-r from-green-50/85 via-blue-50/85 to-purple-50/85 border-green-100"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center py-3">
             <Sparkles className="w-4 h-4 text-[#00D563] mr-2" />
-            <span className={`text-sm font-medium ${isDark ? "text-white/80" : "text-gray-800"}`}>Introducing AI Agent Builder - Deploy intelligent agents in minutes</span>
+            <span className={`text-sm font-medium ${isClear ? "text-white/80" : "text-gray-800"}`}>Introducing AI Agent Builder - Deploy intelligent agents in minutes</span>
           </div>
         </div>
       </div>
       */}
 
       {/* Main Header */}
-      <header className={`fixed top-0 left-0 right-0 z-[999] backdrop-blur-md border-b transition-colors duration-300 ${isDark ? "bg-transparent border-transparent" : "bg-white/80 border-gray-200 shadow-sm"}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <header
+        className={`fixed left-0 right-0 top-0 z-[999] border-b transition-[background-color,border-color,backdrop-filter] duration-500 ${
+          isClear ? "border-transparent bg-transparent" : "border-hairline-soft bg-ink/75 backdrop-blur-xl"
+        }`}
+      >
+        <div className="mx-auto max-w-[1320px] px-5 md:px-8">
+          <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src={isDark ? "/images/botrix-logo.png" : "/images/botrix-logo01.png"}
-                  alt="BotrixAI Logo"
-                  width={80}
-                  height={40}
-                  className="h-12 w-auto"
-                />
-              </Link>
-            </div>
+            <Link href="/" className="flex items-center" aria-label="BotrixAI home">
+              <Image src="/images/botrix-logo.png" alt="BotrixAI Logo" width={80} height={40} className="h-11 w-auto" priority />
+            </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8 relative z-50">
+            <nav className="relative z-50 hidden items-center gap-1 lg:flex">
               {/* Solutions Dropdown */}
               <div
                 className="relative z-50"
@@ -144,68 +141,54 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                 onMouseLeave={() => setIsSolutionsOpen(false)}
               >
                 <button
-                  className={`flex items-center space-x-1 ${navText} hover:text-[#00D563] cursor-pointer font-medium transition-colors relative z-50`}
+                  className={`${navLink} flex items-center gap-1 ${isSolutionsOpen ? "bg-surface-1 text-bone" : ""}`}
                   onMouseEnter={() => setIsSolutionsOpen(true)}
                   onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                  style={{ pointerEvents: 'auto' }}
+                  style={{ pointerEvents: "auto" }}
                 >
                   <span>Solutions</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isSolutionsOpen ? "rotate-180" : ""}`} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {isSolutionsOpen && (
                   <div
-                    className="absolute top-full left-0 mt-0 w-[900px] bg-white rounded-xl shadow-2xl border border-gray-200 py-6 z-[9999]"
+                    className="absolute left-1/2 top-full z-[9999] w-[920px] -translate-x-[38%] pt-3"
                     onMouseEnter={() => setIsSolutionsOpen(true)}
                     onMouseLeave={() => setIsSolutionsOpen(false)}
-                    style={{ pointerEvents: 'auto' }}
+                    style={{ pointerEvents: "auto" }}
                   >
-                    <div className="grid grid-cols-3 gap-8 px-6">
+                    <div className="light-edge grid grid-cols-3 gap-8 rounded-[20px] border border-hairline bg-surface-1 p-7">
                       {/* Left Column: Smart AI Workforce */}
-                      <div className="space-y-4">
-                        <div className="space-y-3">
-                          <h3 className="text-lg font-bold text-gray-900">Introducing Smart AI Workforce</h3>
-                          <div className="flex items-start space-x-3">
-                            <div className="relative">
-                              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-2 border-dashed border-gray-300">
-                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                                  <MessageCircle className="w-6 h-6 text-blue-600" />
-                                </div>
-                              </div>
-                              <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                <Image src="/images/integrations/icons8-whatsapp-48.png" alt="WhatsApp" width={12} height={12} />
-                              </div>
-                              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                                <Image src="/images/integrations/icons8-telegram-94.png" alt="Telegram" width={12} height={12} />
-                              </div>
-                            </div>
-                            <div className="flex-1">
-                              <p className="text-sm text-gray-600 leading-relaxed">
-                                Turn your Traditional Customer Engagements into 24X7 customer delightful Experience.
-                              </p>
-                              <Link href="/solutions/enterprise" className="text-blue-600 text-sm font-medium hover:underline mt-2 inline-block">
-                                Explore Enterprise AI Agent
-                              </Link>
-                            </div>
-                          </div>
+                      <div className="space-y-6">
+                        <div className="spotlight-card rounded-[15px] p-5">
+                          <div className="font-mono text-[10px] tracking-[0.3em] text-signal">SMART AI WORKFORCE</div>
+                          <h3 className="mt-2 text-[17px] font-medium leading-tight tracking-[-0.02em] text-bone">Introducing Smart AI Workforce</h3>
+                          <p className="mt-2 text-[13px] leading-[1.45] text-bone/70">
+                            Turn your Traditional Customer Engagements into 24X7 customer delightful Experience.
+                          </p>
+                          <Link
+                            href="/solutions/enterprise"
+                            className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-signal hover:underline"
+                            onClick={() => setIsSolutionsOpen(false)}
+                          >
+                            Explore Enterprise AI Agent <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
                         </div>
 
-                        <div className="space-y-3">
-                          <h4 className="font-semibold text-gray-900">
-                            AI Agents By Category
-                          </h4>
-                          <div className="space-y-2">
+                        <div>
+                          <h4 className="font-mono text-[10px] tracking-[0.3em] text-bone/50">AI AGENTS BY CATEGORY</h4>
+                          <div className="mt-3 space-y-0.5">
                             {aiAgentCategories.map((category, index) => (
                               <Link
                                 key={index}
                                 href={`/solutions/${category.slug}`}
-                                className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors cursor-pointer"
+                                className="group flex items-center gap-2.5 rounded-[10px] px-2 py-1.5 text-[13px] font-medium text-dim transition-colors hover:bg-surface-2 hover:text-bone"
                                 onClick={() => setIsSolutionsOpen(false)}
                               >
-                                <div className="w-4 h-4 bg-blue-100 rounded flex items-center justify-center">
-                                  <category.icon className="w-3 h-3 text-blue-600" />
-                                </div>
+                                <span className="flex h-6 w-6 items-center justify-center rounded-md bg-surface-2 text-signal group-hover:bg-ink">
+                                  <category.icon className="h-3.5 w-3.5" />
+                                </span>
                                 <span>{category.title}</span>
                               </Link>
                             ))}
@@ -214,25 +197,19 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                       </div>
 
                       {/* Middle Column: Enterprise Integrations */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-bold text-gray-900 underline">Enterprise Integrations</h3>
-                        <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <h3 className="font-mono text-[10px] tracking-[0.3em] text-bone/50">ENTERPRISE INTEGRATIONS</h3>
+                        <div className="mt-3 grid grid-cols-1 gap-0.5">
                           {enterpriseIntegrations.map((integration, index) => (
                             <Link
                               key={index}
                               href="/integrations"
-                              className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors cursor-pointer"
+                              className="flex items-center gap-2.5 rounded-[10px] px-2 py-1.5 text-[13px] font-medium text-dim transition-colors hover:bg-surface-2 hover:text-bone"
                               onClick={() => setIsSolutionsOpen(false)}
                             >
-                              <div className="w-6 h-6 flex items-center justify-center">
-                                <Image
-                                  src={integration.logo}
-                                  alt={integration.name}
-                                  width={20}
-                                  height={20}
-                                  className="w-5 h-5 object-contain"
-                                />
-                              </div>
+                              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-bone p-0.5">
+                                <Image src={integration.logo} alt={integration.name} width={20} height={20} className="h-full w-full object-contain" />
+                              </span>
                               <span>{integration.name}</span>
                             </Link>
                           ))}
@@ -240,19 +217,19 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                       </div>
 
                       {/* Right Column: By Industry */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-bold text-gray-900 underline">By Industry</h3>
-                        <div className="space-y-2">
+                      <div>
+                        <h3 className="font-mono text-[10px] tracking-[0.3em] text-bone/50">BY INDUSTRY</h3>
+                        <div className="mt-3 space-y-0.5">
                           {industries.map((industry, index) => (
                             <Link
                               key={index}
                               href={`/solutions/industries/${industry.slug}`}
-                              className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors cursor-pointer"
+                              className="group flex items-center gap-2.5 rounded-[10px] px-2 py-1.5 text-[13px] font-medium text-dim transition-colors hover:bg-surface-2 hover:text-bone"
                               onClick={() => setIsSolutionsOpen(false)}
                             >
-                              <div className="w-4 h-4 bg-blue-100 rounded flex items-center justify-center">
-                                <industry.icon className="w-3 h-3 text-blue-600" />
-                              </div>
+                              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-surface-2 text-signal group-hover:bg-ink">
+                                <industry.icon className="h-3.5 w-3.5" />
+                              </span>
                               <span>{industry.name}</span>
                             </Link>
                           ))}
@@ -263,70 +240,67 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                 )}
               </div>
 
-              <Link href="/product" className={`${navText} hover:text-[#00D563] font-medium transition-colors`}>
-                Product
-              </Link>
-              <Link href="/features" className={`${navText} hover:text-[#00D563] font-medium transition-colors`}>
-                Features
-              </Link>
-
-              <Link href="/integrations" className={`${navText} hover:text-[#00D563] font-medium transition-colors`}>
-                Integrations
-              </Link>
+              <Link href="/product" className={navLink}>Product</Link>
+              <Link href="/features" className={navLink}>Features</Link>
+              <Link href="/integrations" className={navLink}>Integrations</Link>
             </nav>
 
             {/* Right Side CTAs */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <Globe className={`w-5 h-5 ${isDark ? "text-white/60" : "text-gray-500"} cursor-pointer hover:text-[#00D563] transition-colors`} />
-              <Button
-                variant="outline"
-                className="border-[#00D563] text-[#00D563] hover:bg-[#00D563] hover:text-white bg-transparent font-medium"
-                onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+            <div className="hidden items-center gap-3 lg:flex">
+              <Globe className="h-5 w-5 cursor-pointer text-dim transition-colors hover:text-bone" />
+              <button
+                className="inline-flex items-center gap-2 rounded-full bg-bone px-4 py-2.5 text-sm font-medium text-ink transition-transform active:scale-95"
+                onClick={openCalendly}
               >
+                <span className="h-1.5 w-1.5 rounded-full bg-signal-deep" />
                 Book Demo
-              </Button>
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button className={`lg:hidden p-2 ${isDark ? "text-white" : ""}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-1 text-bone lg:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-            <div className="px-4 py-6 space-y-4">
+          <div className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-hairline-soft bg-ink lg:hidden">
+            <div className="space-y-1 px-5 py-6">
               {/* Mobile Solutions Dropdown */}
               <div>
                 <button
                   onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                  className="flex items-center justify-between w-full text-gray-700 hover:text-[#00D563] font-medium py-2"
+                  className="flex w-full items-center justify-between rounded-[10px] px-3 py-3 text-[15px] font-medium text-bone hover:bg-surface-1"
                 >
                   <span>Solutions</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isSolutionsOpen ? "rotate-180" : ""}`} />
                 </button>
                 {isSolutionsOpen && (
-                  <div className="mt-2 ml-4 space-y-4 bg-gray-50 rounded-lg p-4">
+                  <div className="mt-2 space-y-6 rounded-[15px] bg-surface-1 p-4">
                     {/* Smart AI Workforce Section */}
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900">Smart AI Workforce</h4>
-                      <p className="text-sm text-gray-600">
+                    <div>
+                      <h4 className="font-mono text-[10px] tracking-[0.3em] text-signal">SMART AI WORKFORCE</h4>
+                      <p className="mt-2 text-[13px] leading-[1.45] text-dim">
                         Turn your Traditional Customer Engagements into 24X7 customer delightful Experience.
                       </p>
-                      <div className="space-y-2">
+                      <div className="mt-3 space-y-0.5">
                         {aiAgentCategories.map((category, index) => (
                           <Link
                             key={index}
                             href={`/solutions/${category.slug}`}
-                            className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors"
+                            className="flex items-center gap-2.5 rounded-[10px] px-2 py-2 text-[14px] text-dim transition-colors hover:bg-surface-2 hover:text-bone"
                             onClick={() => {
                               setIsSolutionsOpen(false)
                               setIsMenuOpen(false)
                             }}
                           >
-                            <category.icon className="w-4 h-4 text-blue-600" />
+                            <category.icon className="h-4 w-4 text-signal" />
                             <span>{category.title}</span>
                           </Link>
                         ))}
@@ -334,28 +308,22 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                     </div>
 
                     {/* Enterprise Integrations Section */}
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900">Enterprise Integrations</h4>
-                      <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <h4 className="font-mono text-[10px] tracking-[0.3em] text-bone/50">ENTERPRISE INTEGRATIONS</h4>
+                      <div className="mt-3 grid grid-cols-2 gap-1">
                         {enterpriseIntegrations.slice(0, 6).map((integration, index) => (
                           <Link
                             key={index}
                             href="/integrations"
-                            className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors"
+                            className="flex items-center gap-2 rounded-[10px] px-2 py-2 text-[13px] text-dim transition-colors hover:bg-surface-2 hover:text-bone"
                             onClick={() => {
                               setIsSolutionsOpen(false)
                               setIsMenuOpen(false)
                             }}
                           >
-                            <div className="w-5 h-5 flex items-center justify-center">
-                              <Image
-                                src={integration.logo}
-                                alt={integration.name}
-                                width={16}
-                                height={16}
-                                className="w-4 h-4 object-contain"
-                              />
-                            </div>
+                            <span className="flex h-5 w-5 items-center justify-center rounded bg-bone p-0.5">
+                              <Image src={integration.logo} alt={integration.name} width={16} height={16} className="h-full w-full object-contain" />
+                            </span>
                             <span>{integration.name}</span>
                           </Link>
                         ))}
@@ -363,20 +331,20 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                     </div>
 
                     {/* Industries Section */}
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900">By Industry</h4>
-                      <div className="space-y-2">
+                    <div>
+                      <h4 className="font-mono text-[10px] tracking-[0.3em] text-bone/50">BY INDUSTRY</h4>
+                      <div className="mt-3 space-y-0.5">
                         {industries.slice(0, 6).map((industry, index) => (
                           <Link
                             key={index}
                             href={`/solutions/industries/${industry.slug}`}
-                            className="flex items-center space-x-2 text-sm text-gray-600 hover:text-[#00D563] transition-colors"
+                            className="flex items-center gap-2.5 rounded-[10px] px-2 py-2 text-[14px] text-dim transition-colors hover:bg-surface-2 hover:text-bone"
                             onClick={() => {
                               setIsSolutionsOpen(false)
                               setIsMenuOpen(false)
                             }}
                           >
-                            <industry.icon className="w-4 h-4 text-blue-600" />
+                            <industry.icon className="h-4 w-4 text-signal" />
                             <span>{industry.name}</span>
                           </Link>
                         ))}
@@ -386,35 +354,28 @@ export default function Header({ transparentOnTop = false }: { transparentOnTop?
                 )}
               </div>
 
-              <Link
-                href="/product"
-                className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Product
-              </Link>
-              <Link
-                href="/features"
-                className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Features
-              </Link>
-              <Link
-                href="/integrations"
-                className="block text-gray-700 hover:text-[#00D563] font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Integrations
-              </Link>
-              <div className="pt-4 space-y-3">
-                <Button
-                  variant="outline"
-                  className="w-full border-[#00D563] text-[#00D563] bg-transparent font-medium"
-                  onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
+              {[
+                { href: "/product", label: "Product" },
+                { href: "/features", label: "Features" },
+                { href: "/integrations", label: "Integrations" },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="block rounded-[10px] px-3 py-3 text-[15px] font-medium text-bone hover:bg-surface-1"
+                  onClick={() => setIsMenuOpen(false)}
                 >
+                  {l.label}
+                </Link>
+              ))}
+              <div className="pt-4">
+                <button
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-bone px-5 py-3.5 text-sm font-medium text-ink active:scale-[0.98]"
+                  onClick={openCalendly}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-signal-deep" />
                   Book Demo
-                </Button>
+                </button>
               </div>
             </div>
           </div>

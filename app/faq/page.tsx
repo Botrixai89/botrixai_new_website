@@ -180,54 +180,54 @@ export default function FAQPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-28 lg:pt-36 pb-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <section className="pt-28 lg:pt-36 pb-16 site-hero">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Frequently Asked <span className="text-[#00D563]">Questions</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-bone mb-6 font-medium tracking-[-0.045em] leading-[1.02]">
+              Frequently Asked <span className="text-signal">Questions</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-dim leading-relaxed">
               Find answers to common questions about WhatsApp automation, AI agents, integrations, security, and pricing. Can't find what you're looking for? Contact our support team.
             </p>
           </div>
         </section>
 
         {/* FAQ Categories */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-ink">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {faqCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-12">
                 <div className="flex items-center mb-8">
-                  <div className="w-12 h-12 bg-[#00D563]/10 rounded-full flex items-center justify-center mr-4">
-                    <category.icon className="w-6 h-6 text-[#00D563]" />
+                  <div className="w-12 h-12 bg-signal/10 rounded-full flex items-center justify-center mr-4">
+                    <category.icon className="w-6 h-6 text-signal" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900">{category.title}</h2>
+                  <h2 className="text-2xl text-bone font-medium tracking-[-0.035em] leading-[1.08]">{category.title}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   {category.questions.map((faq, index) => (
                     <div 
                       key={faq.id} 
-                      className="border border-gray-200 rounded-lg overflow-hidden"
+                      className="border border-hairline rounded-lg overflow-hidden"
                     >
                       <button
                         onClick={() => toggleItem(faq.id)}
-                        className="w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50"
+                        className="w-full px-6 py-4 transition-colors focus:outline-none rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                       >
                         <div className="flex items-center justify-between">
-                          <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                          <h3 className="text-lg text-bone pr-4 font-medium tracking-[-0.02em]">
                             {faq.question}
                           </h3>
                           {openItems.includes(faq.id) ? (
-                            <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                            <ChevronUp className="w-5 h-5 text-dim flex-shrink-0" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                            <ChevronDown className="w-5 h-5 text-dim flex-shrink-0" />
                           )}
                         </div>
                       </button>
                       
                       {openItems.includes(faq.id) && (
-                        <div className="px-6 pb-4 bg-gray-50">
-                          <div className="pt-2 text-gray-700 leading-relaxed">
+                        <div className="px-6 pb-4 bg-surface-2">
+                          <div className="pt-2 text-bone/80 leading-relaxed">
                             {faq.answer}
                           </div>
                         </div>
@@ -241,23 +241,23 @@ export default function FAQPage() {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-16 bg-[#00D563]">
+        <section className="py-16 site-cta">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl text-bone mb-4 font-medium tracking-[-0.035em] leading-[1.08]">
               Still Have Questions?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-bone/90 mb-8">
               Our team is here to help you get the most out of BotrixAI. Contact us for personalized assistance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                className="px-8 py-3 bg-white text-[#00D563] font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                className="px-8 py-3 transition-colors rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                 onClick={() => window.open('https://calendly.com/connectbotrixai/new-meeting?back=1&month=2025-08', '_blank')}
               >
                 Schedule a Demo
               </button>
               <button 
-                className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#00D563] transition-colors"
+                className="px-8 py-3 transition-colors rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                 onClick={() => window.location.href = '/contact'}
               >
                 Contact Support

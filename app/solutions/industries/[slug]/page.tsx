@@ -22,10 +22,10 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-20 bg-white">
+      <main className="site-hero min-h-[70svh] pt-40 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{title}</h1>
-          <p className="text-lg text-gray-600">Content coming soon. We will add detailed solutions, use-cases, and benefits for this industry.</p>
+          <h1 className="text-4xl md:text-5xl text-bone mb-6 font-medium tracking-[-0.045em] leading-[1.02]">{title}</h1>
+          <p className="text-lg text-dim">Content coming soon. We will add detailed solutions, use-cases, and benefits for this industry.</p>
         </div>
       </main>
       <Footer />

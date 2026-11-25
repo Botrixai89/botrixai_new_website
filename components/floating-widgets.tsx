@@ -31,7 +31,7 @@ export const FloatingWidgets = () => {
             >
                 <Button
                     size="lg"
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-6 shadow-2xl flex items-center gap-2 font-bold text-lg border-2 border-white/20"
+                    className="px-8 py-6 flex items-center gap-2 text-lg rounded-full border-0 bg-bone text-ink hover:bg-white font-medium"
                     onClick={openBooking}
                 >
                     <Calendar className="w-5 h-5" />
